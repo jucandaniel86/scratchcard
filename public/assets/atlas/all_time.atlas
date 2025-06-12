@@ -1,0 +1,76 @@
+
+all_time.png
+size: 2048,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+alltime_broom
+  rotate: true
+  xy: 2, 2
+  size: 70, 355
+  orig: 70, 355
+  offset: 0, 0
+  index: -1
+alltime_broom_shadow
+  rotate: true
+  xy: 1057, 177
+  size: 76, 343
+  orig: 76, 343
+  offset: 0, 0
+  index: -1
+alltime_door
+  rotate: true
+  xy: 765, 110
+  size: 143, 290
+  orig: 143, 290
+  offset: 0, 0
+  index: -1
+alltime_light
+  rotate: false
+  xy: 359, 48
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+plant/1
+  rotate: true
+  xy: 1743, 162
+  size: 91, 158
+  orig: 91, 158
+  offset: 0, 0
+  index: -1
+plant/2
+  rotate: false
+  xy: 1606, 117
+  size: 135, 136
+  orig: 135, 136
+  offset: 0, 0
+  index: -1
+plant/3
+  rotate: true
+  xy: 451, 34
+  size: 219, 312
+  orig: 219, 312
+  offset: 0, 0
+  index: -1
+plant/4
+  rotate: true
+  xy: 1402, 86
+  size: 167, 202
+  orig: 167, 202
+  offset: 0, 0
+  index: -1
+plant/5
+  rotate: true
+  xy: 2, 74
+  size: 179, 447
+  orig: 179, 447
+  offset: 0, 0
+  index: -1
+plant/pot
+  rotate: false
+  xy: 1903, 147
+  size: 132, 106
+  orig: 132, 106
+  offset: 0, 0
+  index: -1

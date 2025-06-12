@@ -1,0 +1,62 @@
+
+all_time_bg.png
+size: 416,212
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cat/body
+  rotate: false
+  xy: 2, 14
+  size: 181, 109
+  orig: 181, 109
+  offset: 0, 0
+  index: -1
+cat/cat_eyes
+  rotate: false
+  xy: 308, 94
+  size: 60, 29
+  orig: 60, 29
+  offset: 0, 0
+  index: -1
+cat/cat_shadow
+  rotate: false
+  xy: 2, 125
+  size: 412, 84
+  orig: 412, 84
+  offset: 0, 0
+  index: -1
+cat/cat_shadow_eyes
+  rotate: false
+  xy: 370, 99
+  size: 42, 24
+  orig: 42, 24
+  offset: 0, 0
+  index: -1
+cat/head
+  rotate: false
+  xy: 185, 5
+  size: 76, 65
+  orig: 76, 65
+  offset: 0, 0
+  index: -1
+cat/lip
+  rotate: false
+  xy: 2, 2
+  size: 17, 10
+  orig: 17, 10
+  offset: 0, 0
+  index: -1
+cat/paw
+  rotate: true
+  xy: 263, 15
+  size: 55, 34
+  orig: 55, 34
+  offset: 0, 0
+  index: -1
+cat/tail
+  rotate: false
+  xy: 185, 72
+  size: 121, 51
+  orig: 121, 51
+  offset: 0, 0
+  index: -1

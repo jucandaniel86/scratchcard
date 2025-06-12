@@ -1,14 +1,22 @@
-import { defineConfig } from 'vite';
-import { fileURLToPath, URL } from 'url'
-import vue from '@vitejs/plugin-vue';
-import { compilerOptions, transformAssetUrls } from 'vue3-pixi';
+import { defineConfig } from 'vite'
+import Vue from '@vitejs/plugin-vue'
+import { isCustomElement, compilerOptions, transformAssetUrls } from 'vue3-pixi'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue({ template: { compilerOptions, transformAssetUrls } })],
-	  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-});
+  plugins: [
+    Vue({
+      template: {
+        transformAssetUrls,
+        compilerOptions: {
+          ...compilerOptions,
+          isCustomElement: (tag) => {
+            return (
+              ['v-spine', 'v-particles'].indexOf(tag) !== -1 ||
+              isCustomElement(tag)
+            )
+          }
+        }
+      }
+    })
+  ]
+})
