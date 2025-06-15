@@ -6,7 +6,20 @@
     <title>Vite + Vue + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="root-game-panel">
+      <div id="info-toolbar" class="infoToolbar">
+        <div id="info-toolbar__first-line">
+          <span id="info-toolbar__serial-number" class=""></span>
+          <span id="info-toolbar__game-name" class="">Sorcerer's Luck</span>
+          <span id="info-toolbar__clocks" class="invisible"></span>
+        </div>
+      </div>
+
+      <div id="game-container">
+        <div id="game-panel"></div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

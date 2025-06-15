@@ -1,0 +1,83 @@
+{
+  "frames": {
+    "CT.png": {
+      "frame": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    },
+    "Home.png": {
+      "frame": { "x": 206, "y": 0, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    },
+    "Info.png": {
+      "frame": { "x": 412, "y": 0, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    },
+    "Menu_Btn.png": {
+      "frame": { "x": 0, "y": 208, "w": 124, "h": 130 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 124, "h": 130 },
+      "sourceSize": { "w": 124, "h": 130 }
+    },
+    "Menu_Btn_X.png": {
+      "frame": { "x": 124, "y": 208, "w": 124, "h": 130 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 124, "h": 130 },
+      "sourceSize": { "w": 124, "h": 130 }
+    },
+    "MenuBtn.png": {
+      "frame": { "x": 248, "y": 208, "w": 310, "h": 325 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 310, "h": 325 },
+      "sourceSize": { "w": 310, "h": 325 }
+    },
+    "Settings.png": {
+      "frame": { "x": 0, "y": 533, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    },
+    "Sound.png": {
+      "frame": { "x": 206, "y": 533, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    },
+    "Sound_Load.png": {
+      "frame": { "x": 412, "y": 533, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    "Sound_Off.png": {
+      "frame": { "x": 502, "y": 533, "w": 206, "h": 208 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 206, "h": 208 },
+      "sourceSize": { "w": 206, "h": 208 }
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "../imgs/Menu_Buttons.png",
+    "format": "RGBA8888",
+    "size": { "w": 708, "h": 741 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:f8948ed3f9875b205b65af463d553323:c2e990e2c7d1a1a7bc8ee9865a746fb2:2a0d429d19034e9c8d0cfe8e7abb7583$"
+  }
+}

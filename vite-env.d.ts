@@ -1,4 +1,5 @@
 import { Texture } from 'pixi.js'
+import { VSpineButtonType } from './src/components/Core/VSpineButton'
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -39,10 +40,15 @@ interface VParticlesComponent {
   (props: VParticlesProps): any
 }
 
+interface VSpineComponent {
+  (props: VSpineButtonType): any
+}
+
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
     VSpine: VSpineComponent
     VParticles: VParticlesComponent
+    VSpineButton: VSpineComponent
   }
 }
 export {}

@@ -1,0 +1,90 @@
+{
+
+  "portrait": {
+    "height": 1280,
+    "width": 720
+  },
+
+  "landscape": {
+    "height": 720,
+    "width": 1280
+  },
+
+  "side_buttons" : {
+
+    "landscape": {
+      "x": 1220,
+      "y": 145,
+      "scale" : 0.86,
+      "verOffset" : 11
+    },
+    "portrait": {
+      "x": 645,
+      "y": 160,
+      "scale" : 1,
+      "verOffset" : 47
+    }
+  },
+
+  "menu_button": {
+    "landscape": {
+      "x": 1189,
+      "y": 573
+    },
+    "portrait": {
+      "x": 629,
+      "y": 1131
+    }
+  },
+
+  "contentPanel" : {
+    "landscape": {
+      "x": 153,
+      "y": 43,
+      "width" : 935,
+      "height" : 650
+    },
+    "portrait": {
+      "x": 25,
+      "y": 25,
+      "width" : 503,
+      "height" : 1200
+    }
+  },
+
+  "settingsPanel" : {
+    "landscape" : {
+      "x" : 0,
+      "y": 0
+    },
+
+    "portrait" : {
+      "x" : 0,
+      "y": 0
+    }
+  },
+
+  "settingsPanelBoxesWidth" : {
+    "landscape" : {
+      "width" : 82
+    },
+
+    "portrait" : {
+      "width" : 100
+    }
+  },
+
+  "settingsSlider" : {
+    "landscape" : {
+      "width" : 660,
+      "height" : 10,
+      "x": 251
+    },
+
+    "portrait" : {
+      "width" : 460,
+      "height" : 10,
+      "x": 20
+    }
+  }
+}

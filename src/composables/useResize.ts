@@ -29,11 +29,8 @@ export const useResize = () => {
       w = wSize.width.value
       h = wSize.width.value / ratio
     }
-    __PIXI_APP.view.width = width * window.devicePixelRatio
-    __PIXI_APP.view.height = h * window.devicePixelRatio
-
-    __PIXI_APP.renderer.view.style.width = '100%'
-    __PIXI_APP.renderer.view.style.height = '100%'
+    __PIXI_APP.view.width = width
+    __PIXI_APP.view.height = height
 
     return { w, h }
   }

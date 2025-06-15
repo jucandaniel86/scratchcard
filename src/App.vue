@@ -2,24 +2,45 @@
 import { Screens } from './config/Screens'
 import { ref, onMounted } from 'vue'
 
-//import screens
-import Main from './layout/Main.vue'
-import Loader from './screens/Loader.vue'
-import Background from './layout/Background.vue'
 import { __LOADED_RESOURCES } from './config/Resources'
 import { useResize } from './composables/useResize'
 import { useAppStore } from './store/app'
+
+//import components
+import Background from './layout/Background.vue'
+
+//import screens
+import Loader from './screens/Loader.vue'
 import Game from './screens/Game.vue'
+import Overview from './screens/Overview.vue'
+//@ts-ignore
+import WebFont from 'webfontloader'
+import AlphaTransition from './components/Core/AlphaTransition.vue'
+import { useSystemStore } from './store/system'
 
 const screen = ref<Screens>(Screens.LOADING)
-// const screen = useScreen();
+const sysStore = useSystemStore()
 
-const changeScreen = (_evnt: any) => {
-  screen.value = Screens.GAME
+WebFont.load({
+  custom: {
+    families: ['Bebas Neue Bold'],
+    urls: ['./assets/fonts/BebasNeue-Bold.ttf']
+  }
+})
+
+const changeScreen = (_screen: Screens) => {
+  screen.value = _screen
+}
+
+const onLoadingEnded = () => {
+  if (sysStore.omitSplashScreen) {
+    return changeScreen(Screens.GAME)
+  }
+  return changeScreen(Screens.OVERVIEW)
 }
 
 const onResize = () => {
-  const { resize, width, height, clientOrientation } = useResize()
+  const { resize, clientOrientation } = useResize()
   const { setWidth, setOrientation, setHeight } = useAppStore()
   const resizeW = resize()
 
@@ -36,15 +57,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <Loader @loader:resolved="changeScreen" />
+  <Loader @loader:resolved="onLoadingEnded" />
 
-  <template v-if="screen === Screens.GAME">
-    <Background
-      :bg-horizontal="__LOADED_RESOURCES.mainHorizontal"
-      :bg-vertical="__LOADED_RESOURCES.mainVertical"
-    />
-    <Game />
-  </template>
+  <Overview
+    v-if="screen === Screens.OVERVIEW"
+    @change-screen="changeScreen(Screens.GAME)"
+  />
+
+  <alpha-transition>
+    <container v-if="screen === Screens.GAME">
+      <Background
+        :bg-horizontal="__LOADED_RESOURCES.mainHorizontal"
+        :bg-vertical="__LOADED_RESOURCES.mainVertical"
+      />
+      <Game />
+    </container>
+  </alpha-transition>
 </template>
 
 <style scoped></style>

@@ -13,3 +13,5 @@ export const ConfigResolutions = {
     width: 1280
   }
 }
+
+export const GAME_NAME = "Sorcerer's Luck"

@@ -1,0 +1,139 @@
+{
+  "skeleton": {
+    "hash": "H7KK7hJvckXtBQg/F/U68IuOFmg",
+    "spine": "3.7.94",
+    "width": 0,
+    "height": 0
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "Splash_WinAll", "parent": "root", "x": 190.37, "y": -841.72 },
+    { "name": "Splash_X2", "parent": "root", "x": 547.27, "y": -514.15 }
+  ],
+  "slots": [
+    { "name": "Splash_WinAll", "bone": "Splash_WinAll" },
+    { "name": "Splash_WinAll2", "bone": "Splash_WinAll", "blend": "additive" },
+    { "name": "Splash_X2", "bone": "Splash_X2" },
+    { "name": "Splash_X3", "bone": "Splash_X2", "blend": "additive" }
+  ],
+  "skins": {
+    "default": {
+      "Splash_WinAll": {
+        "Splash_WinAll": { "y": 0.5, "width": 272, "height": 301 }
+      },
+      "Splash_WinAll2": {
+        "Splash_WinAll": { "y": 0.5, "width": 272, "height": 301 }
+      },
+      "Splash_X2": {
+        "Splash_X2": { "x": 0.16, "y": 0.16, "width": 237, "height": 285 }
+      },
+      "Splash_X3": {
+        "Splash_X2": { "x": 0.16, "y": 0.16, "width": 237, "height": 285 }
+      }
+    }
+  },
+  "animations": {
+    "alltime": {
+      "slots": {
+        "Splash_WinAll": {
+          "attachment": [{ "time": 0, "name": "Splash_WinAll" }]
+        },
+        "Splash_WinAll2": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.8333, "color": "ffffff32" },
+            { "time": 3.5, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Splash_WinAll" }]
+        },
+        "Splash_X2": { "attachment": [{ "time": 0, "name": "Splash_X2" }] },
+        "Splash_X3": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.8333, "color": "ffffff32" },
+            { "time": 3.5, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Splash_X2" }]
+        }
+      },
+      "bones": {
+        "Splash_WinAll": {
+          "translate": [
+            {
+              "time": 0,
+              "x": 652.99,
+              "y": 315.49,
+              "curve": [0.25, 0, 0.75, 1]
+            },
+            {
+              "time": 1.8333,
+              "x": 652.99,
+              "y": 326.41,
+              "curve": [0.25, 0, 0.75, 1]
+            },
+            { "time": 3.5, "x": 652.99, "y": 315.49 }
+          ],
+          "scale": [{ "time": 0, "x": 0.8, "y": 0.8 }]
+        },
+        "Splash_X2": {
+          "translate": [
+            {
+              "time": 0,
+              "x": 564.85,
+              "y": 278.15,
+              "curve": [0.25, 0, 0.75, 1]
+            },
+            {
+              "time": 1.8333,
+              "x": 564.85,
+              "y": 268.95,
+              "curve": [0.25, 0, 0.75, 1]
+            },
+            { "time": 3.5, "x": 564.85, "y": 278.15 }
+          ],
+          "scale": [{ "time": 0, "x": 0.8, "y": 0.8 }]
+        }
+      }
+    },
+    "alltime_vert": {
+      "slots": {
+        "Splash_WinAll": {
+          "attachment": [{ "time": 0, "name": "Splash_WinAll" }]
+        },
+        "Splash_WinAll2": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.8333, "color": "ffffff32" },
+            { "time": 3.5, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Splash_WinAll" }]
+        },
+        "Splash_X2": { "attachment": [{ "time": 0, "name": "Splash_X2" }] },
+        "Splash_X3": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.8333, "color": "ffffff32" },
+            { "time": 3.5, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Splash_X2" }]
+        }
+      },
+      "bones": {
+        "Splash_WinAll": {
+          "translate": [
+            { "time": 0, "x": 0, "y": 40, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 1.8333, "x": 0, "y": 24.36, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 3.5, "x": 0, "y": 40 }
+          ]
+        },
+        "Splash_X2": {
+          "translate": [
+            { "time": 0, "x": 0, "y": 20, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 1.8333, "x": 0, "y": 33, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 3.5, "x": 0, "y": 20 }
+          ]
+        }
+      }
+    }
+  }
+}

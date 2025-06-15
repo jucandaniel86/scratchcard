@@ -1,0 +1,128 @@
+html {
+    --viewport-width: 100%;
+    --viewport-height: 100%;
+
+    --platform-padding-top: 0px;
+    --platform-padding-bottom: 0px;
+    --platform-padding-left: 0px;
+    --platform-padding-right: 0px;
+
+    --device-save-area-inset-top: env(safe-area-inset-top);
+    --device-save-area-inset-bottom: env(safe-area-inset-bottom);
+
+    --padding-top: max(var(--platform-padding-top), var(--device-save-area-inset-top));
+    --padding-bottom: max(var(--platform-padding-bottom), var(--device-save-area-inset-bottom));
+    --padding-left: var(--platform-padding-left);
+    --padding-right: var(--platform-padding-right);
+
+    width: var(--viewport-width);
+    height: var(--viewport-height);
+    touch-action: none;
+}
+ 
+ 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: inherit;
+    cursor: default;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-touch-callout: none !important;
+}
+ 
+*:focus {
+    outline: none;
+}
+
+body, html {
+    background-color: var(--background-ui-color);
+    font-family: var(--primary-font-family);
+    font-size: var(--primary-text-size);
+    color: var(--primary-text-color);
+    overflow: visible;
+    direction: ltr;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* important to have body and html overflow: visible due to IOS bug #1689207, when screen scrolls up on rotation */
+}
+ 
+/* The root game div */
+#root-game-panel {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+}
+
+#root-game-panel > #info-toolbar, #jackpot-toolbar {
+    flex: 0 1 auto;
+}
+
+#root-game-panel > #game-container {
+    width: 100%;
+    overflow: hidden;
+    flex: 1 1 auto;
+}
+
+#root-game-panel > #game-container > #game-panel {
+    position: absolute;
+    overflow: hidden;
+    transform-origin: 0 0;
+}
+  
+
+:root {
+    --white-text-color: #ffffff;
+    --background-ui-color: #000000;
+    --primary-font-family: 'Roboto Condensed', 'Arial';
+    --primary-bold-font-family: 'Roboto Condensed Bold', 'Arial';
+    --primary-text-color: var(--white-text-color);
+    --neogames-brand-color: #ff6802;
+    --primary-text-size: 12px;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url(https://cdn-ng-lot.neogames.com/secure/GamesNGTCore/3.5.5/resources/fonts/roboto-condensed-regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Condensed Bold';
+    src: url(https://cdn-ng-lot.neogames.com/secure/GamesNGTCore/3.5.5/resources/fonts/roboto-condensed-bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+#info-toolbar__first-line > span {
+    flex-basis: 32%;
+} 
+#info-toolbar__game-name {
+    text-align: center;
+    flex-basis: 50%;
+    overflow: visible;
+} 
+.infoToolbar {
+    background-color: var(--background-ui-color);
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    padding: 0.1em 0 0.1em 0;
+    margin: 0;
+}
+
+.infoToolbar span {
+    white-space: nowrap;
+    overflow: hidden;
+}

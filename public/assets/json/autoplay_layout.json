@@ -1,0 +1,52 @@
+{
+  "portrait": {
+    "height": 1280,
+    "width": 720
+  },
+
+  "landscape": {
+    "height": 720,
+    "width": 1280
+  },
+
+  "openButton": {
+    "landscape": {
+      "x": 1182,
+      "y": 490
+    },
+    "portrait": {
+      "x": 625,
+      "y": 1048
+    }
+  },
+  "closeButton": {
+    "landscape": {
+      "x": 1195,
+      "y": 502
+    },
+    "portrait": {
+      "x": 640,
+      "y": 1060
+    }
+  },
+  "stopButton": {
+    "landscape": {
+      "x": 1095,
+      "y": 305
+    },
+    "portrait": {
+      "x": 285,
+      "y": 1065
+    }
+  },
+  "playButton": {
+    "landscape": {
+      "x": 1095,
+      "y": 305
+    },
+    "portrait": {
+      "x": 285,
+      "y": 1065
+    }
+  }
+}

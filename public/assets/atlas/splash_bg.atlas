@@ -1,0 +1,20 @@
+
+splash_bg.png
+size: 544,292
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Splash_WinAll
+  rotate: true
+  xy: 2, 15
+  size: 272, 301
+  orig: 272, 301
+  offset: 0, 0
+  index: -1
+Splash_X2
+  rotate: false
+  xy: 305, 2
+  size: 237, 285
+  orig: 237, 285
+  offset: 0, 0
+  index: -1

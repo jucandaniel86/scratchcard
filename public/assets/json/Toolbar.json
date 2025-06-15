@@ -1,0 +1,69 @@
+{
+  "frames": {
+    "AutoPlay": {
+      "frame": { "x": 0, "y": 0, "w": 142, "h": 140 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 142, "h": 140 },
+      "sourceSize": { "w": 142, "h": 140 }
+    },
+    "Autoplay_Stop": {
+      "frame": { "x": 142, "y": 0, "w": 142, "h": 140 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 142, "h": 140 },
+      "sourceSize": { "w": 142, "h": 140 }
+    },
+    "MoveToMoneyBtn": {
+      "frame": { "x": 0, "y": 151, "w": 170, "h": 170 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 170, "h": 170 },
+      "sourceSize": { "w": 170, "h": 170 }
+    },
+    "Play_Btn": {
+      "frame": { "x": 170, "y": 151, "w": 302, "h": 302 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 302, "h": 302 },
+      "sourceSize": { "w": 302, "h": 302 }
+    },
+    "playAllTime": {
+      "frame": { "x": 454, "y": 0, "w": 151, "h": 151 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 151, "h": 151 },
+      "sourceSize": { "w": 151, "h": 151 }
+    },
+    "PlayTransition": {
+      "frame": { "x": 0, "y": 453, "w": 755, "h": 453 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 755, "h": 453 },
+      "sourceSize": { "w": 755, "h": 453 }
+    },
+    "RevealAll_Btn": {
+      "frame": { "x": 472, "y": 151, "w": 302, "h": 302 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 302, "h": 302 },
+      "sourceSize": { "w": 302, "h": 302 }
+    },
+    "Tooltip": {
+      "frame": { "x": 284, "y": 0, "w": 170, "h": 140 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 170, "h": 140 },
+      "sourceSize": { "w": 170, "h": 140 }
+    }
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "../imgs/Toolbar.png",
+    "format": "RGBA8888",
+    "size": { "w": 774, "h": 906 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:6cf5af6439ea9c8a9e89eebad9f9a140:d26cdfd07911a947e16531836c68b2e2:d2ea8eebc82c6a4f04434e528039b55c$"
+  }
+}

@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
+    "fontfaceobserver": "^2.3.0",
     "pinia": "^3.0.3",
+    "pinia-plugin-persistedstate": "^4.3.0",
     "pixi-particles": "^4.3.1",
     "pixi-spine": "^4.0.6",
     "pixi.js": "^7.2.4",
     "vue": "^3.2.47",
     "vue-ts-types": "^1.8.1",
-    "vue3-pixi": "^0.7.2"
+    "vue3-pixi": "^0.7.2",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@types/pixi.js": "^4.8.9",

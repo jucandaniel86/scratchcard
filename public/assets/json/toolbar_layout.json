@@ -1,0 +1,125 @@
+{
+  "tooltip": {
+    "landscape": {
+      "scaleY": 1,
+      "fontStyle": {
+        "fontFamily": "Roboto Condensed, Arial",
+        "align": "center",
+        "fill": "white"
+      },
+      "x": 1162,
+      "y": 310
+    },
+    "portrait": {
+      "scaleY": 1,
+      "x": 360,
+      "y": 1070,
+      "fontStyle": {
+        "fontFamily": "Roboto Condensed, Arial",
+        "align": "center",
+        "fill": "white"
+      }
+    }
+  },
+  "moveToMoneyButton": {
+    "landscape": {
+      "x": 24,
+      "y": 573
+    },
+    "portrait": {
+      "x": 24,
+      "y": 1131
+    }
+  },
+  "depositButton": {
+    "landscape": {
+      "x": 24,
+      "y": 573
+    },
+    "portrait": {
+      "x": 24,
+      "y": 1131
+    }
+  },
+  "startButton": {
+    "revealAllRequired": true,
+    "landscape": {
+      "x": 1090,
+      "y": 300
+    },
+    "portrait": {
+      "x": 285,
+      "y": 1060
+    }
+  },
+  "serialNumber": {
+    "landscape": {
+      "fontStyle": {
+        "fontSize": 16,
+        "fontFamily": "Roboto Condensed, Arial",
+        "align": "center",
+        "fill": "#c0b2b3"
+      },
+      "x": 235,
+      "y": 640
+    },
+    "portrait": {
+      "fontStyle": {
+        "fontSize": 16,
+        "fontFamily": "Roboto Condensed, Arial",
+        "align": "center",
+        "fill": "#c0b2b3"
+      },
+      "x": 631,
+      "y": 50
+    }
+  },
+  "infoBar": {
+    "font_style_primary": {
+      "fontFamily": "Roboto Condensed, Arial",
+      "align": "center",
+      "fill": "#FFFFFF"
+    },
+    "font_style_secondary": {
+      "fontFamily": "Roboto Condensed, Arial",
+      "align": "center",
+      "fill": "#E8E8E8"
+    },
+    "portrait": {
+      "linebreak": true,
+      "x": 0,
+      "y": 1214,
+      "height": 68,
+      "width": 720,
+      "flexible": true,
+      "flexColumns": 3,
+      "components": {
+        "totalWinAnimationContainer": { "x": 360, "y": 34 },
+        "balancePanel": { "x": 105, "y": 34, "flexOrderIndex": 0 },
+        "winUpToPanel": { "x": 360, "y": 34, "flexOrderIndex": 1 },
+        "totalWinPanel": { "x": 360, "y": 34, "flexOrderIndex": 1 },
+        "totalCostPanel": { "x": 615, "y": 34, "flexOrderIndex": 2 }
+      },
+      "font_size_primary": 25,
+      "font_size_secondary": 25
+    },
+    "landscape": {
+      "linebreak": false,
+      "x": 0,
+      "y": 665,
+      "height": 56,
+      "width": 1280,
+      "flexible": true,
+      "flexColumns": 3,
+      "components": {
+        "totalWinAnimationContainer": { "x": 640, "y": 28 },
+        "balancePanel": { "x": 280, "y": 28, "flexOrderIndex": 0 },
+        "winUpToPanel": { "x": 640, "y": 28, "flexOrderIndex": 1 },
+        "totalWinPanel": { "x": 640, "y": 28, "flexOrderIndex": 1 },
+        "totalCostPanel": { "x": 1000, "y": 28, "flexOrderIndex": 2 }
+      },
+      "font_size_primary": 35,
+      "font_size_secondary": 25
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { PTransition } from 'vue3-pixi'
 
 <template>
   <PTransition
-    :duration="300"
+    :duration="600"
     :before-enter="{ alpha: 0 }"
     :enter="{ alpha: 1 }"
     :leave="{ alpha: 0 }"

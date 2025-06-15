@@ -1,0 +1,51 @@
+{
+  "TextTitle": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 28,
+    "align": "center",
+    "fill": "#ffffff"
+  },
+  "TextLabel": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 28,
+    "align": "center",
+    "fill": "#ffffff"
+  },
+  "TextCheckbox": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 19,
+    "fill": "#b8894e"
+  },
+  "Continue_up": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 50,
+    "fill": ["#ffe159", "#fff7d5", "#ffe159"],
+    "stroke": "#1f0079",
+    "lineJoin": "bevel",
+    "strokeThickness": 6
+  },
+  "Continue_over": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 50,
+    "fill": ["#ffe159", "#fff7d5", "#ffe159"],
+    "stroke": "#1f0079",
+    "lineJoin": "bevel",
+    "strokeThickness": 6
+  },
+  "Continue_press": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 50,
+    "fill": ["#ffe159", "#fff7d5", "#ffe159"],
+    "stroke": "#1f0079",
+    "lineJoin": "bevel",
+    "strokeThickness": 6
+  },
+  "Continue_disabled": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 50,
+    "fill": ["#ffe159", "#fff7d5", "#ffe159"],
+    "stroke": "#1f0079",
+    "lineJoin": "bevel",
+    "strokeThickness": 6
+  }
+}
