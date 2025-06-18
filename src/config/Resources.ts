@@ -2,34 +2,38 @@ interface StringMap {
   [key: string]: string
 }
 
+const BASE_URL = import.meta.env.PROD
+  ? `${import.meta.env.BASE_URL}/assets/`
+  : '/assets/'
+const IMGS = BASE_URL + 'imgs/'
+
 export const __RESOURCES: StringMap = {
-  bunny: './assets/bunny.png',
-  autoplayBtn: '/assets/imgs/autoplayButton.png',
-  bigWinAmount: '/assets/imgs/BigWinAmountFont.png',
-  cancelBtn: '/assets/imgs/cancel.png',
-  infoIcon1: '/assets/imgs/Info_Icon_1.png',
-  infoIcon2: '/assets/imgs/Info_Icon_2.png',
-  infoPanelLogo: '/assets/imgs/Info_Panel_Logo.png',
-  logoHorz: '/assets/imgs/Logo_Horz.png',
-  logoLandscape: '/assets/imgs/Logo_landscape.png',
-  logoPortrait: '/assets/imgs/Logo_portrait.png',
-  logoVert: '/assets/imgs/Logo_Vert.png',
-  mainHorizontal: '/assets/imgs/main_horizontal.jpg',
-  mainVertical: '/assets/imgs/main_vertical.jpg',
-  menuBtns: '/assets/imgs/Menu_Buttons.png',
-  multiplierPrizeWin: '/assets/imgs/MultiplierPrizeWin.png',
-  optionsActive: '/assets/imgs/Options_Active.png',
-  options: '/assets/imgs/Options.png',
-  playBtn: '/assets/imgs/playButton.png',
-  prize: '/assets/imgs/Prize.png',
-  splashHorizontal: '/assets/imgs/splash_horizontal.jpg',
-  splashVertical: 'assets/imgs/splash_vertical.jpg',
-  stopBtn: 'assets/imgs/stopButton.png',
-  symbols: 'assets/imgs/symbols.png',
-  symbols2: 'assets/imgs/symbols2.png',
-  toolbar: 'assets/imgs/Toolbar.png',
-  selected: 'assets/imgs/selected.jpg',
-  unselected: 'assets/imgs/unselected.jpg',
+  autoplayBtn: IMGS + 'autoplayButton.png',
+  bigWinAmount: IMGS + 'BigWinAmountFont.png',
+  cancelBtn: IMGS + 'cancel.png',
+  infoIcon1: IMGS + 'Info_Icon_1.png',
+  infoIcon2: IMGS + 'Info_Icon_2.png',
+  infoPanelLogo: IMGS + 'Info_Panel_Logo.png',
+  logoHorz: IMGS + 'Logo_Horz.png',
+  logoLandscape: IMGS + 'Logo_landscape.png',
+  logoPortrait: IMGS + 'Logo_portrait.png',
+  logoVert: IMGS + 'Logo_Vert.png',
+  mainHorizontal: IMGS + 'main_horizontal.jpg',
+  mainVertical: IMGS + 'main_vertical.jpg',
+  menuBtns: IMGS + 'Menu_Buttons.png',
+  multiplierPrizeWin: IMGS + 'MultiplierPrizeWin.png',
+  optionsActive: IMGS + 'Options_Active.png',
+  options: IMGS + 'Options.png',
+  playBtn: IMGS + 'playButton.png',
+  prize: IMGS + 'Prize.png',
+  splashHorizontal: IMGS + 'splash_horizontal.jpg',
+  splashVertical: IMGS + 'splash_vertical.jpg',
+  stopBtn: IMGS + 'stopButton.png',
+  symbols: IMGS + 'symbols.png',
+  symbols2: IMGS + 'symbols2.png',
+  toolbar: IMGS + 'Toolbar.png',
+  selected: IMGS + 'selected.jpg',
+  unselected: IMGS + 'unselected.jpg',
 
   //atlas all_time_bg
   all_time_bg_json: 'assets/atlas/all_time_bg.json',
@@ -49,6 +53,21 @@ export const __RESOURCES: StringMap = {
   continue_button_json: 'assets/atlas/button.json',
   continue_button_png: 'assets/atlas/button.png',
   continue_button_atlas: 'assets/atlas/button.atlas',
+
+  general_win_json: 'assets/atlas/general_win.json',
+  general_win_png: 'assets/atlas/general_win.png',
+  general_win_atlas: 'assets/atlas/general_win.atlas',
+
+  house_reveal_json: 'assets/atlas/house_reveal.json',
+  house_reveal_png: 'assets/atlas/house_reveal.png',
+  house_reveal_atlas: 'assets/atlas/house_reveal.atlas',
+
+  symbols_json: 'assets/atlas/symbols.json',
+  symbols_png: 'assets/atlas/symbols.png',
+  // symbols_atlas: 'assets/atlas/symbols.atlas',
+
+  your_reveal_json: 'assets/atlas/your_reveal.json',
+  your_reveal_png: 'assets/atlas/your_reveal.png',
 
   //atlast toolbar
   toolbar_json: 'assets/json/Toolbar.json',

@@ -3,6 +3,7 @@ import Vue from '@vitejs/plugin-vue'
 import { isCustomElement, compilerOptions, transformAssetUrls } from 'vue3-pixi'
 
 export default defineConfig({
+  base: '/work/scratchcard',
   plugins: [
     Vue({
       template: {

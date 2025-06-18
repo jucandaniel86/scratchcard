@@ -18,8 +18,6 @@ export const useScaleManager = () => {
 
   const toPixels = (val: number): string => `${val}px`
 
-  const clamp = (e: any, t: any, n: any) => (e < t ? t : e > n ? n : e)
-
   const calculateMargins = (
     e: any,
     t: any,
@@ -45,7 +43,7 @@ export const useScaleManager = () => {
     )
 
   const calculateCanvasSize = (
-    contentRect: DOMRectReadOnly,
+    _contentRect: DOMRectReadOnly,
     gameSize: ScaleManagerGameSizeType
   ) => ({ width: gameSize.width, height: gameSize.height })
 

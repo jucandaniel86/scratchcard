@@ -1,0 +1,167 @@
+
+house_reveal.png
+size: 1436,500
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Images/Cell/transparentpixel
+  rotate: false
+  xy: 1432, 497
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Images/Reveal/central_part
+  rotate: false
+  xy: 1280, 149
+  size: 63, 69
+  orig: 63, 69
+  offset: 0, 0
+  index: -1
+Images/Reveal/frame
+  rotate: false
+  xy: 1280, 347
+  size: 150, 151
+  orig: 150, 151
+  offset: 0, 0
+  index: -1
+Images/Reveal/jem
+  rotate: false
+  xy: 1280, 113
+  size: 32, 34
+  orig: 32, 34
+  offset: 0, 0
+  index: -1
+Images/Reveal/light_box
+  rotate: false
+  xy: 1280, 220
+  size: 126, 125
+  orig: 126, 125
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00000
+  rotate: false
+  xy: 2, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00001
+  rotate: false
+  xy: 2, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00002
+  rotate: false
+  xy: 144, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00003
+  rotate: false
+  xy: 144, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00004
+  rotate: false
+  xy: 286, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00005
+  rotate: false
+  xy: 286, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00006
+  rotate: false
+  xy: 428, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00007
+  rotate: false
+  xy: 428, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00008
+  rotate: false
+  xy: 570, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00009
+  rotate: false
+  xy: 570, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00010
+  rotate: false
+  xy: 712, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00011
+  rotate: false
+  xy: 712, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00012
+  rotate: false
+  xy: 854, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00013
+  rotate: false
+  xy: 854, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00014
+  rotate: false
+  xy: 996, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00015
+  rotate: false
+  xy: 996, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00016
+  rotate: false
+  xy: 1138, 251
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1
+Images/Reveal/sequence/Smoke 014 Impact Up_00017
+  rotate: false
+  xy: 1138, 2
+  size: 140, 247
+  orig: 140, 247
+  offset: 0, 0
+  index: -1

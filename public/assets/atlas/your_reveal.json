@@ -1,0 +1,876 @@
+{
+  "skeleton": {
+    "hash": "wcHPPZrMGe0W4u8lEHmC9lxCGIA",
+    "spine": "3.7.94",
+    "width": 1,
+    "height": 1
+  },
+  "bones": [
+    { "name": "root" },
+    { "name": "reveal", "parent": "root" },
+    { "name": "hit_area", "parent": "reveal", "x": 1, "y": 2 },
+    { "name": "reveal_anim", "parent": "reveal" },
+    { "name": "cover", "parent": "reveal" },
+    { "name": "light_box", "parent": "cover" },
+    { "name": "gem", "parent": "cover" },
+    { "name": "central", "parent": "cover" },
+    { "name": "frame", "parent": "cover" },
+    { "name": "reveal_anim2", "parent": "reveal", "rotation": 90 },
+    { "name": "reveal_anim3", "parent": "reveal", "rotation": 180 },
+    { "name": "reveal_anim4", "parent": "reveal", "rotation": -90 }
+  ],
+  "slots": [
+    { "name": "Images/Reveal/light_box", "bone": "light_box" },
+    {
+      "name": "Images/Reveal/light_box2",
+      "bone": "light_box",
+      "blend": "additive"
+    },
+    { "name": "Images/Reveal/frame", "bone": "frame" },
+    { "name": "Images/Reveal/central_part", "bone": "central" },
+    { "name": "Images/Reveal/jem", "bone": "gem" },
+    { "name": "Images/Reveal/jem2", "bone": "gem", "blend": "additive" },
+    { "name": "hit_area", "bone": "hit_area", "attachment": "hit_area" },
+    {
+      "name": "hit_area_attach",
+      "bone": "hit_area",
+      "attachment": "Images/Cell/transparentpixel"
+    },
+    { "name": "reveal_anim", "bone": "reveal_anim" },
+    { "name": "reveal_anim2", "bone": "reveal_anim2" },
+    { "name": "reveal_anim3", "bone": "reveal_anim3" },
+    { "name": "reveal_anim4", "bone": "reveal_anim4" }
+  ],
+  "skins": {
+    "default": {
+      "Images/Reveal/central_part": {
+        "Images/Reveal/central_part": {
+          "x": 0.5,
+          "y": 0.5,
+          "width": 63,
+          "height": 69
+        }
+      },
+      "Images/Reveal/frame": {
+        "Images/Reveal/frame": { "y": 0.5, "width": 150, "height": 151 }
+      },
+      "Images/Reveal/jem": {
+        "Images/Reveal/jem": { "width": 32, "height": 34 }
+      },
+      "Images/Reveal/jem2": {
+        "Images/Reveal/jem": { "width": 32, "height": 34 }
+      },
+      "Images/Reveal/light_box": {
+        "Images/Reveal/light_box": { "y": 0.5, "width": 126, "height": 125 }
+      },
+      "Images/Reveal/light_box2": {
+        "Images/Reveal/light_box": { "y": 0.5, "width": 126, "height": 125 }
+      },
+      "hit_area": {
+        "hit_area": {
+          "type": "boundingbox",
+          "vertexCount": 6,
+          "vertices": [
+            -73.15, 60.27, -58.37, 72.09, 59.42, 71.75, 72.25, 60.56, 72.16,
+            -74.05, -73.53, -73.24
+          ]
+        }
+      },
+      "hit_area_attach": {
+        "Images/Cell/transparentpixel": {
+          "x": -0.47,
+          "y": -1.41,
+          "width": 1,
+          "height": 1
+        }
+      },
+      "reveal_anim": {
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00000": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00001": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00002": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00003": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00004": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00005": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00006": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00007": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00008": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00009": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00010": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00011": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00012": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00013": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00014": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00015": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00016": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00017": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        }
+      },
+      "reveal_anim2": {
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00000": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00001": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00002": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00003": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00004": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00005": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00006": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00007": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00008": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00009": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00010": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00011": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00012": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00013": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00014": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00015": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00016": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00017": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        }
+      },
+      "reveal_anim3": {
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00000": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00001": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00002": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00003": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00004": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00005": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00006": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00007": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00008": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00009": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00010": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00011": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00012": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00013": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00014": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00015": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00016": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00017": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        }
+      },
+      "reveal_anim4": {
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00000": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00001": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00002": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00003": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00004": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00005": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00006": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00007": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00008": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00009": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00010": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00011": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00012": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00013": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00014": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00015": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00016": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        },
+        "Images/Reveal/sequence/Smoke 014 Impact Up_00017": {
+          "y": 0.5,
+          "width": 140,
+          "height": 247
+        }
+      }
+    }
+  },
+  "animations": {
+    "callToAction": {
+      "slots": {
+        "Images/Reveal/central_part": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/central_part" }]
+        },
+        "Images/Reveal/frame": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/frame" }]
+        },
+        "Images/Reveal/jem": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/jem" }]
+        },
+        "Images/Reveal/jem2": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.1667, "color": "ffffffff" },
+            { "time": 2.3333, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Images/Reveal/jem" }]
+        },
+        "Images/Reveal/light_box": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/light_box" }]
+        },
+        "Images/Reveal/light_box2": {
+          "color": [
+            { "time": 0, "color": "ffffff00" },
+            { "time": 1.1667, "color": "ffffff41" },
+            { "time": 2.3333, "color": "ffffff00" }
+          ],
+          "attachment": [{ "time": 0, "name": "Images/Reveal/light_box" }]
+        },
+        "hit_area": { "attachment": [{ "time": 0, "name": "hit_area" }] },
+        "hit_area_attach": {
+          "attachment": [{ "time": 0, "name": "Images/Cell/transparentpixel" }]
+        }
+      }
+    },
+    "idle": {
+      "slots": {
+        "Images/Reveal/central_part": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/central_part" }]
+        },
+        "Images/Reveal/frame": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/frame" }]
+        },
+        "Images/Reveal/jem": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/jem" }]
+        },
+        "Images/Reveal/jem2": { "attachment": [{ "time": 0, "name": null }] },
+        "Images/Reveal/light_box": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/light_box" }]
+        },
+        "Images/Reveal/light_box2": {
+          "attachment": [{ "time": 0, "name": null }]
+        },
+        "hit_area": { "attachment": [{ "time": 0, "name": "hit_area" }] },
+        "hit_area_attach": {
+          "attachment": [{ "time": 0, "name": "Images/Cell/transparentpixel" }]
+        }
+      }
+    },
+    "your_reveal": {
+      "slots": {
+        "Images/Reveal/central_part": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/central_part" }]
+        },
+        "Images/Reveal/frame": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/frame" }]
+        },
+        "Images/Reveal/jem": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/jem" }]
+        },
+        "Images/Reveal/jem2": { "attachment": [{ "time": 0, "name": null }] },
+        "Images/Reveal/light_box": {
+          "attachment": [{ "time": 0, "name": "Images/Reveal/light_box" }]
+        },
+        "Images/Reveal/light_box2": {
+          "attachment": [{ "time": 0, "name": null }]
+        },
+        "reveal_anim": {
+          "color": [
+            { "time": 0, "color": "ffffffff", "curve": "stepped" },
+            { "time": 0.3333, "color": "ffffffff" },
+            { "time": 0.7667, "color": "ffffff00" }
+          ],
+          "attachment": [
+            {
+              "time": 0.1667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00000"
+            },
+            {
+              "time": 0.2,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00001"
+            },
+            {
+              "time": 0.2333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00002"
+            },
+            {
+              "time": 0.2667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00003"
+            },
+            {
+              "time": 0.3,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00004"
+            },
+            {
+              "time": 0.3333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00005"
+            },
+            {
+              "time": 0.3667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00006"
+            },
+            {
+              "time": 0.4,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00007"
+            },
+            {
+              "time": 0.4333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00008"
+            },
+            {
+              "time": 0.4667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00009"
+            },
+            {
+              "time": 0.5,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00010"
+            },
+            {
+              "time": 0.5333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00011"
+            },
+            {
+              "time": 0.5667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00012"
+            },
+            {
+              "time": 0.6,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00013"
+            },
+            {
+              "time": 0.6333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00014"
+            },
+            {
+              "time": 0.6667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00015"
+            },
+            {
+              "time": 0.7,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00016"
+            },
+            {
+              "time": 0.7333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00017"
+            },
+            { "time": 0.7667, "name": null }
+          ]
+        },
+        "reveal_anim2": {
+          "color": [
+            { "time": 0, "color": "ffffffff", "curve": "stepped" },
+            { "time": 0.3333, "color": "ffffffff" },
+            { "time": 0.7667, "color": "ffffff00" }
+          ],
+          "attachment": [
+            {
+              "time": 0.1667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00000"
+            },
+            {
+              "time": 0.2,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00001"
+            },
+            {
+              "time": 0.2333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00002"
+            },
+            {
+              "time": 0.2667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00003"
+            },
+            {
+              "time": 0.3,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00004"
+            },
+            {
+              "time": 0.3333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00005"
+            },
+            {
+              "time": 0.3667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00006"
+            },
+            {
+              "time": 0.4,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00007"
+            },
+            {
+              "time": 0.4333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00008"
+            },
+            {
+              "time": 0.4667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00009"
+            },
+            {
+              "time": 0.5,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00010"
+            },
+            {
+              "time": 0.5333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00011"
+            },
+            {
+              "time": 0.5667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00012"
+            },
+            {
+              "time": 0.6,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00013"
+            },
+            {
+              "time": 0.6333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00014"
+            },
+            {
+              "time": 0.6667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00015"
+            },
+            {
+              "time": 0.7,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00016"
+            },
+            {
+              "time": 0.7333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00017"
+            },
+            { "time": 0.7667, "name": null }
+          ]
+        },
+        "reveal_anim3": {
+          "color": [
+            { "time": 0, "color": "ffffffff", "curve": "stepped" },
+            { "time": 0.3333, "color": "ffffffff" },
+            { "time": 0.7667, "color": "ffffff00" }
+          ],
+          "attachment": [
+            {
+              "time": 0.1667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00000"
+            },
+            {
+              "time": 0.2,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00001"
+            },
+            {
+              "time": 0.2333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00002"
+            },
+            {
+              "time": 0.2667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00003"
+            },
+            {
+              "time": 0.3,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00004"
+            },
+            {
+              "time": 0.3333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00005"
+            },
+            {
+              "time": 0.3667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00006"
+            },
+            {
+              "time": 0.4,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00007"
+            },
+            {
+              "time": 0.4333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00008"
+            },
+            {
+              "time": 0.4667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00009"
+            },
+            {
+              "time": 0.5,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00010"
+            },
+            {
+              "time": 0.5333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00011"
+            },
+            {
+              "time": 0.5667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00012"
+            },
+            {
+              "time": 0.6,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00013"
+            },
+            {
+              "time": 0.6333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00014"
+            },
+            {
+              "time": 0.6667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00015"
+            },
+            {
+              "time": 0.7,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00016"
+            },
+            {
+              "time": 0.7333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00017"
+            },
+            { "time": 0.7667, "name": null }
+          ]
+        },
+        "reveal_anim4": {
+          "color": [
+            { "time": 0, "color": "ffffffff", "curve": "stepped" },
+            { "time": 0.3333, "color": "ffffffff" },
+            { "time": 0.7667, "color": "ffffff00" }
+          ],
+          "attachment": [
+            {
+              "time": 0.1667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00000"
+            },
+            {
+              "time": 0.2,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00001"
+            },
+            {
+              "time": 0.2333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00002"
+            },
+            {
+              "time": 0.2667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00003"
+            },
+            {
+              "time": 0.3,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00004"
+            },
+            {
+              "time": 0.3333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00005"
+            },
+            {
+              "time": 0.3667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00006"
+            },
+            {
+              "time": 0.4,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00007"
+            },
+            {
+              "time": 0.4333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00008"
+            },
+            {
+              "time": 0.4667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00009"
+            },
+            {
+              "time": 0.5,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00010"
+            },
+            {
+              "time": 0.5333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00011"
+            },
+            {
+              "time": 0.5667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00012"
+            },
+            {
+              "time": 0.6,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00013"
+            },
+            {
+              "time": 0.6333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00014"
+            },
+            {
+              "time": 0.6667,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00015"
+            },
+            {
+              "time": 0.7,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00016"
+            },
+            {
+              "time": 0.7333,
+              "name": "Images/Reveal/sequence/Smoke 014 Impact Up_00017"
+            },
+            { "time": 0.7667, "name": null }
+          ]
+        }
+      },
+      "bones": {
+        "cover": {
+          "scale": [
+            { "time": 0, "x": 1, "y": 1, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 0.1333, "x": 1.1, "y": 1.1, "curve": [0.25, 0, 0.75, 1] },
+            { "time": 0.3, "x": 0, "y": 0 }
+          ]
+        }
+      }
+    }
+  }
+}

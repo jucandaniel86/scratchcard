@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { TextStyle } from 'pixi.js'
 import { computed, StyleValue } from 'vue'
 
 type ToolbarTextItemType = {

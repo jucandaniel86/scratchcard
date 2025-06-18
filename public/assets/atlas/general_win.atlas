@@ -1,0 +1,181 @@
+
+general_win.png
+size: 1460,228
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Images/CellGeneralWin/general_win_00003
+  rotate: false
+  xy: 2, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00004
+  rotate: false
+  xy: 2, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00005
+  rotate: false
+  xy: 114, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00006
+  rotate: false
+  xy: 114, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00007
+  rotate: false
+  xy: 226, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00008
+  rotate: false
+  xy: 226, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00009
+  rotate: false
+  xy: 338, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00010
+  rotate: false
+  xy: 338, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00011
+  rotate: false
+  xy: 450, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00012
+  rotate: false
+  xy: 450, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00013
+  rotate: false
+  xy: 562, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00014
+  rotate: false
+  xy: 562, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00015
+  rotate: false
+  xy: 674, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00016
+  rotate: false
+  xy: 674, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00017
+  rotate: false
+  xy: 786, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00018
+  rotate: false
+  xy: 786, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00019
+  rotate: false
+  xy: 898, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00020
+  rotate: false
+  xy: 898, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00021
+  rotate: false
+  xy: 1010, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00022
+  rotate: false
+  xy: 1010, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00023
+  rotate: false
+  xy: 1122, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00024
+  rotate: false
+  xy: 1122, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00025
+  rotate: false
+  xy: 1234, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00026
+  rotate: false
+  xy: 1234, 2
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1
+Images/CellGeneralWin/general_win_00027
+  rotate: false
+  xy: 1346, 115
+  size: 110, 111
+  orig: 110, 111
+  offset: 0, 0
+  index: -1

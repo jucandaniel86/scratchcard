@@ -21,10 +21,14 @@ import { useSystemStore } from './store/system'
 const screen = ref<Screens>(Screens.LOADING)
 const sysStore = useSystemStore()
 
+const BASE_URL = import.meta.env.PROD
+  ? `${import.meta.env.BASE_URL}/assets/`
+  : '/assets/'
+
 WebFont.load({
   custom: {
     families: ['Bebas Neue Bold'],
-    urls: ['./assets/fonts/BebasNeue-Bold.ttf']
+    urls: [BASE_URL + 'fonts/BebasNeue-Bold.ttf']
   }
 })
 

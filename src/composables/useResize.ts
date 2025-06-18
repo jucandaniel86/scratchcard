@@ -1,6 +1,6 @@
 import { useScreenOrientation, useWindowSize } from '@vueuse/core'
 import { ConfigResolutions, ScreenOrientationEnum } from '../config/App'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 import { __PIXI_APP } from '../main'
 
 export const useResize = () => {

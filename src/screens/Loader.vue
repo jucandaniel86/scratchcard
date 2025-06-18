@@ -3,7 +3,6 @@ import { ref, computed, defineEmits } from 'vue'
 import { Loader, useScreen } from 'vue3-pixi'
 import { __RESOURCES, __LOADED_RESOURCES } from '../config/Resources'
 import { Graphics } from 'pixi.js'
-import { LOADING_BAR_BORDER_COLOR } from '../config/Colors'
 
 type LoaderOptionsType = {
   options?: {
@@ -33,24 +32,24 @@ const props = withDefaults(defineProps<LoaderOptionsType>(), {
 const loaderProgress = ref<number>(0)
 const screen = useScreen()
 const emitters = defineEmits(['loader:resolved'])
-const renderProgressBar = (graphics: Graphics) => {
-  graphics.beginFill(LOADING_BAR_BORDER_COLOR)
-  graphics.drawRoundedRect(
-    props.options.border,
-    props.options.border,
-    props.options.width - props.options.border * 2,
-    props.options.height - props.options.border * 2,
-    props.options.radius
-  )
-  graphics.beginFill(props.options.bgColor)
-  graphics.drawRoundedRect(
-    props.options.border,
-    props.options.border,
-    props.options.width - props.options.border * 2,
-    props.options.height - props.options.border * 2,
-    props.options.radius
-  )
-}
+// const renderProgressBar = (graphics: Graphics) => {
+//   graphics.beginFill(LOADING_BAR_BORDER_COLOR)
+//   graphics.drawRoundedRect(
+//     props.options.border,
+//     props.options.border,
+//     props.options.width - props.options.border * 2,
+//     props.options.height - props.options.border * 2,
+//     props.options.radius
+//   )
+//   graphics.beginFill(props.options.bgColor)
+//   graphics.drawRoundedRect(
+//     props.options.border,
+//     props.options.border,
+//     props.options.width - props.options.border * 2,
+//     props.options.height - props.options.border * 2,
+//     props.options.radius
+//   )
+// }
 
 const createStaticBar = (graphics: Graphics) => {
   // width: 400,

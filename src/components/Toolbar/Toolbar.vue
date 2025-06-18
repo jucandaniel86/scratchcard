@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { Graphics } from 'pixi.js'
 import { useDataEntry } from '../../composables/useDataEntry'
 import ToolbarTextItem from './ToolbarTextItem.vue'
 import { ScreenOrientationEnum } from '../../config/App'
 import { useAppStore } from '../../store/app'
-import { useCreateFromSpriteSheet } from '../../composables/useCreateFromSpriteSheet'
 
 const store = useAppStore()
 const orientation = ref<ScreenOrientationEnum>(store.orientation)

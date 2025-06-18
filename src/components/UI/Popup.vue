@@ -66,6 +66,7 @@ const createStubRender = (graphics: Graphics) => {
   graphics.endFill()
 }
 
+//@ts-ignore
 const hide = () => {
   if (!isOpen.value) return
 
@@ -76,7 +77,7 @@ const hide = () => {
     emitters('onClose', { state: isOpen.value })
   })
 }
-
+//@ts-ignore
 const show = () => {
   if (isOpen.value) return
 

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useCreateFromSpriteSheet } from '../../composables/useCreateFromSpriteSheet'
-import { useDataEntry } from '../../composables/useDataEntry'
-import { Graphics, Texture } from 'pixi.js'
+import { Graphics } from 'pixi.js'
 
 enum SpriteButtonStates {
   UP = 'UP',

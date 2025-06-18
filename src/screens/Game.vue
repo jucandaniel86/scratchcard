@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import HouseSymbols from '../components/Game/HouseSymbols.vue'
 import Toolbar from '../components/Toolbar/Toolbar.vue'
 import MainMenu from '../components/Menu/MainMenu.vue'
 import { useDataEntry } from '../composables/useDataEntry'
@@ -8,9 +7,13 @@ import SpriteButton from '../components/UI/SpriteButton.vue'
 import { ScreenOrientationEnum } from '../config/App'
 import { useAppStore } from '../store/app'
 import { useGenerateSpin } from '../composables/useGenerateSpin'
+import { useGameStore } from '../store/game'
+import GameArea from '../components/GameArea.vue'
+import AutoplayModal from '../components/Autoplay/Main.vue'
 
 //store
 const store = useAppStore()
+const gameStore = useGameStore()
 
 //toolbar textures
 const toolbar_textures = useDataEntry('toolbar_json', 'textures')
@@ -35,14 +38,18 @@ watch(store, () => {
 
 const { generate } = useGenerateSpin()
 const generateSpin = () => {
-  const response = generate()
+  const response: any = generate()
+  gameStore.setSpin(response)
   console.info('SPIN RESPONSE', response)
 }
 </script>
 <template>
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
-    <HouseSymbols />
+
+    <!-- <AutoplayModal /> -->
+    <GameArea />
+
     <MainMenu />
     <SpriteButton
       ref="startButton"

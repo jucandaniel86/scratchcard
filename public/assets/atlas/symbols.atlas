@@ -1,0 +1,1391 @@
+
+symbols.png
+size: 1600,1600
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Images/Cell/prize_bg_win
+  rotate: false
+  xy: 1465, 1487
+  size: 133, 27
+  orig: 133, 27
+  offset: 0, 0
+  index: -1
+Images/Cell/transparentpixel
+  rotate: false
+  xy: 196, 1218
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Images/Symbols/1/images/Layer 1
+  rotate: true
+  xy: 607, 916
+  size: 93, 139
+  orig: 93, 139
+  offset: 0, 0
+  index: -1
+Images/Symbols/1/images/sparks
+  rotate: true
+  xy: 1448, 508
+  size: 75, 38
+  orig: 75, 38
+  offset: 0, 0
+  index: -1
+Images/Symbols/1/images/spice_grinder
+  rotate: true
+  xy: 690, 3
+  size: 113, 145
+  orig: 113, 145
+  offset: 0, 0
+  index: -1
+Images/Symbols/1/images/spice_grinder_Glow
+  rotate: true
+  xy: 939, 3
+  size: 113, 68
+  orig: 113, 68
+  offset: 0, 0
+  index: -1
+Images/Symbols/10/box
+  rotate: true
+  xy: 866, 753
+  size: 161, 141
+  orig: 161, 141
+  offset: 0, 0
+  index: -1
+Images/Symbols/10/flute_1
+  rotate: false
+  xy: 1509, 130
+  size: 88, 23
+  orig: 88, 23
+  offset: 0, 0
+  index: -1
+Images/Symbols/10/flute_2
+  rotate: true
+  xy: 177, 1042
+  size: 61, 19
+  orig: 61, 19
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/flame_1
+  rotate: false
+  xy: 177, 1006
+  size: 14, 34
+  orig: 14, 34
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/flame_2
+  rotate: true
+  xy: 193, 1017
+  size: 10, 24
+  orig: 10, 24
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/flame_3
+  rotate: false
+  xy: 177, 1179
+  size: 17, 40
+  orig: 17, 40
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/light
+  rotate: false
+  xy: 1447, 1109
+  size: 151, 100
+  orig: 151, 100
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/matal_stand
+  rotate: true
+  xy: 1561, 652
+  size: 102, 34
+  orig: 102, 34
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/wood_stand_1
+  rotate: false
+  xy: 1447, 1061
+  size: 151, 46
+  orig: 151, 46
+  offset: 0, 0
+  index: -1
+Images/Symbols/12/bookmarks
+  rotate: true
+  xy: 2, 1357
+  size: 66, 134
+  orig: 66, 134
+  offset: 0, 0
+  index: -1
+Images/Symbols/13/inkwell
+  rotate: false
+  xy: 138, 1357
+  size: 87, 66
+  orig: 87, 66
+  offset: 0, 0
+  index: -1
+Images/Symbols/13/pen
+  rotate: true
+  xy: 837, 3
+  size: 113, 100
+  orig: 113, 100
+  offset: 0, 0
+  index: -1
+Images/Symbols/13/rim_light
+  rotate: true
+  xy: 1509, 48
+  size: 38, 86
+  orig: 38, 86
+  offset: 0, 0
+  index: -1
+Images/Symbols/13/sticker
+  rotate: true
+  xy: 199, 1165
+  size: 54, 26
+  orig: 54, 26
+  offset: 0, 0
+  index: -1
+Images/Symbols/14/fabric
+  rotate: false
+  xy: 919, 1014
+  size: 72, 59
+  orig: 72, 59
+  offset: 0, 0
+  index: -1
+Images/Symbols/14/light
+  rotate: true
+  xy: 866, 497
+  size: 84, 87
+  orig: 84, 87
+  offset: 0, 0
+  index: -1
+Images/Symbols/14/matal_badge
+  rotate: true
+  xy: 1561, 612
+  size: 38, 34
+  orig: 38, 34
+  offset: 0, 0
+  index: -1
+Images/Symbols/14/papyrus
+  rotate: false
+  xy: 1440, 831
+  size: 153, 82
+  orig: 153, 82
+  offset: 0, 0
+  index: -1
+Images/Symbols/14/rope
+  rotate: false
+  xy: 1488, 492
+  size: 110, 91
+  orig: 110, 91
+  offset: 0, 0
+  index: -1
+Images/Symbols/15/bottle
+  rotate: true
+  xy: 290, 3
+  size: 108, 149
+  orig: 108, 149
+  offset: 0, 0
+  index: -1
+Images/Symbols/15/light
+  rotate: true
+  xy: 454, 1011
+  size: 62, 145
+  orig: 62, 145
+  offset: 0, 0
+  index: -1
+Images/Symbols/16/fire
+  rotate: false
+  xy: 428, 1010
+  size: 24, 63
+  orig: 24, 63
+  offset: 0, 0
+  index: -1
+Images/Symbols/16/fire_glow
+  rotate: false
+  xy: 101, 4
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+Images/Symbols/16/light
+  rotate: false
+  xy: 1465, 1516
+  size: 133, 82
+  orig: 133, 82
+  offset: 0, 0
+  index: -1
+Images/Symbols/17/Layer 1
+  rotate: false
+  xy: 1482, 155
+  size: 56, 126
+  orig: 56, 126
+  offset: 0, 0
+  index: -1
+Images/Symbols/17/glass
+  rotate: true
+  xy: 1198, 501
+  size: 80, 87
+  orig: 80, 87
+  offset: 0, 0
+  index: -1
+Images/Symbols/17/matal_frame
+  rotate: false
+  xy: 1380, 3
+  size: 127, 150
+  orig: 127, 150
+  offset: 0, 0
+  index: -1
+Images/Symbols/18/bubbles
+  rotate: true
+  xy: 1347, 505
+  size: 78, 24
+  orig: 78, 24
+  offset: 0, 0
+  index: -1
+Images/Symbols/18/light_2
+  rotate: true
+  xy: 987, 497
+  size: 84, 23
+  orig: 84, 23
+  offset: 0, 0
+  index: -1
+Images/Symbols/18/pot
+  rotate: true
+  xy: 1309, 585
+  size: 136, 127
+  orig: 136, 127
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/Layer 22
+  rotate: false
+  xy: 1509, 88
+  size: 87, 40
+  orig: 87, 40
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/air
+  rotate: true
+  xy: 1012, 499
+  size: 82, 77
+  orig: 82, 77
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/flover
+  rotate: false
+  xy: 2, 3
+  size: 97, 97
+  orig: 97, 97
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/leaves_1
+  rotate: true
+  xy: 748, 915
+  size: 96, 49
+  orig: 96, 49
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/lesves_2
+  rotate: true
+  xy: 1218, 938
+  size: 135, 50
+  orig: 135, 50
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/light
+  rotate: true
+  xy: 1287, 502
+  size: 79, 58
+  orig: 79, 58
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/pot
+  rotate: false
+  xy: 838, 1013
+  size: 79, 60
+  orig: 79, 60
+  offset: 0, 0
+  index: -1
+Images/Symbols/2/images/shadow
+  rotate: true
+  xy: 199, 1029
+  size: 74, 25
+  orig: 74, 25
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/leaf_1
+  rotate: true
+  xy: 1218, 789
+  size: 71, 50
+  orig: 71, 50
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/leaf_3
+  rotate: true
+  xy: 380, 915
+  size: 90, 106
+  orig: 90, 106
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/leaf_4
+  rotate: false
+  xy: 1373, 507
+  size: 73, 76
+  orig: 73, 76
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/leaf_5
+  rotate: true
+  xy: 177, 1105
+  size: 58, 47
+  orig: 58, 47
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/rim_light
+  rotate: false
+  xy: 731, 1013
+  size: 105, 60
+  orig: 105, 60
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/shoe
+  rotate: false
+  xy: 601, 1011
+  size: 105, 62
+  orig: 105, 62
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/shoe_sparks
+  rotate: true
+  xy: 199, 2
+  size: 109, 89
+  orig: 109, 89
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/badge
+  rotate: true
+  xy: 1561, 756
+  size: 35, 37
+  orig: 35, 37
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/feather
+  rotate: false
+  xy: 1447, 1386
+  size: 15, 37
+  orig: 15, 37
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/feather_green
+  rotate: true
+  xy: 380, 1010
+  size: 63, 46
+  orig: 63, 46
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/hat
+  rotate: true
+  xy: 1447, 1211
+  size: 143, 151
+  orig: 143, 151
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/stripe
+  rotate: true
+  xy: 955, 497
+  size: 84, 30
+  orig: 84, 30
+  offset: 0, 0
+  index: -1
+Images/Symbols/4/under_stripe
+  rotate: true
+  xy: 177, 916
+  size: 88, 39
+  orig: 88, 39
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/bag
+  rotate: false
+  xy: 441, 2
+  size: 142, 114
+  orig: 142, 114
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/leaves
+  rotate: true
+  xy: 1091, 500
+  size: 81, 105
+  orig: 81, 105
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/leaves_light
+  rotate: false
+  xy: 1218, 862
+  size: 50, 74
+  orig: 50, 74
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/light
+  rotate: false
+  xy: 708, 1011
+  size: 21, 62
+  orig: 21, 62
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/matals
+  rotate: true
+  xy: 929, 917
+  size: 95, 78
+  orig: 95, 78
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/shadow
+  rotate: false
+  xy: 488, 917
+  size: 117, 88
+  orig: 117, 88
+  offset: 0, 0
+  index: -1
+Images/Symbols/5/top_bag_part
+  rotate: false
+  xy: 1440, 738
+  size: 118, 91
+  orig: 118, 91
+  offset: 0, 0
+  index: -1
+Images/Symbols/6/lamp
+  rotate: false
+  xy: 1008, 583
+  size: 161, 138
+  orig: 161, 138
+  offset: 0, 0
+  index: -1
+Images/Symbols/6/smoke
+  rotate: true
+  xy: 1465, 1356
+  size: 129, 132
+  orig: 129, 132
+  offset: 0, 0
+  index: -1
+Images/Symbols/7/bookmarks
+  rotate: true
+  xy: 1171, 583
+  size: 138, 136
+  orig: 138, 136
+  offset: 0, 0
+  index: -1
+Images/Symbols/7/books
+  rotate: true
+  xy: 1447, 915
+  size: 144, 150
+  orig: 144, 150
+  offset: 0, 0
+  index: -1
+Images/Symbols/7/rim_light
+  rotate: false
+  xy: 177, 1221
+  size: 48, 134
+  orig: 48, 134
+  offset: 0, 0
+  index: -1
+Images/Symbols/7/shadow
+  rotate: true
+  xy: 1119, 3
+  size: 115, 132
+  orig: 115, 132
+  offset: 0, 0
+  index: -1
+Images/Symbols/8/gem
+  rotate: true
+  xy: 1561, 793
+  size: 36, 37
+  orig: 36, 37
+  offset: 0, 0
+  index: -1
+Images/Symbols/8/metal_part
+  rotate: true
+  xy: 226, 915
+  size: 158, 152
+  orig: 158, 152
+  offset: 0, 0
+  index: -1
+Images/Symbols/9/bottle
+  rotate: false
+  xy: 1438, 585
+  size: 121, 136
+  orig: 121, 136
+  offset: 0, 0
+  index: -1
+Images/Symbols/9/lights
+  rotate: false
+  xy: 1009, 4
+  size: 108, 112
+  orig: 108, 112
+  offset: 0, 0
+  index: -1
+Images/Symbols/9/stripe
+  rotate: false
+  xy: 799, 916
+  size: 128, 95
+  orig: 128, 95
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00000
+  rotate: false
+  xy: 2, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00031
+  rotate: false
+  xy: 2, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00001
+  rotate: false
+  xy: 211, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00002
+  rotate: false
+  xy: 420, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00003
+  rotate: false
+  xy: 629, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00004
+  rotate: false
+  xy: 838, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00005
+  rotate: false
+  xy: 1047, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00006
+  rotate: false
+  xy: 1256, 1425
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00007
+  rotate: true
+  xy: 2, 1147
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00008
+  rotate: true
+  xy: 2, 938
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00009
+  rotate: true
+  xy: 2, 729
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00010
+  rotate: true
+  xy: 2, 520
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00011
+  rotate: true
+  xy: 2, 311
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00012
+  rotate: true
+  xy: 2, 102
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00013
+  rotate: false
+  xy: 227, 1250
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00014
+  rotate: false
+  xy: 436, 1250
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00015
+  rotate: false
+  xy: 645, 1250
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00016
+  rotate: false
+  xy: 854, 1250
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00017
+  rotate: false
+  xy: 1063, 1250
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00018
+  rotate: true
+  xy: 1272, 1216
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00019
+  rotate: false
+  xy: 227, 1075
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00020
+  rotate: false
+  xy: 436, 1075
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00021
+  rotate: false
+  xy: 645, 1075
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00022
+  rotate: false
+  xy: 854, 1075
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00023
+  rotate: false
+  xy: 1063, 1075
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00024
+  rotate: true
+  xy: 1272, 1007
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00025
+  rotate: true
+  xy: 177, 706
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00026
+  rotate: true
+  xy: 177, 497
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00027
+  rotate: true
+  xy: 177, 288
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00028
+  rotate: false
+  xy: 177, 113
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00029
+  rotate: true
+  xy: 352, 706
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/Symbols/Win_Anim/Sequence/Symbol_Win_Anim_00030
+  rotate: true
+  xy: 352, 497
+  size: 207, 173
+  orig: 207, 173
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/all_small_gems
+  rotate: true
+  xy: 1380, 155
+  size: 139, 100
+  orig: 139, 100
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/gold_stand
+  rotate: false
+  xy: 1253, 19
+  size: 122, 100
+  orig: 122, 100
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/small_gem
+  rotate: false
+  xy: 1447, 1357
+  size: 15, 27
+  orig: 15, 27
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/small_gem1
+  rotate: true
+  xy: 1509, 23
+  size: 23, 70
+  orig: 23, 70
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/small_gem2
+  rotate: true
+  xy: 177, 1165
+  size: 12, 17
+  orig: 12, 17
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00000
+  rotate: true
+  xy: 352, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00031
+  rotate: true
+  xy: 352, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00001
+  rotate: true
+  xy: 465, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00002
+  rotate: true
+  xy: 527, 706
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00003
+  rotate: true
+  xy: 527, 497
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00004
+  rotate: true
+  xy: 578, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00005
+  rotate: true
+  xy: 640, 706
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00006
+  rotate: true
+  xy: 640, 497
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00007
+  rotate: true
+  xy: 691, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00008
+  rotate: true
+  xy: 753, 706
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00009
+  rotate: true
+  xy: 753, 497
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00010
+  rotate: true
+  xy: 804, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00011
+  rotate: false
+  xy: 1009, 962
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00012
+  rotate: false
+  xy: 1009, 849
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00013
+  rotate: false
+  xy: 1009, 736
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00014
+  rotate: true
+  xy: 917, 288
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00015
+  rotate: true
+  xy: 1030, 290
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00016
+  rotate: true
+  xy: 1143, 291
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00017
+  rotate: true
+  xy: 1256, 292
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00018
+  rotate: true
+  xy: 1369, 296
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00019
+  rotate: true
+  xy: 1482, 283
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00000
+  rotate: true
+  xy: 386, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00031
+  rotate: true
+  xy: 386, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00001
+  rotate: true
+  xy: 528, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00002
+  rotate: true
+  xy: 670, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00003
+  rotate: true
+  xy: 812, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00004
+  rotate: false
+  xy: 1270, 865
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00005
+  rotate: false
+  xy: 1270, 723
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00006
+  rotate: true
+  xy: 866, 583
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00007
+  rotate: true
+  xy: 954, 118
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00008
+  rotate: true
+  xy: 1096, 120
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00009
+  rotate: true
+  xy: 1238, 121
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_magic_sphare
+  rotate: true
+  xy: 585, 2
+  size: 114, 103
+  orig: 114, 103
+  offset: 0, 0
+  index: -1
+
+symbols2.png
+size: 1428,820
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Images/Symbols/10/light
+  rotate: false
+  xy: 1154, 31
+  size: 125, 129
+  orig: 125, 129
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/candles
+  rotate: true
+  xy: 1022, 669
+  size: 148, 129
+  orig: 148, 129
+  offset: 0, 0
+  index: -1
+Images/Symbols/11/wood_stand_2
+  rotate: false
+  xy: 428, 21
+  size: 132, 38
+  orig: 132, 38
+  offset: 0, 0
+  index: -1
+Images/Symbols/12/book
+  rotate: false
+  xy: 1154, 668
+  size: 162, 149
+  orig: 162, 149
+  offset: 0, 0
+  index: -1
+Images/Symbols/12/light
+  rotate: false
+  xy: 835, 3
+  size: 86, 134
+  orig: 86, 134
+  offset: 0, 0
+  index: -1
+Images/Symbols/15/stripe
+  rotate: false
+  xy: 1318, 548
+  size: 107, 127
+  orig: 107, 127
+  offset: 0, 0
+  index: -1
+Images/Symbols/16/candle
+  rotate: true
+  xy: 1318, 677
+  size: 140, 108
+  orig: 140, 108
+  offset: 0, 0
+  index: -1
+Images/Symbols/18/light
+  rotate: true
+  xy: 1138, 222
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Images/Symbols/18/stand
+  rotate: false
+  xy: 1154, 543
+  size: 162, 123
+  orig: 162, 123
+  offset: 0, 0
+  index: -1
+Images/Symbols/3/images/leaf_2
+  rotate: true
+  xy: 527, 408
+  size: 69, 91
+  orig: 69, 91
+  offset: 0, 0
+  index: -1
+Images/Symbols/6/rim_lihtt
+  rotate: true
+  xy: 1030, 6
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+Images/Symbols/8/light
+  rotate: true
+  xy: 1051, 373
+  size: 152, 143
+  orig: 152, 143
+  offset: 0, 0
+  index: -1
+Images/Symbols/8/wooden_part
+  rotate: true
+  xy: 1022, 527
+  size: 140, 129
+  orig: 140, 129
+  offset: 0, 0
+  index: -1
+Images/Symbols/9/rim_light
+  rotate: true
+  xy: 1281, 37
+  size: 123, 129
+  orig: 123, 129
+  offset: 0, 0
+  index: -1
+Images/Symbols/9/shadow
+  rotate: false
+  xy: 712, 2
+  size: 121, 135
+  orig: 121, 135
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/gem
+  rotate: true
+  xy: 923, 5
+  size: 132, 105
+  orig: 132, 105
+  offset: 0, 0
+  index: -1
+Images/WinAll_Cell/light
+  rotate: true
+  xy: 1268, 162
+  size: 127, 142
+  orig: 127, 142
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00020
+  rotate: true
+  xy: 2, 610
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00021
+  rotate: true
+  xy: 2, 401
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00022
+  rotate: true
+  xy: 2, 192
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00023
+  rotate: true
+  xy: 115, 610
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00024
+  rotate: true
+  xy: 115, 401
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00025
+  rotate: true
+  xy: 115, 192
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00026
+  rotate: true
+  xy: 228, 610
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00027
+  rotate: true
+  xy: 228, 401
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00028
+  rotate: true
+  xy: 228, 192
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00029
+  rotate: true
+  xy: 341, 610
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/Win_idle/Symbol_Win_idle_00030
+  rotate: true
+  xy: 341, 401
+  size: 207, 111
+  orig: 207, 111
+  offset: 0, 0
+  index: -1
+Images/X2/x2
+  rotate: true
+  xy: 454, 405
+  size: 72, 71
+  orig: 72, 71
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00010
+  rotate: true
+  xy: 2, 22
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00011
+  rotate: true
+  xy: 144, 22
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00012
+  rotate: true
+  xy: 286, 22
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00013
+  rotate: true
+  xy: 341, 231
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00014
+  rotate: true
+  xy: 428, 61
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00015
+  rotate: true
+  xy: 454, 649
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00016
+  rotate: true
+  xy: 454, 479
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00017
+  rotate: true
+  xy: 483, 235
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00018
+  rotate: true
+  xy: 570, 65
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00019
+  rotate: true
+  xy: 596, 649
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00020
+  rotate: true
+  xy: 596, 479
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00021
+  rotate: true
+  xy: 625, 309
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00022
+  rotate: true
+  xy: 712, 139
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00023
+  rotate: true
+  xy: 738, 649
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00024
+  rotate: true
+  xy: 738, 479
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00025
+  rotate: true
+  xy: 767, 309
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00026
+  rotate: true
+  xy: 854, 139
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00027
+  rotate: true
+  xy: 880, 649
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00028
+  rotate: true
+  xy: 880, 479
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00029
+  rotate: true
+  xy: 909, 309
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_Anim/x2_anim_00030
+  rotate: true
+  xy: 996, 139
+  size: 168, 140
+  orig: 168, 140
+  offset: 0, 0
+  index: -1
+Images/X2/x2_frame
+  rotate: true
+  xy: 1268, 416
+  size: 125, 149
+  orig: 125, 149
+  offset: 0, 0
+  index: -1
+Images/X2/x2_rim_ligrt
+  rotate: true
+  xy: 1268, 291
+  size: 123, 144
+  orig: 123, 144
+  offset: 0, 0
+  index: -1
