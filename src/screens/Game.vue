@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Easing, Tween } from '@tweenjs/tween.js'
+
 import Toolbar from '../components/Toolbar/Toolbar.vue'
 import MainMenu from '../components/Menu/MainMenu.vue'
 import { useDataEntry } from '../composables/useDataEntry'
@@ -26,6 +28,7 @@ const menu_layout = useDataEntry('menu_layout')
 
 //models
 const orietation = ref<ScreenOrientationEnum>(store.orientation)
+const autoplay = ref<any>('autoplay')
 
 //buttons
 const startButton = ref<any>('startButton')
@@ -42,13 +45,19 @@ const generateSpin = () => {
   gameStore.setSpin(response)
   console.info('SPIN RESPONSE', response)
 }
+
+//methods
+const openAutoplayModal = () => {
+  // tween.start();
+  autoplay.value.openPanel()
+}
 </script>
 <template>
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
 
-    <!-- <AutoplayModal /> -->
     <GameArea />
+    <AutoplayModal ref="autoplay" />
 
     <MainMenu />
     <SpriteButton
@@ -64,6 +73,7 @@ const generateSpin = () => {
       :texture="toolbar_textures.AutoPlay"
       :y="autoplay_layout.openButton[orietation].y"
       :x="autoplay_layout.openButton[orietation].x"
+      @onClick="openAutoplayModal"
     />
 
     <SpriteButton

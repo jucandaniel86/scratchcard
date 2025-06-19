@@ -14,6 +14,7 @@ import { ConfigResolutions } from './config/App'
 import { useScaleManager } from './composables/useScaleManager'
 import { useCustomElements } from './composables/useCustomElements'
 import { useMetaData } from './composables/useMetaData'
+import * as PIXI from 'pixi.js'
 
 export const __PIXI_APP = new Application({
   antialias: true,

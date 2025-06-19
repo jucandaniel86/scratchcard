@@ -34,6 +34,8 @@ export const __RESOURCES: StringMap = {
   toolbar: IMGS + 'Toolbar.png',
   selected: IMGS + 'selected.jpg',
   unselected: IMGS + 'unselected.jpg',
+  arrowBlack: IMGS + 'arrowBlack.png',
+  arrowWhite: IMGS + 'arrowWhite.png',
 
   //atlas all_time_bg
   all_time_bg_json: 'assets/atlas/all_time_bg.json',

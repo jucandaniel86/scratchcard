@@ -92,7 +92,7 @@ body {
     --primary-text-size: 12px;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Roboto Condensed';
     src: url(https://cdn-ng-lot.neogames.com/secure/GamesNGTCore/3.5.5/resources/fonts/roboto-condensed-regular.ttf) format('truetype');
 }
@@ -101,7 +101,28 @@ body {
     font-family: 'Roboto Condensed Bold';
     src: url(https://cdn-ng-lot.neogames.com/secure/GamesNGTCore/3.5.5/resources/fonts/roboto-condensed-bold.ttf) format('truetype');
     font-weight: bold;
+} */
+
+/* @font-face {
+    font-family: "Arial";
+    src: local("Arial"), url('arial.ttf');
 }
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: local("Roboto Condensed"), url('RobotoCondensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed Light';
+    src: local("Roboto Condensed Light"), url('RobotoCondensed-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bebas Neue Bold';
+    src: local("Bebas Neue Bold"), url('/assets/fonts/BebasNeue-Bold.ttf') format('truetype');
+} */
 
 #info-toolbar__first-line > span {
     flex-basis: 32%;

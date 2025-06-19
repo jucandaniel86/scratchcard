@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^25.0.0",
     "@vueuse/core": "^10.1.2",
     "f": "^1.4.0",
     "fontfaceobserver": "^2.3.0",
@@ -16,6 +17,7 @@
     "pinia-plugin-persistedstate": "^4.3.0",
     "pixi-particles": "^4.3.1",
     "pixi-spine": "^4.0.6",
+    "pixi-tween": "^0.2.0",
     "pixi.js": "^7.2.4",
     "vue": "^3.2.47",
     "vue-ts-types": "^1.8.1",

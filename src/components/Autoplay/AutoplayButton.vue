@@ -8,6 +8,6 @@ const props = defineProps<AutoplayButton>()
 const isUp = ref<boolean>(false)
 const emitters = defineEmits(['onClick'])
 
-const onClick = () => emitters('onClick', props.numberOfGames);
+const onClick = () => emitters('onClick', props.numberOfGames)
 </script>
 <template></template>

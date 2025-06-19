@@ -5,12 +5,14 @@ import { ScreenOrientationEnum } from '../../../config/App'
 import { useAppStore } from '../../../store/app'
 import { useScratchAnimation } from '../Symbol/ScratchAnimation'
 import { useRevealAnimation } from '../Symbol/RevealAnimation'
+import { SymbolType } from '../../../composables/useGenerateSpin'
 
 type HouseSymbolType = {
   x: number
   y: number
   scale: number
   index: number
+  symbol?: SymbolType
 }
 
 const props = defineProps<HouseSymbolType>()
@@ -56,6 +58,12 @@ const onRender = (container: Container) => {
   container.addChild(scratchAnimation.animation)
 }
 
+const onReveal = () => {
+  if (props.symbol) {
+    reveal(props.symbol?.symbolID)
+  }
+}
+
 store.$subscribe(() => {
   orientation.value = store.orientation
 })
@@ -78,6 +86,6 @@ defineExpose({
     :y="props.y"
     :scale="props.scale || 1"
     @render="onRender"
-    @click="reveal(2)"
+    @click="onReveal"
   ></container>
 </template>

@@ -18,13 +18,14 @@ const { yourSymbols, houseSymbols } = useDataEntry(
 )
 const orientation = ref<ScreenOrientationEnum>(store.orientation)
 const actions = useYourSymbolsActions(symbols)
+const spin = ref<any>()
 
 store.$subscribe(() => {
   orientation.value = store.orientation
 })
 
 gameStore.$subscribe(() => {
-  console.log(gameStore.spin)
+  spin.value = gameStore.spin
   // if (gameStore.spin && gameStore.spin.yourSymbols) {
   //   console.log('simbols', gameStore.spin)
   //   actions.playWinAnimation([{ index: 0 }, { index: 3 }])
@@ -49,5 +50,6 @@ console.log(houseSymbols[orientation.value])
     :x="houseSymbols[orientation][n - 1].x"
     :y="houseSymbols[orientation][n - 1].y"
     :scale="houseSymbols[orientation][n - 1].scale || 1"
+    :symbol="spin?.houseSymbols[n - 1]"
   />
 </template>

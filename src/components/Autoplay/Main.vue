@@ -1,17 +1,30 @@
 <script setup lang="ts">
-import { Graphics, Text } from 'pixi.js'
+import { Container, Graphics, Text, TextStyle } from 'pixi.js'
 import { useAppStore } from '../../store/app'
 import {
   ConfigResolutions,
   GAME_NAME,
+  NUM_OF_AUTOPLAY_GAMES,
   ScreenOrientationEnum
 } from '../../config/App'
+import ButtonNumber from './Button.vue'
+import { onMounted, ref } from 'vue'
+import { useUpdateButtons } from './useUpdateButtons'
+import { Easing, Tween } from '@tweenjs/tween.js'
+import { onTick } from 'vue3-pixi'
+
+//textures
+// const close
 
 //models
-const numOfAutoplayGames = [10, 25, 50, 100]
+const buttons = ref<any[]>([])
+const AutoplayAreaContainer = ref<any>('AutoplayAreaContainer')
 
 const appStore = useAppStore()
 const { width, height } = ConfigResolutions[appStore.orientation]
+
+//composables
+const { updateButtons } = useUpdateButtons(buttons)
 
 //methods
 const createBlackBackground = (graphics: Graphics) => {
@@ -42,11 +55,52 @@ const createText = (_text: Text) => {
 
 const createSubtitle = (_text: Text) => {
   createText(_text)
-  _text.y = 120 - _text.height / 2
+  _text.y = 220 + _text.height / 2
 }
+
+const createTitle = (_text: Text) => {
+  createText(_text)
+  _text.y = 60 + _text.height / 2
+}
+
+const containerRender = (container: Container) => {
+  container.x = -container.width
+}
+
+const tween = new Tween({ x: -AutoplayAreaContainer.value.width }) // Create a new tween that modifies 'coords'.
+  .to({ x: 0 }, 1000) // Move to (300, 200) in 1 second.
+  .easing(Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
+  .onUpdate(() => {
+    console.log('on update')
+    // Called after tween.js updates 'coords'.
+    // Move 'box' to the position described by 'coords' with a CSS translation.
+    // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)')
+  })
+
+const openPanel = () => {
+  console.log('openPanel')
+  tween.start()
+}
+
+defineExpose({
+  openPanel
+})
+
+onMounted(() => {
+  updateButtons()
+})
+
+onTick((time: number | undefined) => {
+  // console.log('delta', time)
+  tween.update(time)
+})
 </script>
 <template>
-  <container :z-index="3">
+  <container
+    :z-index="10"
+    @render="containerRender"
+    ref="AutoplayAreaContainer"
+  >
     <Graphics @render="createBlackBackground" />
     <Graphics @render="createLine" />
     <Text
@@ -59,9 +113,25 @@ const createSubtitle = (_text: Text) => {
       @render="createText"
       >{{ GAME_NAME }}</Text
     >
+    <Text :style="{ fill: 0xffffff, fontSize: 45 }" @render="createTitle"
+      >Autoplay</Text
+    >
     <Text :style="{ fill: 0xffffff, fontSize: 25 }" @render="createSubtitle"
-      >Auto Play
+      >Numbers of plays
     </Text>
-    <container> </container>
+    <container>
+      <ButtonNumber
+        v-for="(item, i) in NUM_OF_AUTOPLAY_GAMES"
+        :key="`AutoplayButton${i}`"
+        :label="'X'.concat(item.toString())"
+        :style="{
+          fill: 16777215,
+          fontWeight: 'bold',
+          fontSize: 23,
+          align: 'center'
+        }"
+        ref="buttons"
+      />
+    </container>
   </container>
 </template>
