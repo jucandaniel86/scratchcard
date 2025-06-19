@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Container, Graphics, Text, TextStyle } from 'pixi.js'
+import { Container, Graphics, Text } from 'pixi.js'
 import { useAppStore } from '../../store/app'
 import {
   ConfigResolutions,
@@ -8,23 +8,31 @@ import {
   ScreenOrientationEnum
 } from '../../config/App'
 import ButtonNumber from './Button.vue'
-import { onMounted, ref } from 'vue'
+import CloseButton from './CloseButton.vue'
+import { onMounted, ref, watch } from 'vue'
 import { useUpdateButtons } from './useUpdateButtons'
-import { Easing, Tween } from '@tweenjs/tween.js'
-import { onTick } from 'vue3-pixi'
+import { __LOADED_RESOURCES } from '../../config/Resources'
+import { useDataEntry } from '../../composables/useDataEntry'
 
-//textures
-// const close
+//store
+const store = useAppStore()
+
+//layout
+const layout = useDataEntry('autoplay_layout')
 
 //models
 const buttons = ref<any[]>([])
 const AutoplayAreaContainer = ref<any>('AutoplayAreaContainer')
+const orientation = ref<any>(store.orientation)
 
 const appStore = useAppStore()
 const { width, height } = ConfigResolutions[appStore.orientation]
 
 //composables
 const { updateButtons } = useUpdateButtons(buttons)
+
+//emitters
+const emitteres = defineEmits(['onClose'])
 
 //methods
 const createBlackBackground = (graphics: Graphics) => {
@@ -67,32 +75,14 @@ const containerRender = (container: Container) => {
   container.x = -container.width
 }
 
-const tween = new Tween({ x: -AutoplayAreaContainer.value.width }) // Create a new tween that modifies 'coords'.
-  .to({ x: 0 }, 1000) // Move to (300, 200) in 1 second.
-  .easing(Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
-  .onUpdate(() => {
-    console.log('on update')
-    // Called after tween.js updates 'coords'.
-    // Move 'box' to the position described by 'coords' with a CSS translation.
-    // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)')
-  })
+const onClose = () => emitteres('onClose')
 
-const openPanel = () => {
-  console.log('openPanel')
-  tween.start()
-}
-
-defineExpose({
-  openPanel
+watch(store, () => {
+  orientation.value = store.orientation
 })
 
 onMounted(() => {
   updateButtons()
-})
-
-onTick((time: number | undefined) => {
-  // console.log('delta', time)
-  tween.update(time)
 })
 </script>
 <template>
@@ -107,16 +97,29 @@ onTick((time: number | undefined) => {
       :style="{
         fontSize: 48,
         fontWeight: 'bold',
+        fontFamily: 'Roboto Condensed, Arial',
         fill: 0xffffff
       }"
       :y="15"
       @render="createText"
       >{{ GAME_NAME }}</Text
     >
-    <Text :style="{ fill: 0xffffff, fontSize: 45 }" @render="createTitle"
+    <Text
+      :style="{
+        fill: 0xffffff,
+        fontSize: 45,
+        fontFamily: 'Roboto Condensed, Arial'
+      }"
+      @render="createTitle"
       >Autoplay</Text
     >
-    <Text :style="{ fill: 0xffffff, fontSize: 25 }" @render="createSubtitle"
+    <Text
+      :style="{
+        fill: 0xffffff,
+        fontSize: 25,
+        fontFamily: 'Roboto Condensed, Arial'
+      }"
+      @render="createSubtitle"
       >Numbers of plays
     </Text>
     <container>
@@ -128,10 +131,17 @@ onTick((time: number | undefined) => {
           fill: 16777215,
           fontWeight: 'bold',
           fontSize: 23,
-          align: 'center'
+          align: 'center',
+          fontFamily: 'Roboto Condensed, Arial'
         }"
         ref="buttons"
       />
     </container>
+    <CloseButton
+      @onClick="onClose"
+      :x="layout.closeButton[orientation].x"
+      :y="layout.closeButton[orientation].y"
+      :texture="__LOADED_RESOURCES.closeButton"
+    />
   </container>
 </template>

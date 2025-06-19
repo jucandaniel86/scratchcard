@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { Easing, Tween } from '@tweenjs/tween.js'
-
 import Toolbar from '../components/Toolbar/Toolbar.vue'
 import MainMenu from '../components/Menu/MainMenu.vue'
 import { useDataEntry } from '../composables/useDataEntry'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import SpriteButton from '../components/UI/SpriteButton.vue'
-import { ScreenOrientationEnum } from '../config/App'
+import { ConfigResolutions, ScreenOrientationEnum } from '../config/App'
 import { useAppStore } from '../store/app'
 import { useGenerateSpin } from '../composables/useGenerateSpin'
 import { useGameStore } from '../store/game'
 import GameArea from '../components/GameArea.vue'
 import AutoplayModal from '../components/Autoplay/Main.vue'
+import { TransitionPresets, useTransition } from '@vueuse/core'
 
 //store
 const store = useAppStore()
@@ -28,7 +27,18 @@ const menu_layout = useDataEntry('menu_layout')
 
 //models
 const orietation = ref<ScreenOrientationEnum>(store.orientation)
-const autoplay = ref<any>('autoplay')
+const isAutoplayOpen = ref<any>(false)
+
+//computed
+const autoplayX = computed(() =>
+  isAutoplayOpen.value ? 0 : -ConfigResolutions[orietation.value].width
+)
+
+//animations
+const autoplayModalAnimation = useTransition(autoplayX, {
+  duration: 300,
+  transition: TransitionPresets.linear
+})
 
 //buttons
 const startButton = ref<any>('startButton')
@@ -47,17 +57,15 @@ const generateSpin = () => {
 }
 
 //methods
-const openAutoplayModal = () => {
-  // tween.start();
-  autoplay.value.openPanel()
-}
+const openAutoplayModal = () => (isAutoplayOpen.value = true)
+const closeAutoplayModal = () => (isAutoplayOpen.value = false)
 </script>
 <template>
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
 
     <GameArea />
-    <AutoplayModal ref="autoplay" />
+    <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />
 
     <MainMenu />
     <SpriteButton
@@ -66,6 +74,7 @@ const openAutoplayModal = () => {
       :x="layout.startButton[orietation].x"
       :y="layout.startButton[orietation].y"
       @onClick="generateSpin()"
+      :visible="isAutoplayOpen ? false : true"
     />
 
     <SpriteButton
@@ -74,6 +83,7 @@ const openAutoplayModal = () => {
       :y="autoplay_layout.openButton[orietation].y"
       :x="autoplay_layout.openButton[orietation].x"
       @onClick="openAutoplayModal"
+      :visible="isAutoplayOpen ? false : true"
     />
 
     <SpriteButton
@@ -81,6 +91,7 @@ const openAutoplayModal = () => {
       :texture="menu_textures['Menu_Btn.png']"
       :x="menu_layout.menu_button[orietation].x"
       :y="menu_layout.menu_button[orietation].y"
+      :disabled="isAutoplayOpen"
     />
   </container>
 </template>

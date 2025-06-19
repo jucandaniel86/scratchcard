@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Container, Graphics, Rectangle, Sprite } from 'pixi.js'
 import { Text, Texture } from 'pixi.js'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { __RESOURCES } from '../../config/Resources'
 
 //enum
@@ -19,11 +19,13 @@ type ButtonType = {
   maxHeight?: number
   style?: any
   texture?: Texture
+  hasArrows?: boolean
 }
 //props
 const props = withDefaults(defineProps<ButtonType>(), {
   maxHeight: 50,
-  maxWidth: 50
+  maxWidth: 50,
+  hasArrows: true
 })
 
 //models
@@ -43,6 +45,8 @@ const downState = ref<any>('downState')
 const overState = ref<any>('overState')
 const disabledState = ref<any>('disabledState')
 const buttonState = ref<ButtonState>(ButtonState.UP)
+//emitters
+const emitters = defineEmits(['onClick'])
 
 //methods
 const setX = (_x: number) => (x.value = _x)
@@ -98,6 +102,10 @@ const setDisabledStateTexture = (_texture: Texture) =>
   (disabledState.value.texture = _texture)
 
 //pointer events
+const onClick = () => {
+  emitters('onClick')
+}
+
 const onMouseDown = () => {
   isDownState.value = true
   switchToDownState()
@@ -140,6 +148,15 @@ const labelRender = (_text: Text) => {
   _text.style = { ...props.style, fontFamily }
 }
 
+watch(props, () => {
+  if (props.texture) {
+    setUpStateTexture(props.texture)
+    setDownStateTexture(props.texture)
+    setOverStateTexture(props.texture)
+    setDisabledStateTexture(props.texture)
+  }
+})
+
 defineExpose({
   setX,
   setY,
@@ -159,6 +176,7 @@ onMounted(() => {
     :y="y"
     :width="width"
     :height="60"
+    @click="onClick"
     @touchstart="onMouseDown"
     @touchendoutside="onMouseUpOutside"
     @mouseover="onMouseOver"
@@ -192,6 +210,7 @@ onMounted(() => {
       props.label
     }}</Text>
     <Sprite
+      v-if="props.hasArrows"
       :texture="__RESOURCES.arrowBlack"
       :y="18.5"
       :x="104"
@@ -200,6 +219,7 @@ onMounted(() => {
       "
     />
     <Sprite
+      v-if="props.hasArrows"
       :texture="__RESOURCES.arrowWhite"
       :y="18.5"
       :x="104"

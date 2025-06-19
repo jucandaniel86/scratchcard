@@ -1,3 +1,5 @@
+import { FontType } from '../composables/useFontFaceLoader'
+
 interface StringMap {
   [key: string]: string
 }
@@ -36,6 +38,7 @@ export const __RESOURCES: StringMap = {
   unselected: IMGS + 'unselected.jpg',
   arrowBlack: IMGS + 'arrowBlack.png',
   arrowWhite: IMGS + 'arrowWhite.png',
+  closeButton: IMGS + 'closeButton.png',
 
   //atlas all_time_bg
   all_time_bg_json: 'assets/atlas/all_time_bg.json',
@@ -89,5 +92,20 @@ export const __RESOURCES: StringMap = {
   //texts
   text_styles: 'assets/json/TextStyles.json'
 }
+
+export const __FONTS: FontType[] = [
+  {
+    fontFamily: 'Bebas Neue Bold',
+    file: 'BebasNeue-Bold.ttf'
+  },
+  {
+    fontFamily: 'Roboto Condensed Light',
+    file: 'RobotoCondensed-Light.ttf'
+  },
+  {
+    fontFamily: 'Roboto Condensed',
+    file: 'RobotoCondensed-Regular.ttf'
+  }
+]
 
 export let __LOADED_RESOURCES: any = {}

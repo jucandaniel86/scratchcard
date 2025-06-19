@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import { ref, computed, defineEmits } from 'vue'
 import { Loader, useScreen } from 'vue3-pixi'
-import { __RESOURCES, __LOADED_RESOURCES } from '../config/Resources'
+import { __RESOURCES, __LOADED_RESOURCES, __FONTS } from '../config/Resources'
 import { Graphics } from 'pixi.js'
+import { BASE_URL } from '../main'
+//@ts-ignore
+import WebFont from 'webfontloader'
+import { useFontFaceLoader } from '../composables/useFontFaceLoader'
 
 type LoaderOptionsType = {
   options?: {
@@ -29,6 +33,7 @@ const props = withDefaults(defineProps<LoaderOptionsType>(), {
   }
 })
 
+const { load, observer } = useFontFaceLoader(__FONTS)
 const loaderProgress = ref<number>(0)
 const screen = useScreen()
 const emitters = defineEmits(['loader:resolved'])
@@ -70,7 +75,10 @@ const onResolved = (evt: any) => {
   Object.entries(evt).forEach((el: any) => {
     __LOADED_RESOURCES[el[0]] = el[1]
   })
-  emitters('loader:resolved', evt)
+  load()
+  observer().then((value) => {
+    emitters('loader:resolved', evt)
+  })
 }
 
 const onProgress = (evt: any) => {

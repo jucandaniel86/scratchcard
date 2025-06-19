@@ -17,14 +17,23 @@ export type VSpineButtonType = {
     hover: VSpineButtonStatesData
     disabled: VSpineButtonStatesData
   }
+  visible?: boolean
+  disabled?: boolean
 }
 
 class VSpineButton extends Container {
   statesData: any
   spine: any
   labelText!: Text
+  disabled: boolean
 
-  constructor({ spineData, label, statesData }: VSpineButtonType) {
+  constructor({
+    spineData,
+    label,
+    statesData,
+    visible = true,
+    disabled = false
+  }: VSpineButtonType) {
     super()
     this.name = 'VSpineButton'
 
@@ -34,9 +43,12 @@ class VSpineButton extends Container {
     this.statesData = statesData
 
     //button mode
-    this.interactive = true
-    this.buttonMode = true
-    this.cursor = 'pointer'
+    this.interactive = disabled ? false : true
+    this.buttonMode = disabled ? false : true
+    this.cursor = disabled ? 'none' : 'pointer'
+
+    this.visible = visible
+    this.disabled = disabled
 
     //actions
     this.on('pointerup', this.pointerUp)
@@ -56,6 +68,8 @@ class VSpineButton extends Container {
       : {}
 
     let labelSprite = new Container()
+
+    labelSprite.alpha = this.disabled ? 0.7 : 1
 
     this.labelText = new Text(_label)
     this.labelText.anchor.set(0.5)

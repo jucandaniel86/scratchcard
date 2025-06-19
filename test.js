@@ -9064,6 +9064,7 @@
                                     o.apply(this, arguments)
                                 )
                             }
+														//BUTTON BASE LEVEL 2
                             return (
                                 (e = a),
                                 (n = [{
@@ -9370,7 +9371,7 @@
                                     e && fe(t, e)
                             })(a, t)
                             var e,
-                                n,
+                                CloseButtonClass,
                                 r,
                                 i,
                                 o =
@@ -9432,7 +9433,7 @@
                             }
                             return (
                                 (e = a),
-                                (n = [{
+                                (CloseButtonClass = [{
                                         key: 'onCreate',
                                         value: function (t) {
                                             ;
@@ -9472,7 +9473,7 @@
                                         'value' in r && (r.writable = true),
                                             Object.defineProperty(t, ce(r.key), r)
                                     }
-                                })(e.prototype, n),
+                                })(e.prototype, CloseButtonClass),
                                 Object.defineProperty(e, 'prototype', {
                                     writable: false
                                 }),
@@ -16089,6 +16090,7 @@
                                         }
                                     },
                                     {
+																			//open autoplay modal
                                         key: 'showPanel',
                                         value: function () {
                                             var t = this

@@ -14,7 +14,6 @@ import { ConfigResolutions } from './config/App'
 import { useScaleManager } from './composables/useScaleManager'
 import { useCustomElements } from './composables/useCustomElements'
 import { useMetaData } from './composables/useMetaData'
-import * as PIXI from 'pixi.js'
 
 export const __PIXI_APP = new Application({
   antialias: true,
@@ -24,6 +23,10 @@ export const __PIXI_APP = new Application({
   width: ConfigResolutions.landscape.width,
   height: ConfigResolutions.landscape.height
 })
+
+export const BASE_URL = import.meta.env.PROD
+  ? `${import.meta.env.BASE_URL}/assets/`
+  : '/assets/'
 
 const pinia = createPinia()
 const { observe } = useScaleManager()

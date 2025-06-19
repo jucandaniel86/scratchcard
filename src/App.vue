@@ -14,23 +14,12 @@ import Loader from './screens/Loader.vue'
 import Game from './screens/Game.vue'
 import Overview from './screens/Overview.vue'
 //@ts-ignore
-import WebFont from 'webfontloader'
+
 import AlphaTransition from './components/Core/AlphaTransition.vue'
 import { useSystemStore } from './store/system'
 
 const screen = ref<Screens>(Screens.LOADING)
 const sysStore = useSystemStore()
-
-const BASE_URL = import.meta.env.PROD
-  ? `${import.meta.env.BASE_URL}/assets/`
-  : '/assets/'
-
-WebFont.load({
-  custom: {
-    families: ['Bebas Neue Bold'],
-    urls: [BASE_URL + 'fonts/BebasNeue-Bold.ttf']
-  }
-})
 
 const changeScreen = (_screen: Screens) => {
   screen.value = _screen

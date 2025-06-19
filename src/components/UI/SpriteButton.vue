@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useCreateFromSpriteSheet } from '../../composables/useCreateFromSpriteSheet'
 import { Graphics } from 'pixi.js'
 
@@ -15,19 +15,21 @@ type SpriteButtonType = {
   texture: any
   x: number
   y: number
+  disabled?: boolean
 }
 
 //props
 const props = withDefaults(defineProps<SpriteButtonType>(), {
-  visible: true
+  visible: true,
+  disabled: false
 })
 
 //textures
 const textures = ref(useCreateFromSpriteSheet(props.texture))
 
 //models
-const state = ref<SpriteButtonStates>(SpriteButtonStates.OVER)
-const isInteractive = ref<boolean>(true)
+const state = ref<SpriteButtonStates>(SpriteButtonStates.UP)
+const isInteractive = ref<boolean>(props.disabled ? false : true)
 const isDownState = ref<boolean>(false)
 
 //emitters
@@ -47,8 +49,21 @@ const disable = () => {
   state.value = SpriteButtonStates.DISABLED
 }
 
+const enable = () => {
+  isInteractive.value = true
+  state.value = SpriteButtonStates.UP
+}
+
+watch(isInteractive, () => {
+  isInteractive.value ? enable() : disable()
+})
+watch(props, () => {
+  isInteractive.value = props.disabled ? false : true
+})
+
 defineExpose({
-  disable
+  disable,
+  enable
 })
 
 //computed

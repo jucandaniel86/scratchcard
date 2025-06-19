@@ -2,8 +2,6 @@
 import { useDataEntry } from '../../composables/useDataEntry'
 
 const layout = useDataEntry('menu_layout')
-
-console.log('MainMenu', layout)
 </script>
 <template>
   <container>

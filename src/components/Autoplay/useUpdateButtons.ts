@@ -15,8 +15,6 @@ export const useUpdateButtons = (buttons: any) => {
       y = 0
 
     for (let i = 0; i < getButtonsInARow(); i++) {
-      console.log('I', i)
-
       const button = buttons.value[i]
       button.setX(getMenuButtonX(x))
       button.setY(getMenuButtonY(y))
@@ -25,7 +23,6 @@ export const useUpdateButtons = (buttons: any) => {
         x = 0
         y += 1
       }
-      // console.log({ x, y, newX: getMenuButtonX(x), newY: getMenuButtonY(y) })
     }
 
     if (!isLandscape() || (buttons.value.length - 1) % 3 != 0) {
