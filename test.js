@@ -60497,6 +60497,7 @@
                                             }
                                         },
                                         {
+																					//START ROUND
                                             key: '_setToolbarCallbacks',
                                             value: function () {
                                                 this.isRevealAllSupported() &&
@@ -102051,10 +102052,11 @@ function n(r) {
             ee(t, e)
         )
     }
-    var ne = function (t, e, n) {
-            return e ? 19 : n ? 20 : t
+		//(SymbolID, IsMultiplier, IsWinAll)
+    var ne = function (SymbolID, IsMultiplier, IsWinAll) {
+            return IsMultiplier ? 19 : IsWinAll ? 20 : SymbolID
         },
-        re = (function (e) {
+        YourSymbolClass = (function (e) {
             function n() {
                 return (
                     (function (t, e) {
@@ -102141,15 +102143,15 @@ function n(r) {
                     {
                         key: 'reveal',
                         value: function (t) {
-                            var e = t.symbolID,
-                                n = t.prizeAmount,
-                                r = t.isMultiplier,
-                                i = t.isWinAll
+                            var SymbolID = t.symbolID,
+                                PrizeAmount = t.prizeAmount,
+                                IsMultiplier = t.isMultiplier,
+                                IsWinAll = t.isWinAll
                             this.disable()
-                            var o = ne(e, r, i)
+                            var o = ne(SymbolID, IsMultiplier, IsWinAll)
                             return (
                                 this._revealAnimation.play(o),
-                                this._revealAnimation.setPrize(n),
+                                this._revealAnimation.setPrize(PrizeAmount),
                                 this._scratchAnimation.playReveal()
                             )
                         }
@@ -102404,7 +102406,7 @@ function n(r) {
                     key: 'createSymbols',
                     value: function (t) {
                         for (var e = t.onRevealStart, n = [], r = 0; r < 10; r++) {
-                            var i = new re({
+                            var i = new YourSymbolClass({
                                 index: r,
                                 onRevealStart: e
                             })
@@ -103235,24 +103237,24 @@ function n(r) {
                 {
                     key: 'setYourSymbolRevealed',
                     value: function (t) {
-                        var e = this._createRevealLists(),
-                            n = this._yourSymbols[t];
+                        var revealList = this._createRevealLists(),
+                            yourSymbol = this._yourSymbols[t];
                         (this._yourSymbols[t].isRevealed = true),
-                        e.yourToRevealData.push(n),
-                            n.isWin &&
-                            ((e.houseMatchesData = this._getHouseRevealedMatches(
-                                    n.symbolID
+                        revealList.yourToRevealData.push(yourSymbol),
+                            yourSymbol.isWin &&
+                            ((revealList.houseMatchesData = this._getHouseRevealedMatches(
+                                    yourSymbol.symbolID
                                 )),
-                                e.houseMatchesData.length &&
-                                (e.yourMatchesData.push(n),
-                                    this._resolvedSymbolIDs.push(n.symbolID)))
-                        var r = e.yourToRevealData.some(function (t) {
+                                revealList.houseMatchesData.length &&
+                                (revealList.yourMatchesData.push(yourSymbol),
+                                    this._resolvedSymbolIDs.push(yourSymbol.symbolID)))
+                        var r = revealList.yourToRevealData.some(function (t) {
                             return t.isWinAll
                         })
                         return (
                             this._updateState(r), {
                                 state: this._copy(this._state),
-                                data: e
+                                data: revealList
                             }
                         )
                     }
@@ -103763,26 +103765,26 @@ function n(r) {
                             var e = this
                             this._playSound(c.MainGame.Reveal_Your_Symbols)
                             var n = this._model.setYourSymbolRevealed(t),
-                                r = n.state,
-                                i = n.data,
-                                o = i.houseMatchesData,
-                                a = i.yourMatchesData,
-                                s = i.yourToRevealData
-                            if ((this._handleInitialInteraction(), r.isWinAll))
+                                State = n.state,
+                                Data = n.data,
+                                houseMatchesData = Data.houseMatchesData,
+                                yourMatchesData = Data.yourMatchesData,
+                                YourToRevealData = Data.yourToRevealData
+                            if ((this._handleInitialInteraction(), State.isWinAll))
                                 return this._isRevealAllSupported ?
-                                    this._onWinAll(s) :
-                                    this._onWinAllNoRevealAll(s, r)
-                            r.isAllCompleted && this._onComplete(),
+                                    this._onWinAll(YourToRevealData) :
+                                    this._onWinAllNoRevealAll(YourToRevealData, State)
+                            State.isAllCompleted && this._onComplete(),
                                 this._yourSymbols
-                                .reveal(s)
+                                .reveal(YourToRevealData)
                                 .then(function () {
-                                    return e._handleMatches(a, o)
+                                    return e._handleMatches(yourMatchesData, houseMatchesData)
                                 })
                                 .then(function () {
-                                    return e._handleMultiplier(s)
+                                    return e._handleMultiplier(YourToRevealData)
                                 })
                                 .then(function () {
-                                    return e._onRevealComplete(r)
+                                    return e._onRevealComplete(State)
                                 })
                         }
                     },
@@ -103840,24 +103842,25 @@ function n(r) {
                         }
                     },
                     {
+											//on reveal all
                         key: 'revealAll',
                         value: function () {
                             var t = this
                             this._onComplete()
                             var e = this._model.setAllRevealed(),
-                                n = e.state,
-                                r = e.data,
-                                i = r.houseMatchesData,
-                                o = r.yourMatchesData,
-                                a = r.yourToRevealData,
-                                s = r.houseToRevealData
-                            if (n.isWinAll) return this._onWinAll_revealAllMode(a, s)
+                                State = e.state,
+                                Data = e.data,
+                                i = Data.houseMatchesData,
+                                o = Data.yourMatchesData,
+                                a = Data.yourToRevealData,
+                                s = Data.houseToRevealData
+                            if (State.isWinAll) return this._onWinAll_revealAllMode(a, s)
                             this._revealRemainingSequence(a, s)
                                 .then(function () {
                                     return t._handleWins(o, i, a)
                                 })
                                 .then(function () {
-                                    return t._onRevealComplete(n)
+                                    return t._onRevealComplete(State)
                                 })
                         }
                     },
@@ -103934,15 +103937,15 @@ function n(r) {
                     },
                     {
                         key: '_handleMatches',
-                        value: function (t, e) {
+                        value: function (YourMatches, HouseMatches) {
                             var n = this
-                            return this._hasItemsInArray(t) ?
-                                (this._hasItemsInArray(e) &&
-                                    (e.forEach(function (t) {
+                            return this._hasItemsInArray(YourMatches) ?
+                                (this._hasItemsInArray(HouseMatches) &&
+                                    (HouseMatches.forEach(function (t) {
                                             return n._playSymbolWinningSound(t.symbolID)
                                         }),
-                                        this._houseSymbols.playWinAnimation(e)),
-                                    this._yourSymbols.playWinAnimation(t)) :
+                                        this._houseSymbols.playWinAnimation(HouseMatches)),
+                                    this._yourSymbols.playWinAnimation(YourMatches)) :
                                 Promise.resolve()
                         }
                     },
@@ -106298,6 +106301,7 @@ function n(r) {
                         }
                     },
                     {
+											//ON BET
                         key: 'onBetRecieved',
                         value: function (t) {
                             t &&

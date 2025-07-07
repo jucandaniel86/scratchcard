@@ -9,6 +9,7 @@ export type SymbolType = {
   multiplier: number
   prizeAmount: number
   symbolID: string | number
+  index: number
 }
 
 type TicketType = {

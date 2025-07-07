@@ -3,9 +3,9 @@ import { Container } from 'pixi.js'
 import { onMounted, ref } from 'vue'
 import { ScreenOrientationEnum } from '../../../config/App'
 import { useAppStore } from '../../../store/app'
-import { useScratchAnimation } from '../Symbol/ScratchAnimation'
-import { useRevealAnimation } from '../Symbol/RevealAnimation'
 import { SymbolType } from '../../../composables/useGenerateSpin'
+import { useScratchAnimation } from '../Animations/ScratchAnimation'
+import { useRevealAnimation } from '../Animations/RevealAnimation'
 
 type HouseSymbolType = {
   x: number
@@ -45,6 +45,7 @@ const reset = () => {
 
 const reveal = async (symbolID: number | string) => {
   //disable()
+  console.log('on symbol house reveal')
   revealAnimation.play(symbolID)
   scratchAnimation.playReveal(symbolID)
 }

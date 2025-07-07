@@ -28,6 +28,8 @@ const menu_layout = useDataEntry('menu_layout')
 //models
 const orietation = ref<ScreenOrientationEnum>(store.orientation)
 const isAutoplayOpen = ref<any>(false)
+const gameStart = ref<boolean>(false)
+const gameArea = ref<any>('gameArea')
 
 //computed
 const autoplayX = computed(() =>
@@ -44,6 +46,7 @@ const autoplayModalAnimation = useTransition(autoplayX, {
 const startButton = ref<any>('startButton')
 const autoPlayButton = ref<any>('autoPlayButton')
 const menuButton = ref<any>('menuButton')
+const revealButton = ref<any>('revealButton')
 
 watch(store, () => {
   orietation.value = store.orientation
@@ -53,8 +56,11 @@ const { generate } = useGenerateSpin()
 const generateSpin = () => {
   const response: any = generate()
   gameStore.setSpin(response)
-  console.info('SPIN RESPONSE', response)
+  // console.info('SPIN RESPONSE', response)
+  gameStart.value = true
 }
+
+const revealAll = () => gameArea.value.revealAll()
 
 //methods
 const openAutoplayModal = () => (isAutoplayOpen.value = true)
@@ -64,7 +70,7 @@ const closeAutoplayModal = () => (isAutoplayOpen.value = false)
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
 
-    <GameArea />
+    <GameArea ref="gameArea" />
     <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />
 
     <MainMenu />
@@ -75,6 +81,17 @@ const closeAutoplayModal = () => (isAutoplayOpen.value = false)
       :y="layout.startButton[orietation].y"
       @onClick="generateSpin()"
       :visible="isAutoplayOpen ? false : true"
+      v-if="!gameStart"
+    />
+
+    <SpriteButton
+      ref="revealButton"
+      :texture="toolbar_textures.RevealAll_Btn"
+      :x="layout.startButton[orietation].x"
+      :y="layout.startButton[orietation].y"
+      @onClick="revealAll()"
+      :visible="isAutoplayOpen ? false : true"
+      v-if="gameStart"
     />
 
     <SpriteButton

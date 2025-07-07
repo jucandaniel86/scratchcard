@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { Container, Rectangle } from 'pixi.js'
 import { Graphics, Sprite, Texture } from 'pixi.js'
-import { useButtonActions } from '../../composables/useButtonActions'
+import {
+  ButtonState,
+  useButtonActions
+} from '../../composables/useButtonActions'
 
 type CloseButtonType = {
   label?: string
@@ -19,15 +22,28 @@ const props = withDefaults(defineProps<CloseButtonType>(), {
 const emitteres = defineEmits(['onClick'])
 
 const onClick = () => {
-  console.log('onClick sheet')
   emitteres('onClick')
 }
-const { container } = useButtonActions({ texture: props.texture, onClick })
-
-const onRender = (_container: Container) => {
-  _container.addChild(container.value)
-}
+const {
+  isUp,
+  isDisabled,
+  isOver,
+  isDown,
+  createOverState,
+  createUpState,
+  createDisabledState,
+  createDownState,
+  init
+} = useButtonActions({
+  texture: props.texture,
+  onClick
+})
 </script>
 <template>
-  <Container :x="props.x" :y="props.y" @render="onRender"> </Container>
+  <Container :x="props.x" :y="props.y" @render="init" :event-mode="'static'">
+    <Sprite @render="createDisabledState" :visible="isDisabled" />
+    <Sprite @render="createUpState" :visible="isUp" />
+    <Sprite @render="createOverState" :visible="isOver" />
+    <Sprite @render="createDownState" :visible="isDown" />
+  </Container>
 </template>

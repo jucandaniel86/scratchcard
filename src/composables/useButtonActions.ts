@@ -1,5 +1,13 @@
 import { Container, Graphics, Sprite, Texture, Rectangle, Text } from 'pixi.js'
-import { onMounted, ref, defineEmits } from 'vue'
+import {
+  computed,
+  ComputedGetter,
+  ComputedRef,
+  onBeforeMount,
+  onMounted,
+  ref,
+  watch
+} from 'vue'
 
 type UseButtonActionsType = {
   texture: Texture
@@ -23,7 +31,7 @@ export const useButtonActions = ({
   const buttonState = ref<ButtonState>(ButtonState.UP)
   const isDownState = ref<boolean>(false)
   const interactive = ref<boolean>(true)
-  const container = ref<Container>(new Container())
+  const container = ref<any>()
   //states
   const upState = ref<Sprite>()
   const downState = ref<Sprite>()
@@ -32,14 +40,6 @@ export const useButtonActions = ({
 
   const onCreate = () => {
     isDownState.value = false
-    upState.value = createUpState()
-    downState.value = createDownState()
-    overState.value = createOverState()
-    disabledState.value = createDisabledState()
-    container.value.addChild(disabledState.value)
-    container.value.addChild(downState.value)
-    container.value.addChild(overState.value)
-    container.value.addChild(upState.value)
   }
 
   //methods
@@ -57,60 +57,58 @@ export const useButtonActions = ({
     _text.style = { ..._style, fontFamily }
   }
 
-  const createDisabledState = () => {
+  const createDisabledState = (sprite: Sprite) => {
     const rectangle = new Rectangle(
       texture.frame.x + texture.orig.width / 2,
       texture.frame.y + texture.orig.height / 2,
       texture.orig.width / 2,
       texture.orig.height / 2
     )
-    const _texture = new Texture(texture.baseTexture, rectangle)
-    return Sprite.from(_texture.baseTexture)
+    sprite.texture = new Texture(texture.baseTexture, rectangle)
+    disabledState.value = sprite
   }
 
-  const createOverState = () => {
+  const createOverState = (sprite: Sprite) => {
     const rectangle = new Rectangle(
       texture.frame.x + texture.orig.width / 2,
       texture.frame.y,
       texture.orig.width / 2,
       texture.orig.height / 2
     )
-    const _texture = new Texture(texture.baseTexture, rectangle)
-    return Sprite.from(_texture.baseTexture)
+    sprite.texture = new Texture(texture.baseTexture, rectangle)
+    overState.value = sprite
   }
 
-  const createDownState = () => {
+  const createDownState = (sprite: Sprite) => {
     const rectangle = new Rectangle(
       texture.frame.x,
       texture.frame.y + texture.orig.height / 2,
       texture.orig.width / 2,
       texture.orig.height / 2
     )
-    const _texture = new Texture(texture.baseTexture, rectangle)
-    return Sprite.from(_texture.baseTexture)
+    sprite.texture = new Texture(texture.baseTexture, rectangle)
+    downState.value = sprite
   }
 
-  const createUpState = () => {
+  const createUpState = (sprite: Sprite) => {
     const rectangle = new Rectangle(
       texture.frame.x,
       texture.frame.y,
       texture.orig.width / 2,
       texture.orig.height / 2
     )
-    const _texture = new Texture(texture.baseTexture, rectangle)
-    return Sprite.from(_texture.baseTexture)
+    sprite.texture = new Texture(texture.baseTexture, rectangle)
+    upState.value = sprite
   }
 
   const onMouseDown = () => {
     isDownState.value = true
     buttonState.value = ButtonState.DOWN
-    // switchToDownState()
   }
 
   const onMouseOver = () => {
     isDownState.value = false
     buttonState.value = ButtonState.OVER
-    // switchToOverState()
   }
 
   const onMouseUpOutside = () => {
@@ -118,16 +116,10 @@ export const useButtonActions = ({
     buttonState.value = ButtonState.OVER
   }
 
-  const setUpStateTexture = (_texture: Texture) =>
-    (upState.value!.texture = _texture)
-  const setDownStateTexture = (_texture: Texture) =>
-    (downState.value!.texture = _texture)
-  const setOverStateTexture = (_texture: Texture) =>
-    (overState.value!.texture = _texture)
-  const setDisabledStateTexture = (_texture: Texture) =>
-    (disabledState.value!.texture = _texture)
-
-  const onMouseOut = () => {}
+  const onMouseOut = () => {
+    isDownState.value = false
+    buttonState.value = ButtonState.UP
+  }
 
   const enable = () => (interactive.value = true)
 
@@ -135,48 +127,64 @@ export const useButtonActions = ({
 
   const isEnabled = () => interactive.value
 
-  const makeInteractive = () => {
+  const isDisabled = computed(() => buttonState.value === ButtonState.DISABLED)
+
+  const isUp = computed(() => buttonState.value === ButtonState.UP)
+
+  const isOver = computed(() => buttonState.value === ButtonState.OVER)
+
+  const isDown = computed(() => buttonState.value === ButtonState.DOWN)
+
+  const makeInteractive = (container: Container) => {
     enable()
-    container.value.buttonMode = true
+    container.buttonMode = true
+    container.interactive = interactive.value
+    container.cursor = 'pointer'
   }
 
-  const setupListeners = () => {
+  const setupListeners = (container: Container) => {
     if ('ontouchstart' in window) {
-      container.value.on('tap', onClick)
-      container.value.on('touchstart', onMouseDown)
-      container.value.on('touchendoutside', onMouseUpOutside)
+      container.on('tap', onClick)
+      container.on('touchstart', onMouseDown)
+      container.on('touchendoutside', onMouseUpOutside)
       return
     }
 
-    container.value.on('click', onClick)
-    container.value.on('mousedown', onMouseDown)
-    container.value.on('mouseupoutside', onMouseUpOutside)
-    container.value.on('mouseout', onMouseOut)
-    container.value.on('mouseover', onMouseOver)
+    container.on('click', onClick)
+    container.on('mousedown', onMouseDown)
+    container.on('mouseupoutside', onMouseUpOutside)
+    container.on('mouseout', onMouseOut)
+    container.on('mouseover', onMouseOver)
   }
 
-  const init = () => {
-    onCreate()
-    makeInteractive()
-    setupListeners()
+  const updateLayout = (container: Container) => {
+    centerObject(upState.value, overState.value)
+    centerObject(upState.value, downState.value)
+    centerObject(upState.value, disabledState.value)
   }
 
-  onMounted(() => {
-    init()
+  const init = (container: Container) => {
+    makeInteractive(container)
+    setupListeners(container)
+    updateLayout(container)
+  }
+
+  watch(buttonState, () => {
+    console.log('BUTTON STATE', buttonState.value)
   })
 
   return {
     container,
     buttonState,
     isDownState,
+    isDisabled,
+    isUp,
+    isOver,
+    isDown,
     init,
     enable,
     disable,
     isEnabled,
-    setUpStateTexture,
-    setDownStateTexture,
-    setOverStateTexture,
-    setDisabledStateTexture,
     makeInteractive,
     setupListeners,
     onCreate,
