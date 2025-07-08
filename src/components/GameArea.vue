@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import YourSymbol from './Game/YourSymbols/YourSymbol.vue'
 import { useDataEntry } from '../composables/useDataEntry'
 import { ScreenOrientationEnum } from '../config/App'
@@ -25,6 +25,9 @@ const {
   yourSymbols,
   houseSymbols
 } = useGameArea()
+
+//emitters
+const emitters = defineEmits(['onRevealComplete'])
 
 //methods
 const reveal = async (symbolIndex: number): Promise<void> => {
@@ -96,15 +99,16 @@ const revealRemainingSequence = async (
   yourToRevealData: any,
   houseToRevealData: any
 ): Promise<void> => {
-  return new Promise((resolve) => {
+  return new Promise(async (resolve) => {
     if (houseToRevealData && houseToRevealData.length) {
       //play sound
-      revealMultiple(houseToRevealData, true).then(() => {
-        if (yourToRevealData && yourToRevealData.length) {
-          //play sound
-          revealMultiple(yourToRevealData).then(resolve)
-        }
-      })
+      console.log('1. HOUSE REVEAL')
+      await revealMultiple(houseToRevealData, true)
+      console.log('2. YOUR SYMBOL REVAL')
+      if (yourToRevealData && yourToRevealData.length) {
+        //play sound
+        await revealMultiple(yourToRevealData, false).then(resolve)
+      }
     }
   })
 }
@@ -117,12 +121,26 @@ const revealAll = () => {
   const houseToRevealData = data.houseToRevealData
 
   //todo
-  console.log('HOUSE TO REVEAL DATA', houseToRevealData)
   revealRemainingSequence(yourToRevealData, houseToRevealData).then(() => {
-    // console.log('reveal all completed')
+    emitters('onRevealComplete')
   })
 
   // console.log('REVEAL ALL', state, data)
+}
+
+const reset = () => {
+  housesymbols.value.map((symbol: any) => symbol.reset())
+  symbols.value.map((symbol: any) => symbol.reset())
+}
+
+const enable = () => {
+  housesymbols.value.map((symbol: any) => symbol.enable())
+  symbols.value.map((symbol: any) => symbol.enable())
+}
+
+const disable = () => {
+  housesymbols.value.map((symbol: any) => symbol.disable())
+  symbols.value.map((symbol: any) => symbol.disable())
 }
 
 store.$subscribe(() => {
@@ -131,11 +149,17 @@ store.$subscribe(() => {
 
 gameStore.$subscribe(() => {
   spin.value = gameStore.spin
+  reset()
+  enable()
   setSymbolsData(spin.value)
   // if (gameStore.spin && gameStore.spin.yourSymbols) {
   //   console.log('simbols', gameStore.spin)
   //   actions.playWinAnimation([{ index: 0 }, { index: 3 }])
   // }
+})
+
+onMounted(() => {
+  disable()
 })
 
 defineExpose({

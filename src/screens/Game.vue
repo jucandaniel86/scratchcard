@@ -70,7 +70,7 @@ const closeAutoplayModal = () => (isAutoplayOpen.value = false)
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
 
-    <GameArea ref="gameArea" />
+    <GameArea ref="gameArea" @onRevealComplete="gameStart = false" />
     <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />
 
     <MainMenu />

@@ -27202,17 +27202,17 @@
                                     },
                                     {
                                         key: 'setInteractiveEvents',
-                                        value: function (t, e, n, r, i, o) {
+                                        value: function (t, pointerPress, pointerUp, pointerUpOutside, mouseOut, o) {
                                             'ontouchstart' in window
                                                 ?
-                                                (t.on('touchend', n),
-                                                    t.on('touchendoutside', r),
-                                                    t.on('touchstart', e)) :
-                                                (t.on('mousedown', e),
-                                                    t.on('click', n),
-                                                    t.on('mouseout', i),
+                                                (t.on('touchend', pointerUp),
+                                                    t.on('touchendoutside', pointerUpOutside),
+                                                    t.on('touchstart', pointerPress)) :
+                                                (t.on('mousedown', pointerPress),
+                                                    t.on('click', pointerUp),
+                                                    t.on('mouseout', mouseOut),
                                                     t.on('mouseover', o),
-                                                    t.on('mouseupoutside', r))
+                                                    t.on('mouseupoutside', pointerUpOutside))
                                         }
                                     },
                                     {
@@ -48158,7 +48158,7 @@
                             })(t)
                             return 'symbol' == Ct(e) ? e : e + ''
                         }
-                        const xt = (function () {
+                        const InteractiveObjectClass = (function () {
                             return (
                                 (t = function t(e) {
                                     !(function (t, e) {
@@ -48507,7 +48507,7 @@
                                                 );
                                             (this.anim = t),
                                             (this.view = e),
-                                            (this.interactiveObject = new xt('')),
+                                            (this.interactiveObject = new InteractiveObjectClass('')),
                                             this.interactiveObject.init(this.view.HitArea_mc),
                                                 this._notifyComponentReady()
                                         }
@@ -65062,7 +65062,7 @@
                                                     o.tf,
                                                     i
                                                 ),
-                                                (this.interactiveObject = new xt('HIT_AREA')),
+                                                (this.interactiveObject = new InteractiveObjectClass('HIT_AREA')),
                                                 this.interactiveObject.init(
                                                     this.view.CheckboxHit_mc
                                                 ),
@@ -66386,7 +66386,7 @@
                                 n
                             )
                             var n, r
-                        })(xt);
+                        })(InteractiveObjectClass);
                         (ya.itemsStates = {
                             IDLE: 'idle',
                             REVEALING: 'revealing',
@@ -68166,7 +68166,7 @@
                             NGTButtonCTA: ge,
                             NGTCenterTitleValuePanel: qe,
                             NGTCheckbox: Jo,
-                            NGTInteractiveObject: xt,
+                            NGTInteractiveObject: InteractiveObjectClass,
                             NGTParticleAnimation: na,
                             NGTPatricleAnimation: na,
                             NGTPopup: sa,
@@ -100901,7 +100901,7 @@ function n(r) {
             ut(t, e)
         )
     }
-    var lt = (function (e) {
+    var BaseSymbolClass = (function (e) {
         function n(t) {
             var e,
                 r = t.index,
@@ -102229,7 +102229,7 @@ function n(r) {
                 r
             )
             var r, i, o
-        })(lt)
+        })(BaseSymbolClass)
 
     function ie(t) {
         return (
@@ -102915,7 +102915,7 @@ function n(r) {
             n
         )
         var n, HouseSymbolClass, i
-    })(lt)
+    })(BaseSymbolClass)
 
     function je(t) {
         return (
@@ -103322,27 +103322,27 @@ function n(r) {
                     key: 'setAllRevealed',
                     value: function () {
                         var t = this,
-                            e = this._createRevealLists()
+                            NewState = this._createRevealLists()
                         if (
-                            ((e.yourToRevealData = this._yourSymbols.filter(function (t) {
+                            ((NewState.yourToRevealData = this._yourSymbols.filter(function (t) {
                                     return !t.isRevealed
                                 })),
-                                (e.houseToRevealData = this._houseSymbols.filter(function (
+                                (NewState.houseToRevealData = this._houseSymbols.filter(function (
                                     t
                                 ) {
                                     return !t.isRevealed
                                 })),
-                                e.yourToRevealData.some(function (t) {
+                                NewState.yourToRevealData.some(function (t) {
                                     return t.isWinAll
                                 }))
                         )
                             return this.setWinAll()
                         if (
-                            ((e.yourMatchesData = e.yourToRevealData.filter(function (t) {
+                            ((NewState.yourMatchesData = NewState.yourToRevealData.filter(function (t) {
                                     return t.isWin && !t.isMultiplier
                                 })),
-                                e.houseToRevealData.length &&
-                                (e.yourMatchesData = e.houseToRevealData.reduce(function (
+                                NewState.houseToRevealData.length &&
+                                (NewState.yourMatchesData = NewState.houseToRevealData.reduce(function (
                                         e,
                                         n
                                     ) {
@@ -103351,27 +103351,27 @@ function n(r) {
                                         })
                                         return [].concat(Ge(e), Ge(r))
                                     },
-                                    e.yourMatchesData)),
-                                e.yourMatchesData.length)
+                                    NewState.yourMatchesData)),
+                                NewState.yourMatchesData.length)
                         ) {
                             var n = [].concat(
                                 Ge(
                                     new Set(
-                                        e.yourMatchesData.map(function (t) {
+                                        NewState.yourMatchesData.map(function (t) {
                                             return t.symbolID
                                         })
                                     )
                                 ),
                                 Ge(this._resolvedSymbolIDs)
                             )
-                            e.houseMatchesData = this._houseSymbols.filter(function (t) {
+                            NewState.houseMatchesData = this._houseSymbols.filter(function (t) {
                                 return n.includes(t.symbolID)
                             })
                         }
                         return (
                             this._updateStateOnComplete(), {
                                 state: this._copy(this._state),
-                                data: e
+                                data: NewState
                             }
                         )
                     }
@@ -103901,17 +103901,17 @@ function n(r) {
                     },
                     {
                         key: '_revealRemainingSequence',
-                        value: function (t, e) {
+                        value: function (yourSymbols, houseSymbols) {
                             var n = this
                             return new Promise(function (r) {
-                                e &&
-                                    e.length > 0 &&
+                                houseSymbols &&
+                                    houseSymbols.length > 0 &&
                                     n._playSound(c.MainGame.Reveal_Winning_Symbols),
-                                    n._houseSymbols.reveal(e).then(function () {
-                                        t &&
-                                            t.length > 0 &&
+                                    n._houseSymbols.reveal(houseSymbols).then(function () {
+                                        yourSymbols &&
+                                            yourSymbols.length > 0 &&
                                             n._playSound(c.MainGame.Reveal_Your_Symbols),
-                                            n._yourSymbols.reveal(t).then(r)
+                                            n._yourSymbols.reveal(yourSymbols).then(r)
                                     })
                             })
                         }

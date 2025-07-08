@@ -29,11 +29,11 @@ export const useRevealAnimation = ({ spineData, _key }: RevealAnimationI) => {
       .concat(idleLabel)
   }
 
-  const play = (
+  const play = async (
     symbolID: string | number,
     win: boolean,
     loop: boolean = false
-  ) => {
+  ): Promise<void> => {
     const animationName = getAnimationName(symbolID, win, loop)
 
     animation.setVisible(true)
@@ -41,8 +41,7 @@ export const useRevealAnimation = ({ spineData, _key }: RevealAnimationI) => {
       //todo
     }
 
-    animation.triggerAnimation(animationName, loop)
-    return Promise.resolve()
+    return animation.triggerAnimation(animationName, loop)
   }
 
   const stop = () => {

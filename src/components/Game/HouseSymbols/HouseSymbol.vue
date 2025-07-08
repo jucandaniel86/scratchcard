@@ -43,12 +43,14 @@ const reset = () => {
   revealAnimation.reset()
 }
 
-const reveal = async (symbolID: number | string) => {
-  //disable()
-  console.log('on symbol house reveal')
-  revealAnimation.play(symbolID)
-  scratchAnimation.playReveal(symbolID)
+const reveal = async (symbol: SymbolType): Promise<any> => {
+  return (
+    await revealAnimation.play(symbol.symbolID), scratchAnimation.playReveal()
+  )
 }
+
+const enable = () => {}
+const disable = () => {}
 
 const playWinAnimation = (symbolID: number | string) => {
   return revealAnimation.playWin(symbolID, true)
@@ -61,7 +63,7 @@ const onRender = (container: Container) => {
 
 const onReveal = () => {
   if (props.symbol) {
-    reveal(props.symbol?.symbolID)
+    reveal(props.symbol)
   }
 }
 
@@ -76,6 +78,8 @@ onMounted(() => {
 defineExpose({
   reset,
   reveal,
+  enable,
+  disable,
   playCTA,
   stopCTA,
   playWinAnimation

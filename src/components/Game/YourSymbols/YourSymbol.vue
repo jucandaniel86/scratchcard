@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { __LOADED_RESOURCES } from '../../../config/Resources'
 import { Container, Graphics, Texture } from 'pixi.js'
 import { Polygon } from 'pixi.js'
@@ -7,7 +7,7 @@ import { useScratchAnimation } from '../Animations/ScratchAnimation'
 import { useRevealAnimation } from '../Animations/RevealAnimation'
 import { useFrameAnimation } from '../Animations/FrameAnimation'
 import { SymbolType } from '../../../store/game'
-
+import { useInteractiveObject } from '../../Core/VInteractiveObject'
 //props
 type SymbolTypeI = {
   index: number
@@ -43,6 +43,16 @@ const emitters = defineEmits([
   'onMouseOut'
 ])
 
+//models
+const hitArea = ref<any>()
+
+//composables
+const { disable, enable, init } = useInteractiveObject({
+  clickHandler: () => emitters('onRevealStart'),
+  hoverInHanlder: () => emitters('onMouseOver'),
+  hoverOutHandler: () => emitters('onMouseOut')
+})
+
 const findCurrentSprite = (animation: any, _key: string) => {
   var slot = animation.skeleton.findSlot(_key)
 
@@ -62,10 +72,10 @@ const findCurrentSprite = (animation: any, _key: string) => {
 
 const createHitArea = (_resource: any): any => {
   const animation = _resource
-  const hit_area = animation.skeleton.findSlot('hit_area')
+  hitArea.value = animation.skeleton.findSlot('hit_area')
   let poligonSetup: any = []
 
-  hit_area.attachment.vertices.forEach((t: number, e: number) => {
+  hitArea.value.attachment.vertices.forEach((t: number, e: number) => {
     var n = e % 2 ? t : -t
     poligonSetup.push(n)
   })
@@ -75,8 +85,9 @@ const createHitArea = (_resource: any): any => {
   const graphics = new Graphics()
 
   graphics.hitArea = poligon
-  graphics.buttonMode = true
+
   sprite.addChild(graphics)
+  init(graphics)
 
   return sprite
 }
@@ -102,18 +113,20 @@ const setPlayAnimation = (
   return IsMultiplier ? 19 : IsWinAll ? 20 : SymbolID
 }
 
-const reveal = (symbol: SymbolType) => {
-  //disable()
+const reveal = async (symbol: SymbolType): Promise<void> => {
+  disable()
   const { symbolID, isMultiplier, isWinAll, prizeAmount } = symbol
 
   revealAnimation.play(setPlayAnimation(symbolID, isMultiplier, isWinAll))
   // revealAnimation.setPrize(prizeAmount)
-  scratchAnimation.playReveal()
+  return await scratchAnimation.playReveal()
 }
 
 defineExpose({
   reveal,
-  reset
+  reset,
+  enable,
+  disable
 })
 
 onMounted(() => {
@@ -122,16 +135,12 @@ onMounted(() => {
 </script>
 <template>
   <container
-    @render="renderSymbolContainer"
-    @click="emitters('onRevealStart')"
     @mouseout="emitters('onMouseOut')"
     @mouseover="emitters('onMouseOver')"
-    :event-mode="'static'"
-    :button-mode="true"
-    :cursor="'pointer'"
     :x="props.x"
     :y="props.y"
     :scale="props.scale"
+    @render="renderSymbolContainer"
   >
   </container>
 </template>

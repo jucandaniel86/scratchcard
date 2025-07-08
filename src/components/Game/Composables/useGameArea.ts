@@ -200,7 +200,7 @@ export const useGameArea = () => {
     )
   }
 
-  const setAllRevealed = (): GameAreaStateType => {
+  const setAllRevealed = (): any => {
     const newState = createRevealLists()
 
     if (
@@ -223,7 +223,7 @@ export const useGameArea = () => {
 
     if (newState.yourMatchesData && newState.houseToRevealData.length) {
       newState.yourMatchesData = newState.houseToRevealData.reduce(
-        (previousValue: SymbolType, currentValue: SymbolType) => {
+        (previousValue, currentValue: any) => {
           const check = yourSymbols.value.filter((_symbol) => {
             _symbol.symbolID === currentValue.symbolID && _symbol.isRevealed
           })

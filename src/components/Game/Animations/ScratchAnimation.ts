@@ -24,8 +24,8 @@ export const useScratchAnimation = ({
     animation.triggerAnimation('callToAction', true)
   }
 
-  const playReveal = (_key: string) => {
-    animation.triggerAnimation(revealAnimation)
+  const playReveal = async (): Promise<void> => {
+    return animation.triggerAnimation(revealAnimation)
   }
 
   return {
