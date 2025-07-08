@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Container, Graphics, Rectangle, Sprite } from 'pixi.js'
+import { Container, Graphics, Sprite } from 'pixi.js'
 import { Text, Texture } from 'pixi.js'
 import { onMounted, ref, watch } from 'vue'
 import { __RESOURCES } from '../../config/Resources'

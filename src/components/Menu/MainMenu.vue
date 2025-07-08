@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useDataEntry } from '../../composables/useDataEntry'
+// import { useDataEntry } from '../../composables/useDataEntry'
 
-const layout = useDataEntry('menu_layout')
+// const layout = useDataEntry('menu_layout')
 </script>
 <template>
   <container>

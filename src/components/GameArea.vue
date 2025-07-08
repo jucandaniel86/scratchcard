@@ -4,7 +4,7 @@ import YourSymbol from './Game/YourSymbols/YourSymbol.vue'
 import { useDataEntry } from '../composables/useDataEntry'
 import { ScreenOrientationEnum } from '../config/App'
 import { useAppStore } from '../store/app'
-import { useYourSymbolsActions } from './Game/YourSymbols/Actions'
+// import { useYourSymbolsActions } from './Game/YourSymbols/Actions'
 import { SymbolType, useGameStore } from '../store/game'
 import HouseSymbol from './Game/HouseSymbols/HouseSymbol.vue'
 import { useGameArea } from './Game/Composables/useGameArea'
@@ -16,15 +16,10 @@ const symbols = ref<any>('symbols')
 const housesymbols = ref<any>('housesymbols')
 const layout = useDataEntry('main_screen_layout', 'gameArea')
 const orientation = ref<ScreenOrientationEnum>(store.orientation)
-const actions = useYourSymbolsActions(symbols)
+// const actions = useYourSymbolsActions(symbols)
 const spin = ref<any>()
-const {
-  setSymbolsData,
-  setYourSymbolRevealed,
-  setAllRevealed,
-  yourSymbols,
-  houseSymbols
-} = useGameArea()
+const { setSymbolsData, setYourSymbolRevealed, setAllRevealed, yourSymbols } =
+  useGameArea()
 
 //emitters
 const emitters = defineEmits(['onRevealComplete'])
@@ -41,7 +36,7 @@ const handleMatches = async (
   yourMatches: any[],
   houseMatches: any[]
 ): Promise<void> => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     if (hasItemsInArray(yourMatches)) {
       if (hasItemsInArray(houseMatches)) {
         houseMatches.forEach((_symbol: any) => {
@@ -59,10 +54,10 @@ const handleMultiplier = () => {}
 
 const onSymbolReveal = (symbolIndex: number) => {
   //play sounds
-  const { state, data } = setYourSymbolRevealed(symbolIndex)
+  const { data } = setYourSymbolRevealed(symbolIndex)
   const YourMatches = data.value.yourMatchesData
   const HouseMatches = data.value.houseMatchesData
-  const YourToRevealData = data.value.yourToRevealData
+  // const YourToRevealData = data.value.yourToRevealData
 
   reveal(symbolIndex)
     .then(async () => {
@@ -115,7 +110,7 @@ const revealRemainingSequence = async (
 
 const revealAll = () => {
   //onComplete??
-  const { state, data } = setAllRevealed()
+  const { data } = setAllRevealed()
 
   const yourToRevealData = data.yourToRevealData
   const houseToRevealData = data.houseToRevealData

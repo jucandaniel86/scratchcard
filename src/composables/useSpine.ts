@@ -24,7 +24,7 @@ export const useSpine = (resource: any) => {
     stopAnimation()
     setVisible(true)
 
-    return new Promise((resolve: any, reject: any) => {
+    return new Promise((resolve: any) => {
       resolver = resolve
       if (animation.state.hasAnimation(_animation)) {
         const state = animation.state

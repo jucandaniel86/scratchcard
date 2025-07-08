@@ -1,14 +1,9 @@
-import { ref, type Ref } from 'vue'
+import { ref } from 'vue'
 
 interface CreateSymbolsI {
   locations: any[]
   onRevealStart: () => Promise<void>
   onRevealComplete: () => Promise<void>
-}
-
-type SymbolType = {
-  index: number
-  onRevealStart: () => any
 }
 
 export const useYourSymbolsActions = (symbols: any) => {

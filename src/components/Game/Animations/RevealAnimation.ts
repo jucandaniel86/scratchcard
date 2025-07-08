@@ -3,14 +3,13 @@ import { useSpine } from '../../../composables/useSpine'
 
 interface RevealAnimationI {
   spineData: any
-  _key?: string | number
 }
 
-export const useRevealAnimation = ({ spineData, _key }: RevealAnimationI) => {
+export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
   const animationData = useDataEntry(spineData)
 
   const animation = useSpine(animationData)
-  const textStyles = useDataEntry('main_text_styles')
+  // const textStyles = useDataEntry('main_text_styles')
 
   const getResetLabel = () => ['symbol1_lose']
 

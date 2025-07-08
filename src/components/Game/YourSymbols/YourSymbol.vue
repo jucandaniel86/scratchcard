@@ -115,7 +115,7 @@ const setPlayAnimation = (
 
 const reveal = async (symbol: SymbolType): Promise<void> => {
   disable()
-  const { symbolID, isMultiplier, isWinAll, prizeAmount } = symbol
+  const { symbolID, isMultiplier, isWinAll } = symbol
 
   revealAnimation.play(setPlayAnimation(symbolID, isMultiplier, isWinAll))
   // revealAnimation.setPrize(prizeAmount)

@@ -1,13 +1,5 @@
 import { Container, Graphics, Sprite, Texture, Rectangle, Text } from 'pixi.js'
-import {
-  computed,
-  ComputedGetter,
-  ComputedRef,
-  onBeforeMount,
-  onMounted,
-  ref,
-  watch
-} from 'vue'
+import { computed, ref, watch } from 'vue'
 
 type UseButtonActionsType = {
   texture: Texture
@@ -157,16 +149,23 @@ export const useButtonActions = ({
     container.on('mouseover', onMouseOver)
   }
 
-  const updateLayout = (container: Container) => {
-    centerObject(upState.value, overState.value)
-    centerObject(upState.value, downState.value)
-    centerObject(upState.value, disabledState.value)
+  const updateLayout = () => {
+    if (
+      upState.value &&
+      overState.value &&
+      downState.value &&
+      disabledState.value
+    ) {
+      centerObject(upState.value, overState.value)
+      centerObject(upState.value, downState.value)
+      centerObject(upState.value, disabledState.value)
+    }
   }
 
   const init = (container: Container) => {
     makeInteractive(container)
     setupListeners(container)
-    updateLayout(container)
+    updateLayout()
   }
 
   watch(buttonState, () => {

@@ -3,7 +3,6 @@ import { ref, computed, defineEmits } from 'vue'
 import { Loader, useScreen } from 'vue3-pixi'
 import { __RESOURCES, __LOADED_RESOURCES, __FONTS } from '../config/Resources'
 import { Graphics } from 'pixi.js'
-import { BASE_URL } from '../main'
 //@ts-ignore
 import WebFont from 'webfontloader'
 import { useFontFaceLoader } from '../composables/useFontFaceLoader'
@@ -76,7 +75,7 @@ const onResolved = (evt: any) => {
     __LOADED_RESOURCES[el[0]] = el[1]
   })
   load()
-  observer().then((value) => {
+  observer().then((_value) => {
     emitters('loader:resolved', evt)
   })
 }

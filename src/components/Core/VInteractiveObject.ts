@@ -52,7 +52,9 @@ export const useInteractiveObject = (props: InteractiveObjectProps) => {
 
   const disable = () => {
     isEnabled.value = false
-    hitArea.value.interactive = false
+    if (hitArea.value) {
+      hitArea.value.interactive = false
+    }
 
     if (typeof props.disableHandler === 'function') {
       props.disableHandler(id.value)
@@ -61,7 +63,9 @@ export const useInteractiveObject = (props: InteractiveObjectProps) => {
 
   const enable = () => {
     isEnabled.value = true
-    hitArea.value.interactive = true
+    if (hitArea.value) {
+      hitArea.value.interactive = true
+    }
 
     if (typeof props.enableHandler === 'function') {
       props.enableHandler(id.value)
@@ -69,7 +73,9 @@ export const useInteractiveObject = (props: InteractiveObjectProps) => {
   }
 
   const setButtonMode = (buttonMode: boolean) => {
-    hitArea.value.buttonMode = buttonMode
+    if (hitArea.value) {
+      hitArea.value.buttonMode = buttonMode
+    }
   }
 
   const pointerPress = () => {
@@ -108,7 +114,9 @@ export const useInteractiveObject = (props: InteractiveObjectProps) => {
   }
 
   const removeHandlers = () => {
-    hitArea.value.removeAllListeners()
+    if (hitArea.value) {
+      hitArea.value.removeAllListeners()
+    }
   }
 
   const destroy = () => {
@@ -116,7 +124,9 @@ export const useInteractiveObject = (props: InteractiveObjectProps) => {
   }
 
   const setVisible = () => {
-    hitArea.value.visible = true
+    if (hitArea.value) {
+      hitArea.value.visible = true
+    }
   }
 
   const setInteractiveEvents = (

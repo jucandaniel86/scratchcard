@@ -26,10 +26,10 @@ interface RevealListI {
   yourMatchesData: SymbolType[]
 }
 
-type GameAreaStateType = {
-  data: RevealListI
-  state: any
-}
+// type GameAreaStateType = {
+//   data: RevealListI
+//   state: any
+// }
 
 export const useGameArea = () => {
   //states
@@ -71,7 +71,7 @@ export const useGameArea = () => {
     resolvedSymbolIDs.value = []
   }
 
-  const createRevealLists = () => {
+  const createRevealLists = (): RevealListI => {
     revealList.value = {
       houseToRevealData: [],
       houseMatchesData: [],
@@ -229,7 +229,7 @@ export const useGameArea = () => {
           })
           return [...previousValue, ...check]
         },
-        newState.yourMatchesData
+        newState.yourMatchesData as any[]
       )
       if (newState.yourMatchesData.length) {
         const check = [

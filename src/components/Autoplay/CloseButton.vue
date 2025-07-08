@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { Container, Rectangle } from 'pixi.js'
-import { Graphics, Sprite, Texture } from 'pixi.js'
-import {
-  ButtonState,
-  useButtonActions
-} from '../../composables/useButtonActions'
+import { Container } from 'pixi.js'
+import { Sprite, Texture } from 'pixi.js'
+import { useButtonActions } from '../../composables/useButtonActions'
 
 type CloseButtonType = {
   label?: string
