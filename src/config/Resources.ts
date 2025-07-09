@@ -91,7 +91,14 @@ export const __RESOURCES: StringMap = {
 
   //texts
   text_styles: 'assets/json/TextStyles.json',
-  main_text_styles: 'assets/json/MainStyles.json'
+  main_text_styles: 'assets/json/MainStyles.json',
+
+  //particles
+  general_win_particles_config: 'assets/json/GeneralWinParticles.json',
+  general_win_particles_texture1: IMGS + 'GeneralWin/particle1.png',
+  general_win_particles_texture2: IMGS + 'GeneralWin/particle2.png',
+  general_win_particles_texture3: IMGS + 'GeneralWin/particle3.png',
+  general_win_particles_texture4: IMGS + 'GeneralWin/particle4.png'
 }
 
 export const __FONTS: FontType[] = [

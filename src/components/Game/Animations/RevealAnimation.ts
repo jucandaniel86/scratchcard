@@ -54,11 +54,11 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
     win: boolean,
     loop: boolean = false
   ): Promise<void> => {
-    const animationName = getAnimationName(symbolID, win, loop)
+    const animationName = getAnimationName(symbolID, win)
 
     animation.setVisible(true)
     if (win) {
-      return await animation.triggerAnimation(animationName, loop)
+      return animation.triggerAnimation(animationName, loop)
     }
 
     return animation.triggerAnimation(animationName)
@@ -78,12 +78,11 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
     animation.triggerAnimation('symbol_20_win2')
   }
 
-  const playMultiplier = (symbolID: string | number, win: boolean) => {
-    const animationName = getAnimationName(symbolID, win)
+  const playMultiplier = (symbolID: string | number, multiplier: number) => {
+    const animationName = getAnimationName(symbolID, true)
 
-    //todo
-
-    animation.triggerAnimation(animationName)
+    setPrize(multiplier)
+    return animation.triggerAnimation(animationName)
   }
 
   const playWin = (symbolID: string | number, loop: boolean) => {

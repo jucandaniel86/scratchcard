@@ -11,10 +11,19 @@ import { useGameStore } from '../store/game'
 import GameArea from '../components/GameArea.vue'
 import AutoplayModal from '../components/Autoplay/Main.vue'
 import { TransitionPresets, useTransition } from '@vueuse/core'
+import { GameEvents } from '../types/Events'
+import { useEventsStore } from '../store/events'
+import { useUtils } from '../composables/useUtils'
+import GeneralWin from '../components/Game/Animations/GeneralWin.vue'
+import { __LOADED_RESOURCES } from '../config/Resources'
 
 //store
 const store = useAppStore()
 const gameStore = useGameStore()
+const { on } = useEventsStore()
+
+//utils
+const { wait } = useUtils()
 
 //toolbar textures
 const toolbar_textures = useDataEntry('toolbar_json', 'textures')
@@ -30,6 +39,8 @@ const orietation = ref<ScreenOrientationEnum>(store.orientation)
 const isAutoplayOpen = ref<any>(false)
 const gameStart = ref<boolean>(false)
 const gameArea = ref<any>('gameArea')
+const generalWinLeft = ref()
+const generalWinRight = ref()
 
 //computed
 const autoplayX = computed(() =>
@@ -65,10 +76,59 @@ const revealAll = () => gameArea.value.revealAll()
 //methods
 const openAutoplayModal = () => (isAutoplayOpen.value = true)
 const closeAutoplayModal = () => (isAutoplayOpen.value = false)
+
+const playGeneralWin = (totalWin: number, isBigWin: boolean) => {
+  console.log('play General Win')
+  generalWinRight.value.play()
+  generalWinLeft.value.play()
+}
+
+const handleTotalWinUpdate = () => {
+  const gamePrize = gameStore.spin?.gamePrize as number
+  const isBigWin = gameStore.spin?.isBigWin as boolean
+
+  playGeneralWin(gamePrize, isBigWin)
+}
+
+const onAllSymbolsRevealed = () => {
+  wait(500).then(() => {
+    //1.handle big win
+    //2. handleTotalWinUpdate
+    handleTotalWinUpdate()
+  })
+}
+
+//emits
+on(GameEvents.REVEAL_COMPLETE, (payload: any) => {
+  if (payload.isAllCompleted) {
+    if (payload.isWinAll) {
+      onAllSymbolsRevealed()
+      //onWinAllRevealed
+      return
+    }
+    // return onAllSymbolsRevealed
+  }
+})
+
+const GeneralWinConfig = useDataEntry('general_win_particles_config')
+const GeneralWinImages = Array(4).map(
+  (e, i) => __LOADED_RESOURCES[`general_win_particles_texture${i + 1}`]
+)
 </script>
 <template>
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
+
+    <GeneralWin
+      ref="generalWinLeft"
+      :config="GeneralWinConfig"
+      :images="GeneralWinImages"
+    />
+    <GeneralWin
+      ref="generalWinRight"
+      :config="GeneralWinConfig"
+      :images="GeneralWinImages"
+    />
 
     <GameArea ref="gameArea" @onRevealComplete="gameStart = false" />
     <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />

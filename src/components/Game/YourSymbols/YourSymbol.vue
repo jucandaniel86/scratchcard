@@ -122,6 +122,22 @@ const playWinAnimation = (_symbol: SymbolType) => {
   })
 }
 
+const playMultiplier = (_symbol: SymbolType) => {
+  const animationName = setPlayAnimation(
+    _symbol.symbolID,
+    _symbol.isMultiplier,
+    _symbol.isWinAll
+  )
+  // oxlint-disable-next-line no-single-promise-in-promise-methods
+  return Promise.all([
+    revealAnimation
+      .playMultiplier(animationName, _symbol.finalPrizeAmount)
+      .then(() => {
+        return revealAnimation.play(animationName, true, true)
+      })
+  ])
+}
+
 const playCTA = () => scratchAnimation.playCTA()
 
 defineExpose({
@@ -130,7 +146,8 @@ defineExpose({
   enable,
   disable,
   playWinAnimation,
-  playCTA
+  playCTA,
+  playMultiplier
 })
 
 onMounted(() => {

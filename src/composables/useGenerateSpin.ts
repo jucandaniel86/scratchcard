@@ -5,18 +5,25 @@ const TOTAL_SYMBOLS = 10
 const SYMBOL_MAX = 18
 const MAX_WIN = 3
 const BIG_WIN_PRIZE = 70
-const MAX_MULTIPLIER = 5
+const MAX_MULTIPLIER = 3
 
 export const useGenerateSpin = () => {
   const toYourSymbol = (number: any, houseNumbers: number[]): SymbolType => {
     const isWin = houseNumbers.indexOf(number) !== -1
+    const multiplier = isWin ? Math.floor(Math.random() * MAX_MULTIPLIER) : 0
+    const prize = isWin
+      ? (Math.random() * MAX_WIN).toFixed(2)
+      : Number(0).toFixed(2)
+    const finalPrizeAmount =
+      multiplier > 0 ? parseFloat(prize) * multiplier : prize
+
     return {
       symbolID: number,
       isWin,
-      prizeAmount: isWin ? (Math.random() * MAX_WIN).toFixed(2) : 0,
-      finalPrizeAmount: Math.floor(Math.random() * MAX_WIN),
-      multiplier: Math.floor(Math.random() * MAX_MULTIPLIER),
-      isMultiplier: false,
+      prizeAmount: prize,
+      finalPrizeAmount: Number(finalPrizeAmount),
+      multiplier: multiplier,
+      isMultiplier: multiplier > 1,
       isWinAll: false,
       isRevealed: false,
       index: 0
@@ -49,10 +56,10 @@ export const useGenerateSpin = () => {
     const yourSymbols = parseYourSymbols(numbers, houseNumbers)
 
     const gamePrize = yourSymbols.reduce((acc, obj) => {
-      return (acc += obj.prizeAmount)
+      return (acc += obj.finalPrizeAmount)
     }, 0 as any)
     const isBigWin = gamePrize > BIG_WIN_PRIZE
-    console.log('TOTAL PRIZE', gamePrize)
+
     return {
       gamePrize,
       isBigWin,

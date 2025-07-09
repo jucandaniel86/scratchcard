@@ -7,18 +7,29 @@ import { useAppStore } from '../store/app'
 import { SymbolType, useGameStore } from '../store/game'
 import HouseSymbol from './Game/HouseSymbols/HouseSymbol.vue'
 import { useGameArea } from './Game/Composables/useGameArea'
+import { useEventsStore } from '../store/events'
+import { GameEvents } from '../types/Events'
 
+//stores
 const store = useAppStore()
 const gameStore = useGameStore()
+const { emit } = useEventsStore()
 
+//models
 const symbols = ref<any>('symbols')
 const housesymbols = ref<any>('housesymbols')
 const layout = useDataEntry('main_screen_layout', 'gameArea')
 const orientation = ref<ScreenOrientationEnum>(store.orientation)
+const isMultiplierPlaying = ref<boolean>(false)
 
 const spin = ref<any>()
-const { setSymbolsData, setYourSymbolRevealed, setAllRevealed, yourSymbols } =
-  useGameArea()
+const {
+  setSymbolsData,
+  setYourSymbolRevealed,
+  setAllRevealed,
+  yourSymbols,
+  state
+} = useGameArea()
 
 //emitters
 const emitters = defineEmits(['onRevealComplete'])
@@ -62,7 +73,25 @@ const handleMatches = async (yourMatches: any[], houseMatches: any[]) => {
   }
 }
 
-const handleMultiplier = () => {}
+const playMultiplier = (_symbols: SymbolType[]) => {
+  return Promise.all(
+    _symbols.map((symbol) => symbols.value[symbol.index].playMultiplier(symbol))
+  )
+}
+
+const handleMultiplier = (symbols: SymbolType[]) => {
+  const filteredSymbols = symbols.filter((symbol) => symbol.isMultiplier)
+
+  if (filteredSymbols.length) {
+    isMultiplierPlaying.value = true
+    playMultiplier(filteredSymbols).then(() => {
+      isMultiplierPlaying.value = false
+      Promise.resolve()
+    })
+  }
+
+  return Promise.resolve()
+}
 
 const handleWins = (
   yourMatchesData: SymbolType[],
@@ -71,7 +100,7 @@ const handleWins = (
 ) => {
   return Promise.all([
     handleMatches(yourMatchesData, houseMatchesData),
-    handleMultiplier
+    handleMultiplier(yourToRevealData)
   ])
 }
 
@@ -80,16 +109,14 @@ const onSymbolReveal = (symbolIndex: number) => {
   const { data } = setYourSymbolRevealed(symbolIndex)
   const YourMatches = data.value.yourMatchesData
   const HouseMatches = data.value.houseMatchesData
-  // const YourToRevealData = data.value.yourToRevealData
+  const YourToRevealData: any = data.value.yourToRevealData
 
   reveal(symbolIndex)
     .then(async () => {
-      console.log('handle matches', YourMatches, HouseMatches)
       await handleMatches(YourMatches, HouseMatches)
     })
     .then(() => {
-      // console.log('handle multiplier')
-      handleMultiplier()
+      handleMultiplier(YourToRevealData)
     })
     .then(() => {
       // console.log('on reveal complete')
@@ -131,6 +158,11 @@ const revealRemainingSequence = async (
   })
 }
 
+const onRevealComplete = () => {
+  emitters('onRevealComplete')
+  emit(GameEvents.REVEAL_COMPLETE, state.value)
+}
+
 const revealAll = () => {
   //onComplete??
   const { data } = setAllRevealed()
@@ -143,10 +175,10 @@ const revealAll = () => {
   //todo
   revealRemainingSequence(yourToRevealData, houseToRevealData)
     .then(() => {
-      handleWins(yourMatchesData, houseMatchesData, [])
+      handleWins(yourMatchesData, houseMatchesData, yourToRevealData)
     })
     .then(() => {
-      emitters('onRevealComplete')
+      onRevealComplete()
     })
 }
 

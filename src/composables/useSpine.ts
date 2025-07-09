@@ -39,7 +39,10 @@ export const useSpine = (resource: any) => {
         state.tracks[tracksLength].listener = {
           event: eventFireCallback,
           complete: () => {
-            state.clearTrack(tracksLength)
+            if (!_loop) {
+              state.clearTrack(tracksLength)
+            }
+
             resolve()
             _onAnimationCompleted()
           }
