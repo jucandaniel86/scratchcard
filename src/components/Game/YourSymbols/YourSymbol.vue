@@ -115,18 +115,25 @@ const setPlayAnimation = (
 
 const reveal = async (symbol: SymbolType): Promise<void> => {
   disable()
-  const { symbolID, isMultiplier, isWinAll } = symbol
+  const { symbolID, isMultiplier, isWinAll, prizeAmount } = symbol
 
   revealAnimation.play(setPlayAnimation(symbolID, isMultiplier, isWinAll))
-  // revealAnimation.setPrize(prizeAmount)
+  revealAnimation.setPrize(prizeAmount)
   return await scratchAnimation.playReveal()
+}
+
+const playWinAnimation = (_symbol: SymbolType) => {
+  return revealAnimation.play(_symbol.symbolID, true).then(function () {
+    return revealAnimation.loop(_symbol.symbolID, true)
+  })
 }
 
 defineExpose({
   reveal,
   reset,
   enable,
-  disable
+  disable,
+  playWinAnimation
 })
 
 onMounted(() => {

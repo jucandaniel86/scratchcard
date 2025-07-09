@@ -21,6 +21,17 @@ const spin = ref<any>()
 const { setSymbolsData, setYourSymbolRevealed, setAllRevealed, yourSymbols } =
   useGameArea()
 
+var qe = {
+  landscape: {
+    width: 214,
+    height: 21
+  },
+  portrait: {
+    width: 304,
+    height: 30
+  }
+}
+
 //emitters
 const emitters = defineEmits(['onRevealComplete'])
 
@@ -32,25 +43,49 @@ const reveal = async (symbolIndex: number): Promise<void> => {
 //@todo : add to utils
 const hasItemsInArray = (array: any[]) => array.length > 0
 
+const textStyles = useDataEntry('main_text_styles')
+
+const playWinAnimation = async (
+  _symbols: SymbolType[],
+  houseSymbols: boolean = false
+) => {
+  let promises = _symbols.map(function (t) {
+    return (
+      houseSymbols ? housesymbols.value[t.index] : symbols.value[t.index]
+    ).playWinAnimation(t)
+  })
+
+  return Promise.all(promises)
+}
+
 const handleMatches = async (
   yourMatches: any[],
   houseMatches: any[]
 ): Promise<void> => {
-  return new Promise((resolve) => {
-    if (hasItemsInArray(yourMatches)) {
-      if (hasItemsInArray(houseMatches)) {
-        houseMatches.forEach((_symbol: any) => {
-          //_playSymbolWinningSound
-        })
-      }
-      //playWinAnimation
-      //playWinAnimation
+  if (hasItemsInArray(yourMatches)) {
+    if (hasItemsInArray(houseMatches)) {
+      houseMatches.forEach((_symbol: any) => {
+        //_playSymbolWinningSound
+      })
     }
-    return resolve()
-  })
+
+    return (
+      playWinAnimation(houseMatches, true),
+      playWinAnimation(yourMatches),
+      Promise.resolve()
+    )
+  }
 }
 
 const handleMultiplier = () => {}
+
+const handleWins = (
+  yourMatchesData: SymbolType[],
+  houseMatchesData: SymbolType[],
+  yourToRevealData: SymbolType[]
+) => {
+  return Promise.all([handleMatches(yourMatchesData, houseMatchesData)])
+}
 
 const onSymbolReveal = (symbolIndex: number) => {
   //play sounds
@@ -97,13 +132,13 @@ const revealRemainingSequence = async (
   return new Promise(async (resolve) => {
     if (houseToRevealData && houseToRevealData.length) {
       //play sound
-      console.log('1. HOUSE REVEAL')
-      await revealMultiple(houseToRevealData, true)
-      console.log('2. YOUR SYMBOL REVAL')
-      if (yourToRevealData && yourToRevealData.length) {
-        //play sound
-        await revealMultiple(yourToRevealData, false).then(resolve)
-      }
+
+      revealMultiple(houseToRevealData, true).then(() => {
+        if (yourToRevealData && yourToRevealData.length) {
+          //play sound
+          revealMultiple(yourToRevealData, false).then(resolve)
+        }
+      })
     }
   })
 }
@@ -114,11 +149,17 @@ const revealAll = () => {
 
   const yourToRevealData = data.yourToRevealData
   const houseToRevealData = data.houseToRevealData
+  const houseMatchesData = data.houseMatchesData
+  const yourMatchesData = data.yourMatchesData
 
   //todo
-  revealRemainingSequence(yourToRevealData, houseToRevealData).then(() => {
-    emitters('onRevealComplete')
-  })
+  revealRemainingSequence(yourToRevealData, houseToRevealData)
+    .then(() => {
+      handleWins(yourMatchesData, houseMatchesData, [])
+    })
+    .then(() => {
+      emitters('onRevealComplete')
+    })
 
   // console.log('REVEAL ALL', state, data)
 }
@@ -147,10 +188,6 @@ gameStore.$subscribe(() => {
   reset()
   enable()
   setSymbolsData(spin.value)
-  // if (gameStore.spin && gameStore.spin.yourSymbols) {
-  //   console.log('simbols', gameStore.spin)
-  //   actions.playWinAnimation([{ index: 0 }, { index: 3 }])
-  // }
 })
 
 onMounted(() => {
@@ -162,6 +199,20 @@ defineExpose({
 })
 </script>
 <template>
+  <Text
+    :x="layout.yourSymbolsTitle[orientation].x"
+    :y="layout.yourSymbolsTitle[orientation].y"
+    :anchor="0.5"
+    :style="textStyles.Title"
+    >{{ 'Your Symbols' }}</Text
+  >
+  <Text
+    :x="layout.houseSymbolsTitle[orientation].x"
+    :y="layout.houseSymbolsTitle[orientation].y"
+    :anchor="0.5"
+    :style="textStyles.Title"
+    >{{ 'Winning Symbols' }}</Text
+  >
   <YourSymbol
     v-for="n in 10"
     :symbolID="'Symbol'"

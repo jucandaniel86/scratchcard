@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pixi/text-bitmap": "^7.4.3",
     "@tweenjs/tween.js": "^25.0.0",
     "@vueuse/core": "^10.1.2",
     "f": "^1.4.0",

@@ -52,10 +52,6 @@ const reveal = async (symbol: SymbolType): Promise<any> => {
 const enable = () => {}
 const disable = () => {}
 
-const playWinAnimation = (symbolID: number | string) => {
-  return revealAnimation.playWin(symbolID, true)
-}
-
 const onRender = (container: Container) => {
   container.addChild(revealAnimation.animation)
   container.addChild(scratchAnimation.animation)
@@ -65,6 +61,10 @@ const onReveal = () => {
   if (props.symbol) {
     reveal(props.symbol)
   }
+}
+
+const playWinAnimation = (_symbol: SymbolType) => {
+  return revealAnimation.playWin(_symbol.symbolID, true)
 }
 
 store.$subscribe(() => {

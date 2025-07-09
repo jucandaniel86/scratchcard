@@ -35247,7 +35247,7 @@
                                                                 ) => {
                                                                     n.r(e),
                                                                         n.d(e, {
-                                                                            BitmapLabel: () => d
+                                                                            BitmapLabel: () => BitmapLabelClass
                                                                         })
                                                                     var r = n('./src/label/Label.js'),
                                                                         i = n(
@@ -35440,7 +35440,7 @@
                                                                             p(t)
                                                                         )
                                                                     }
-                                                                    var d = (function (t) {
+                                                                    var BitmapLabelClass = (function (t) {
                                                                         !(function (t, e) {
                                                                             if (
                                                                                 'function' != typeof e &&
@@ -35850,9 +35850,9 @@
                                                                             v
                                                                         )
                                                                     })(i.BitmapTextWrapper);
-                                                                    (d.FONT_SIZE_DECREMENT = 2),
-                                                                    (d.MIN_FONT_SIZE = 4),
-                                                                    (d.FONT_FOR_MEASURE =
+                                                                    (BitmapLabelClass.FONT_SIZE_DECREMENT = 2),
+                                                                    (BitmapLabelClass.MIN_FONT_SIZE = 4),
+                                                                    (BitmapLabelClass.FONT_FOR_MEASURE =
                                                                         new PIXI.TextStyle({
                                                                             fontFamily: 'Arial',
                                                                             fontSize: 12,
@@ -59893,6 +59893,7 @@
                                             }
                                         },
                                         {
+																					//MENU
                                             key: 'initMenu',
                                             value: function () {
                                                 var t = this,
@@ -90637,7 +90638,7 @@
                         )
                         return (r.loop = false), r
                     },
-                    ho = (function (t) {
+                    PlayButtonCTAClass = (function (t) {
                         function e(t, n) {
                             var r,
                                 i = n.revealAllButtonRequired
@@ -91700,7 +91701,7 @@
                                 key: 'createStartButton',
                                 value: function (t) {
                                     var e = this.layout.startButton.revealAllRequired,
-                                        n = new ho(t, {
+                                        n = new PlayButtonCTAClass(t, {
                                             revealAllButtonRequired: e
                                         })
                                     return (
@@ -98591,23 +98592,23 @@
                                     (r = [{
                                             key: 'hackFontStyle',
                                             value: function (t) {
-                                                var e = Object.assign({}, t),
-                                                    n = e.fontFamily || []
+                                                var FontObject = Object.assign({}, t),
+                                                    n = FontObject.fontFamily || []
                                                 return (
                                                     Array.isArray(n) ||
                                                     (n = n.split(',').map(function (t) {
                                                         return t.trim()
                                                     })),
                                                     n.push('Arial'),
-                                                    (e.fontFamily = i(new Set(n)).join(',')),
+                                                    (FontObject.fontFamily = i(new Set(n)).join(',')),
                                                     (function (t) {
                                                         return !(
                                                             !t.stroke ||
                                                             !t.dropShadow ||
                                                             t.letterSpacing
                                                         )
-                                                    })(e) && (e.letterSpacing = 0.1),
-                                                    e
+                                                    })(FontObject) && (FontObject.letterSpacing = 0.1),
+                                                    FontObject
                                                 )
                                             }
                                         },
@@ -101669,9 +101670,7 @@ function n(r) {
                     },
                     {
                         key: 'play',
-
-
-
+  
                         value: function (t, e, n) {
                             var r = this.getLabel(t, e, n)
                             return (
@@ -102600,7 +102599,7 @@ function n(r) {
             _e(t, e)
         )
     }
-    var Se = (function (e) {
+    var RevealAnimationClass = (function (e) {
         function n(t) {
             var e
             return (
@@ -102856,7 +102855,7 @@ function n(r) {
                     key: '_createRevealAnimation',
                     value: function () {
                         var t = X.getSpineData('symbols')
-                        return new Se(t)
+                        return new RevealAnimationClass(t)
                     }
                 },
                 {
@@ -103659,22 +103658,22 @@ function n(r) {
                 (r = n),
                 (i = [{
                         key: 'updateLayout',
-                        value: function (t) {
-                            this._yourSymbols.updateLayout(t),
-                                this._houseSymbols.updateLayout(t)
-                            var e = this.layout.yourSymbolsTitle[t],
+                        value: function (orientation) {
+                            this._yourSymbols.updateLayout(orientation),
+                                this._houseSymbols.updateLayout(orientation)
+                            var e = this.layout.yourSymbolsTitle[orientation],
                                 n = e.x,
                                 r = e.y
                             if (
                                 (this._yourSymbolsTitle.position.set(n, r),
-                                    (this._yourSymbolsTitle.boundingBoxData = qe[t]),
+                                    (this._yourSymbolsTitle.boundingBoxData = qe[orientation]),
                                     this._houseSymbolsTitle)
                             ) {
-                                var i = this.layout.houseSymbolsTitle[t],
+                                var i = this.layout.houseSymbolsTitle[orientation],
                                     o = i.x,
                                     a = i.y
                                 this._houseSymbolsTitle.position.set(o, a),
-                                    (this._houseSymbolsTitle.boundingBoxData = qe[t])
+                                    (this._houseSymbolsTitle.boundingBoxData = qe[orientation])
                             }
                         }
                     },

@@ -18,26 +18,34 @@ export const useSpine = (resource: any) => {
   const eventFireCallback = () => {}
 
   const triggerAnimation = async (
-    _animation: string,
-    _loop: boolean = false
+    _animation: string | string[],
+    _loop: boolean = false,
+    onAnimationCompleted?: Function
   ): Promise<void> => {
     stopAnimation()
     setVisible(true)
+    const _onAnimationCompleted =
+      typeof onAnimationCompleted !== 'function'
+        ? () => {}
+        : onAnimationCompleted
 
-    return new Promise((resolve: any) => {
+    return new Promise((resolve, reject) => {
       resolver = resolve
       if (animation.state.hasAnimation(_animation)) {
         const state = animation.state
         const tracksLength = state.tracks.length
 
-        state.addAnimation(tracksLength, _animation, _loop)
+        state.addAnimation(tracksLength, [_animation], _loop)
         state.tracks[tracksLength].listener = {
           event: eventFireCallback,
           complete: () => {
             state.clearTrack(tracksLength)
             resolve()
+            _onAnimationCompleted()
           }
         }
+      } else {
+        reject()
       }
     })
   }

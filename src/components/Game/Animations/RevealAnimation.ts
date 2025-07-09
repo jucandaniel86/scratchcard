@@ -1,5 +1,12 @@
+import { ref } from 'vue'
 import { useDataEntry } from '../../../composables/useDataEntry'
 import { useSpine } from '../../../composables/useSpine'
+
+import { Text } from 'pixi.js'
+import {
+  attachToAnimation,
+  getAnimationSlotSizes
+} from '../../../core/core.Utils'
 
 interface RevealAnimationI {
   spineData: any
@@ -9,9 +16,23 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
   const animationData = useDataEntry(spineData)
 
   const animation = useSpine(animationData)
-  // const textStyles = useDataEntry('main_text_styles')
+  const textStyles = useDataEntry('main_text_styles')
+  const prizeTextField = ref<Text>(new Text('', { ...textStyles.Prize_bitmap }))
 
   const getResetLabel = () => ['symbol1_lose']
+
+  const textSlot = getAnimationSlotSizes(animation, 'number_textarea')
+
+  attachToAnimation(animation, 'number_text').addChild(prizeTextField.value)
+  prizeTextField.value.y = -1
+  prizeTextField.value.anchor.set(0.5)
+
+  const updateWithRegularStyle = (label: Text, styles: any) => {
+    console.log('styles', styles)
+    label.style.fontFamily = styles.font.name
+  }
+
+  // updateWithRegularStyle(prizeTextField!.value, textStyles.Prize_bitmap)
 
   const getAnimationName = (
     symbolID: string | number,
@@ -37,10 +58,10 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
 
     animation.setVisible(true)
     if (win) {
-      //todo
+      return await animation.triggerAnimation(animationName, loop)
     }
 
-    return animation.triggerAnimation(animationName, loop)
+    return animation.triggerAnimation(animationName)
   }
 
   const stop = () => {
@@ -65,8 +86,16 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
     animation.triggerAnimation(animationName)
   }
 
+  const playWin = (symbolID: string | number, loop: boolean) => {
+    animation.triggerAnimation(['house_symbol' + symbolID + '_win'], loop)
+  }
+
   const loop = (symbolID: string | number, win: boolean) => {
     play(symbolID, win, true)
+  }
+
+  const setPrize = (_prize: number) => {
+    prizeTextField.value.text = `$${String(_prize)}`
   }
 
   return {
@@ -75,9 +104,11 @@ export const useRevealAnimation = ({ spineData }: RevealAnimationI) => {
     getResetLabel,
     playWinAllExit,
     play,
+    playWin,
     stop,
     playMultiplier,
     reset,
-    loop
+    loop,
+    setPrize
   }
 }

@@ -90,7 +90,8 @@ export const __RESOURCES: StringMap = {
   autoplay_layout: 'assets/json/autoplay_layout.json',
 
   //texts
-  text_styles: 'assets/json/TextStyles.json'
+  text_styles: 'assets/json/TextStyles.json',
+  main_text_styles: 'assets/json/MainStyles.json'
 }
 
 export const __FONTS: FontType[] = [

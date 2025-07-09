@@ -1,0 +1,55 @@
+{
+  "Prize": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fill": "white",
+    "fontSize": 24
+  },
+  "Prize_bitmap": {
+    "font": {
+      "name": "Prize",
+      "size": 24
+    }
+  },
+  "PrizeWin": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fill": "#4a2905",
+    "fontSize": 26
+  },
+  "PrizeWin_bitmap": {
+    "font": {
+      "name": "MultiplierPrizeWin",
+      "size": 26
+    }
+  },
+  "MultiplierPrizeWin": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fill": "#4a2905",
+    "fontSize": 26
+  },
+  "MultiplierPrizeWin_bitmap": {
+    "font": {
+      "name": "MultiplierPrizeWin",
+      "size": 26
+    }
+  },
+  "Title": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fill": "white",
+    "fontSize": 20
+  },
+  "Legend": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 24,
+    "fill": "#000000",
+    "fontWeight": "bold",
+    "lineJoin": "round",
+    "stroke": "#a27f63",
+    "strokeThickness": 4
+  },
+  "Legend_Horz": {
+    "fontFamily": "Bebas Neue Bold, Arial",
+    "fontSize": 24,
+    "fill": "#e3bb71",
+    "fontWeight": "bold"
+  }
+}
