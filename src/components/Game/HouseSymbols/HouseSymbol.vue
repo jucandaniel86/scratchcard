@@ -3,9 +3,10 @@ import { Container } from 'pixi.js'
 import { onMounted, ref } from 'vue'
 import { ScreenOrientationEnum } from '../../../config/App'
 import { useAppStore } from '../../../store/app'
-import { SymbolType } from '../../../composables/useGenerateSpin'
 import { useScratchAnimation } from '../Animations/ScratchAnimation'
 import { useRevealAnimation } from '../Animations/RevealAnimation'
+import { SymbolType } from '../../../types/Symbol'
+import { useInteractiveObject } from '../../Core/VInteractiveObject'
 
 type HouseSymbolType = {
   x: number
@@ -20,6 +21,13 @@ const props = defineProps<HouseSymbolType>()
 const store = useAppStore()
 const orientation = ref<ScreenOrientationEnum>(store.orientation)
 
+const emitters = defineEmits([
+  'onRevealStart',
+  'onRevealComplete',
+  'onMouseOver',
+  'onMouseOut'
+])
+
 //animations
 const scratchAnimation: any = useScratchAnimation({
   spineData: 'house_reveal_json',
@@ -29,28 +37,30 @@ const revealAnimation: any = useRevealAnimation({
   spineData: 'symbols_json'
 })
 
-//methods
-const playCTA = () => {
-  scratchAnimation.playCTA()
-}
+//composables
+const { disable, enable, init } = useInteractiveObject({
+  clickHandler: () => emitters('onRevealStart'),
+  hoverInHanlder: () => emitters('onMouseOver'),
+  hoverOutHandler: () => emitters('onMouseOut')
+})
 
-const stopCTA = () => {
-  scratchAnimation.stopCTA()
-}
+//methods
+const playCTA = () => scratchAnimation.playCTA()
+
+const stopCTA = () => scratchAnimation.stopCTA()
 
 const reset = () => {
   scratchAnimation.reset()
   revealAnimation.reset()
 }
 
-const reveal = async (symbol: SymbolType): Promise<any> => {
+const reveal = (symbol: SymbolType) => {
   return (
-    await revealAnimation.play(symbol.symbolID), scratchAnimation.playReveal()
+    disable(),
+    revealAnimation.play(symbol.symbolID),
+    scratchAnimation.playReveal()
   )
 }
-
-const enable = () => {}
-const disable = () => {}
 
 const onRender = (container: Container) => {
   container.addChild(revealAnimation.animation)
@@ -73,6 +83,7 @@ store.$subscribe(() => {
 
 onMounted(() => {
   reset()
+  // init()
 })
 
 defineExpose({

@@ -1,17 +1,9 @@
 import { ref, watch } from 'vue'
+import { SymbolType } from '../../../types/Symbol'
 
 type GameDataType = {
   houseSymbols: any[]
   yourSymbols: any[]
-}
-type SymbolType = {
-  index: number
-  isRevealed: boolean
-  isWin?: boolean
-  symbolID: string | number
-  isWinAll?: boolean
-  winAllSymbol?: any
-  isMultiplier?: boolean
 }
 
 enum SymbolTypeEnum {

@@ -1,49 +1,24 @@
-import { ref } from 'vue'
-
-interface CreateSymbolsI {
-  locations: any[]
-  onRevealStart: () => Promise<void>
-  onRevealComplete: () => Promise<void>
-}
-
 export const useYourSymbolsActions = (symbols: any) => {
-  const _symbols = ref<any>([])
-
-  const createSymbols = ({
-    locations,
-    onRevealStart,
-    onRevealComplete
-  }: CreateSymbolsI) => {
-    for (let i = 0; i < 10; i++) {
-      _symbols.value.push({
-        index: i,
-        locations,
-        onRevealStart,
-        onRevealComplete
-      })
-    }
-  }
-
   const enable = () => {
-    _symbols.value.forEach((symbol: any) => {
+    symbols.forEach((symbol: any) => {
       symbol.enable()
     })
   }
 
   const disable = () => {
-    _symbols.value.forEach((symbol: any) => {
+    symbols.forEach((symbol: any) => {
       symbol.disable()
     })
   }
 
   const reveal = (_index: number) => {
-    _symbols.value[_index].reveal()
+    symbols[_index].reveal()
   }
 
-  const getSymbols = () => _symbols.value
+  const getSymbols = () => symbols
 
   const enableByIndexed = (_index: number) => {
-    _symbols.value[_index].enable()
+    symbols[_index].enable()
   }
 
   const playWinAll = (symbol: any) => {
@@ -57,7 +32,8 @@ export const useYourSymbolsActions = (symbols: any) => {
   }
 
   const playCTA = () => {
-    symbols.value.map((symbol: any) => {
+    console.log('SYMBOLS', symbols)
+    symbols.map((symbol: any) => {
       symbol.playCTA()
     })
   }
@@ -93,7 +69,6 @@ export const useYourSymbolsActions = (symbols: any) => {
   }
 
   return {
-    createSymbols,
     playWinAll,
     playWinAllComplete,
     playCTA,

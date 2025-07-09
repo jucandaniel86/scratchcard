@@ -1,19 +1,11 @@
+import { SymbolType } from '../types/Symbol'
+
 //ticket number: 102606805700
 const TOTAL_SYMBOLS = 10
 const SYMBOL_MAX = 18
 const MAX_WIN = 3
 const BIG_WIN_PRIZE = 70
 const MAX_MULTIPLIER = 5
-
-export type SymbolType = {
-  symbolID: number
-  isWin: boolean
-  prizeAmount: number | string
-  finalPrizeAmount: number
-  multiplier: number
-  isMultiplier: boolean
-  isWinAll: boolean
-}
 
 export const useGenerateSpin = () => {
   const toYourSymbol = (number: any, houseNumbers: number[]): SymbolType => {
@@ -25,7 +17,9 @@ export const useGenerateSpin = () => {
       finalPrizeAmount: Math.floor(Math.random() * MAX_WIN),
       multiplier: Math.floor(Math.random() * MAX_MULTIPLIER),
       isMultiplier: false,
-      isWinAll: false
+      isWinAll: false,
+      isRevealed: false,
+      index: 0
     }
   }
 

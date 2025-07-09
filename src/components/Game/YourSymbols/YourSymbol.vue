@@ -16,12 +16,6 @@ type SymbolTypeI = {
   y: number
   scale: number
 }
-// enum AnimationNames {
-//   idle = 'idle',
-//   start = 'start',
-//   switchAnim = 'switch',
-//   end = 'end'
-// }
 
 const props = defineProps<SymbolTypeI>()
 
@@ -128,12 +122,15 @@ const playWinAnimation = (_symbol: SymbolType) => {
   })
 }
 
+const playCTA = () => scratchAnimation.playCTA()
+
 defineExpose({
   reveal,
   reset,
   enable,
   disable,
-  playWinAnimation
+  playWinAnimation,
+  playCTA
 })
 
 onMounted(() => {

@@ -4,7 +4,6 @@ import YourSymbol from './Game/YourSymbols/YourSymbol.vue'
 import { useDataEntry } from '../composables/useDataEntry'
 import { ScreenOrientationEnum } from '../config/App'
 import { useAppStore } from '../store/app'
-// import { useYourSymbolsActions } from './Game/YourSymbols/Actions'
 import { SymbolType, useGameStore } from '../store/game'
 import HouseSymbol from './Game/HouseSymbols/HouseSymbol.vue'
 import { useGameArea } from './Game/Composables/useGameArea'
@@ -16,21 +15,10 @@ const symbols = ref<any>('symbols')
 const housesymbols = ref<any>('housesymbols')
 const layout = useDataEntry('main_screen_layout', 'gameArea')
 const orientation = ref<ScreenOrientationEnum>(store.orientation)
-// const actions = useYourSymbolsActions(symbols)
+
 const spin = ref<any>()
 const { setSymbolsData, setYourSymbolRevealed, setAllRevealed, yourSymbols } =
   useGameArea()
-
-var qe = {
-  landscape: {
-    width: 214,
-    height: 21
-  },
-  portrait: {
-    width: 304,
-    height: 30
-  }
-}
 
 //emitters
 const emitters = defineEmits(['onRevealComplete'])
@@ -58,10 +46,7 @@ const playWinAnimation = async (
   return Promise.all(promises)
 }
 
-const handleMatches = async (
-  yourMatches: any[],
-  houseMatches: any[]
-): Promise<void> => {
+const handleMatches = async (yourMatches: any[], houseMatches: any[]) => {
   if (hasItemsInArray(yourMatches)) {
     if (hasItemsInArray(houseMatches)) {
       houseMatches.forEach((_symbol: any) => {
@@ -84,7 +69,10 @@ const handleWins = (
   houseMatchesData: SymbolType[],
   yourToRevealData: SymbolType[]
 ) => {
-  return Promise.all([handleMatches(yourMatchesData, houseMatchesData)])
+  return Promise.all([
+    handleMatches(yourMatchesData, houseMatchesData),
+    handleMultiplier
+  ])
 }
 
 const onSymbolReveal = (symbolIndex: number) => {
@@ -100,28 +88,28 @@ const onSymbolReveal = (symbolIndex: number) => {
       await handleMatches(YourMatches, HouseMatches)
     })
     .then(() => {
-      console.log('handle multiplier')
+      // console.log('handle multiplier')
       handleMultiplier()
     })
     .then(() => {
-      console.log('on reveal complete')
+      // console.log('on reveal complete')
     })
 }
 
-const revealMultiple = async (
+const revealMultiple = (
   _symbols: SymbolType[],
   isHouse: boolean = false
 ): Promise<any> => {
   if (isHouse) {
-    const promises = _symbols.map((_symbol) => {
+    const promises = _symbols.map((_symbol) =>
       housesymbols.value[_symbol.index].reveal(_symbol)
-    })
+    )
     return Promise.all(promises)
   }
 
-  const promises = _symbols.map((_symbol) => {
+  const promises = _symbols.map((_symbol) =>
     symbols.value[_symbol.index].reveal(_symbol)
-  })
+  )
   return Promise.all(promises)
 }
 
@@ -129,7 +117,7 @@ const revealRemainingSequence = async (
   yourToRevealData: any,
   houseToRevealData: any
 ): Promise<void> => {
-  return new Promise(async (resolve) => {
+  return new Promise((resolve) => {
     if (houseToRevealData && houseToRevealData.length) {
       //play sound
 
@@ -160,8 +148,6 @@ const revealAll = () => {
     .then(() => {
       emitters('onRevealComplete')
     })
-
-  // console.log('REVEAL ALL', state, data)
 }
 
 const reset = () => {
@@ -179,6 +165,15 @@ const disable = () => {
   symbols.value.map((symbol: any) => symbol.disable())
 }
 
+const playCTA = () => {
+  symbols.value.map((symbol: any) => {
+    symbol.playCTA()
+  })
+  housesymbols.value.map((symbol: any) => {
+    symbol.playCTA()
+  })
+}
+
 store.$subscribe(() => {
   orientation.value = store.orientation
 })
@@ -186,8 +181,10 @@ store.$subscribe(() => {
 gameStore.$subscribe(() => {
   spin.value = gameStore.spin
   reset()
-  enable()
+
   setSymbolsData(spin.value)
+  enable()
+  playCTA()
 })
 
 onMounted(() => {
