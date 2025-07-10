@@ -255,10 +255,6 @@ export const useGameArea = () => {
     return getUnrevealedSymbolsIndexes(yourSymbols.value)
   }
 
-  watch(state, () => {
-    console.log('new state', state.value)
-  })
-
   return {
     state,
     yourSymbols,

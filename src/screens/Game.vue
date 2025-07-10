@@ -111,7 +111,7 @@ on(GameEvents.REVEAL_COMPLETE, (payload: any) => {
 })
 
 const GeneralWinConfig = useDataEntry('general_win_particles_config')
-const GeneralWinImages = Array(4).map(
+const GeneralWinImages = Array.from(Array(4)).map(
   (e, i) => __LOADED_RESOURCES[`general_win_particles_texture${i + 1}`]
 )
 </script>

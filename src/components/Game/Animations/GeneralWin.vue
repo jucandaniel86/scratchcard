@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Emitter } from 'pixi-particles'
+import { Emitter, upgradeConfig } from '@pixi/particle-emitter'
 import { Container, Texture } from 'pixi.js'
 import { ref } from 'vue'
 
@@ -15,16 +15,23 @@ const settings = ref<any>({
   autoupdate: true,
   emit: false
 })
+
 //models
 const EmitterContainer = ref<Emitter>()
 const visible = ref<boolean>(true)
 const isLoop = ref<boolean>(false)
 
-const renderParticleContainer = (container: Container) => {
-  EmitterContainer.value = new Emitter(container, props.images, {
-    ...props.config,
-    ...settings.value
-  })
+const renderParticleContainer = (container: any) => {
+  EmitterContainer.value = new Emitter(
+    container,
+    upgradeConfig(
+      {
+        ...props.config,
+        ...settings.value
+      },
+      props.images
+    )
+  )
 }
 
 const play = (): Promise<void> => {
@@ -33,10 +40,10 @@ const play = (): Promise<void> => {
   if (EmitterContainer.value) {
     EmitterContainer.value.autoUpdate = true
     return new Promise((resolve) => {
-      EmitterContainer.value?.playOnce(() => {
-        reset()
-        resolve()
-      })
+      // EmitterContainer.value?.playOnce(() => {
+      //   reset()
+      //   resolve()
+      // })
     })
   }
   return Promise.resolve()
