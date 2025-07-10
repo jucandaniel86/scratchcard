@@ -3,7 +3,7 @@ import { computed, StyleValue } from 'vue'
 
 type ToolbarTextItemType = {
   title: string
-  value: string
+  value: string | number
   styles: StyleValue
   x: number
   y: number
@@ -18,16 +18,13 @@ const props = withDefaults(defineProps<ToolbarTextItemType>(), {
 
 const label = computed(() => {
   return props.orientation === 'horizontal'
-    ? ''.concat(props.title, `${props.separator} `).concat(props.value)
-    : ''.concat(props.title, '\n').concat(props.value)
+    ? ''.concat(props.title, `${props.separator} `).concat(String(props.value))
+    : ''.concat(props.title, '\n').concat(String(props.value))
 })
-
-const renderText = () => {}
 </script>
 <template>
   <container :x="x" :y="y">
-    <text @render="renderText" :anchor="0.5" :style="props.styles">{{
-      label
-    }}</text>
+    <text :anchor="0.5" :style="props.styles">{{ label }}</text>
+    <slot name="value"></slot>
   </container>
 </template>

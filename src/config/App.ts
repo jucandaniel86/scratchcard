@@ -18,3 +18,5 @@ export const GAME_NAME = "Sorcerer's Luck"
 
 export const NUM_OF_AUTOPLAY_GAMES = [10, 25, 50, 100]
 export const AUTOPLAY_ROW_ITEMS = { portrait: 3, landscape: 4 }
+export const DEFAULT_TICKET_PRIZE = 0.5
+export const DEFAULT_DEMO_BALANCE = 500

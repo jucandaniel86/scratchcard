@@ -4,7 +4,11 @@ import MainMenu from '../components/Menu/MainMenu.vue'
 import { useDataEntry } from '../composables/useDataEntry'
 import { computed, ref, watch } from 'vue'
 import SpriteButton from '../components/UI/SpriteButton.vue'
-import { ConfigResolutions, ScreenOrientationEnum } from '../config/App'
+import {
+  ConfigResolutions,
+  DEFAULT_TICKET_PRIZE,
+  ScreenOrientationEnum
+} from '../config/App'
 import { useAppStore } from '../store/app'
 import { useGenerateSpin } from '../composables/useGenerateSpin'
 import { useGameStore } from '../store/game'
@@ -17,10 +21,12 @@ import { useUtils } from '../composables/useUtils'
 import GeneralWin from '../components/Game/Animations/GeneralWin.vue'
 import { __LOADED_RESOURCES } from '../config/Resources'
 import TextFieldCounter from '../components/Core/TextFieldCounter.vue'
+import { useToolbarStore } from '../store/toolbar'
 
 //store
 const store = useAppStore()
 const gameStore = useGameStore()
+const { addToBalance, setBalance, setWin, decreaseBalance } = useToolbarStore()
 const { on } = useEventsStore()
 
 //utils
@@ -70,6 +76,8 @@ const generateSpin = () => {
   gameStore.setSpin(response)
   // console.info('SPIN RESPONSE', response)
   gameStart.value = true
+  decreaseBalance(DEFAULT_TICKET_PRIZE)
+  setWin(0)
 }
 
 const revealAll = () => gameArea.value.revealAll()
@@ -88,7 +96,8 @@ const handleTotalWinUpdate = () => {
   const gamePrize = gameStore.spin?.gamePrize as number
   const isBigWin = gameStore.spin?.isBigWin as boolean
 
-  playGeneralWin(gamePrize, isBigWin)
+  // playGeneralWin(gamePrize, isBigWin)
+  setWin(gamePrize)
 }
 
 const onAllSymbolsRevealed = () => {
@@ -171,6 +180,5 @@ const GeneralWinImages = Array.from(Array(4)).map(
       :config="GeneralWinConfig"
       :images="GeneralWinImages"
     />
-    <TextFieldCounter :text="'Test'" />
   </container>
 </template>

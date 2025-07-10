@@ -22,14 +22,5 @@ const initTextCounter = () => {
 }
 
 initTextCounter()
-
-const center = computed(() => ({
-  x: window.innerWidth / 2 - 100,
-  y: window.innerHeight / 2
-}))
 </script>
-<template>
-  <Text :style="{ fill: 0xfff, fontSize: 60 }" :x="center.x" :y="center.y">{{
-    currentValue
-  }}</Text>
-</template>
+<template></template>
