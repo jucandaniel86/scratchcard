@@ -2,6 +2,7 @@ import { appInjectKey, createApp } from 'vue3-pixi'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia'
 import { Application } from 'pixi.js'
+import { Stage } from '@pixi/layers'
 import App from './App.vue'
 
 //import css

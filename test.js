@@ -52215,7 +52215,7 @@
                             })(t)
                             return 'symbol' == nn(e) ? e : e + ''
                         }
-                        var on = (function () {
+                        var CounterClass = (function () {
                             return (
                                 (t = function t(e) {
                                     !(function (t, e) {
@@ -52547,7 +52547,7 @@
                                 n
                             )
                             var n, r
-                        })(on)
+                        })(CounterClass)
 
                         function pn(t) {
                             return (
@@ -52905,7 +52905,7 @@
                                                                         M.textCounterConfig)
                                                                 ) {
                                                                     var G = ''.concat(M.name, 'Counter');
-                                                                    (u[G] = new on(G)),
+                                                                    (u[G] = new CounterClass(G)),
                                                                     u[G].init(
                                                                         u[M.name],
                                                                         M.textCounterConfig
@@ -68176,7 +68176,7 @@
                             NGTSpineAnimation: fe,
                             NGTSplashScreen: Ba,
                             NGTTextField: z,
-                            NGTTextFieldCounter: on,
+                            NGTTextFieldCounter: CounterClass,
                             NGTTextFieldCreator: at,
                             TextService: lt
                         }
@@ -105255,14 +105255,14 @@ function n(r) {
             er(t, e)
         )
     }
-    var nr = (function (t) {
-        function e(t) {
+    var GeneralWinParticles = (function (t) {
+        function e(Stage) {
             var n!(function (t, e) {
                     if (!(t instanceof e))
                         throw new TypeError('Cannot call a class as a function')
                 })(this, e),
                 (n = qn(this, e)),
-                t.addChild(n)
+                Stage.addChild(n)
             var r = X.getData('general_win_particles_config'),
                 i = Ft().createArray(Array(4), function (t, e) {
                     return X.getTexture(
@@ -106098,8 +106098,8 @@ function n(r) {
                                 this._updateWinUpTo(),
                                 (this._prevTicketCost =
                                     this.gameController.getTicketCost()),
-                                (this.generalWinRight = new nr(this.stage)),
-                                (this.generalWinLeft = new nr(this.stage))
+                                (this.generalWinRight = new GeneralWinParticles(this.stage)),
+                                (this.generalWinLeft = new GeneralWinParticles(this.stage))
                         }
                     },
                     {

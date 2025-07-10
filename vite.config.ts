@@ -12,8 +12,12 @@ export default defineConfig({
           ...compilerOptions,
           isCustomElement: (tag) => {
             return (
-              ['v-spine', 'v-particles', 'v-spine-button'].indexOf(tag) !==
-                -1 || isCustomElement(tag)
+              [
+                'v-spine',
+                'v-particles',
+                'v-spine-button',
+                'particle-container'
+              ].indexOf(tag) !== -1 || isCustomElement(tag)
             )
           }
         }

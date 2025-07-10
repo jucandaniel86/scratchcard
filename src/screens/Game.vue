@@ -119,17 +119,6 @@ const GeneralWinImages = Array.from(Array(4)).map(
   <container>
     <Toolbar :layout="useDataEntry('main_screen_layout')" />
 
-    <GeneralWin
-      ref="generalWinLeft"
-      :config="GeneralWinConfig"
-      :images="GeneralWinImages"
-    />
-    <GeneralWin
-      ref="generalWinRight"
-      :config="GeneralWinConfig"
-      :images="GeneralWinImages"
-    />
-
     <GameArea ref="gameArea" @onRevealComplete="gameStart = false" />
     <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />
 
@@ -169,6 +158,17 @@ const GeneralWinImages = Array.from(Array(4)).map(
       :x="menu_layout.menu_button[orietation].x"
       :y="menu_layout.menu_button[orietation].y"
       :disabled="isAutoplayOpen"
+    />
+
+    <GeneralWin
+      ref="generalWinLeft"
+      :config="GeneralWinConfig"
+      :images="GeneralWinImages"
+    />
+    <GeneralWin
+      ref="generalWinRight"
+      :config="GeneralWinConfig"
+      :images="GeneralWinImages"
     />
   </container>
 </template>

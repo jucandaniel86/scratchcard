@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { Emitter, upgradeConfig } from '@pixi/particle-emitter'
 import { Container, Texture } from 'pixi.js'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { __PIXI_APP } from '../../../main'
+import { type ParticleContainerInst } from 'vue3-pixi'
+import * as particles from 'pixi-particles'
 
 type ParticleEmitter = {
   images: Texture[]
@@ -17,21 +20,18 @@ const settings = ref<any>({
 })
 
 //models
-const EmitterContainer = ref<Emitter>()
+const EmitterContainer = ref<any>()
 const visible = ref<boolean>(true)
 const isLoop = ref<boolean>(false)
+const containerRef = ref<ParticleContainerInst>()
+const container: any = new Container()
 
-const renderParticleContainer = (container: any) => {
-  EmitterContainer.value = new Emitter(
-    container,
-    upgradeConfig(
-      {
-        ...props.config,
-        ...settings.value
-      },
-      props.images
-    )
-  )
+const renderParticleContainer = () => {
+  EmitterContainer.value = new Emitter(container, {
+    ...props.config,
+    ...settings.value
+  })
+  // EmitterContainer.value.emit = true
 }
 
 const play = (): Promise<void> => {
@@ -40,10 +40,10 @@ const play = (): Promise<void> => {
   if (EmitterContainer.value) {
     EmitterContainer.value.autoUpdate = true
     return new Promise((resolve) => {
-      // EmitterContainer.value?.playOnce(() => {
-      //   reset()
-      //   resolve()
-      // })
+      EmitterContainer.value?.playOnce(() => {
+        reset()
+        resolve()
+      })
     })
   }
   return Promise.resolve()
@@ -74,7 +74,26 @@ defineExpose({
   reset,
   loop
 })
+
+var elapsed = Date.now()
+
+// update frame
+var update = function () {
+  // Update the next frame
+  requestAnimationFrame(update)
+
+  var now = Date.now()
+  if (EmitterContainer.value) {
+    // The emitter requires the elapsed seconds
+    EmitterContainer.value.update((now - elapsed) * 0.001)
+    elapsed = now
+  }
+}
+
+onMounted(() => {
+  renderParticleContainer()
+  __PIXI_APP.stage.addChild(container)
+  // update()
+})
 </script>
-<template>
-  <Container @render="renderParticleContainer" :visible="visible"></Container>
-</template>
+<template></template>

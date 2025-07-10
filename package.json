@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pixi/layers": "^2.1.0",
     "@pixi/particle-emitter": "^5.0.8",
     "@pixi/text-bitmap": "^7.4.3",
     "@tweenjs/tween.js": "^25.0.0",
