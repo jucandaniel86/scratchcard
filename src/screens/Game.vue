@@ -22,6 +22,8 @@ import GeneralWin from '../components/Game/Animations/GeneralWin.vue'
 import { __LOADED_RESOURCES } from '../config/Resources'
 import TextFieldCounter from '../components/Core/TextFieldCounter.vue'
 import { useToolbarStore } from '../store/toolbar'
+import Popup from '../components/Core/Popup.vue'
+import { ALIGMENT_MODES } from '../config/Popup'
 
 //store
 const store = useAppStore()
@@ -40,6 +42,7 @@ const menu_textures = useDataEntry('menu_buttons_json', 'textures')
 const layout = useDataEntry('toolbar_layout')
 const autoplay_layout = useDataEntry('autoplay_layout')
 const menu_layout = useDataEntry('menu_layout')
+const general_layout = useDataEntry('main_screen_layout')
 
 //models
 const orietation = ref<ScreenOrientationEnum>(store.orientation)
@@ -98,6 +101,7 @@ const handleTotalWinUpdate = () => {
 
   // playGeneralWin(gamePrize, isBigWin)
   setWin(gamePrize)
+  addToBalance(gamePrize)
 }
 
 const onAllSymbolsRevealed = () => {
@@ -127,7 +131,7 @@ const GeneralWinImages = Array.from(Array(4)).map(
 </script>
 <template>
   <container>
-    <Toolbar :layout="useDataEntry('main_screen_layout')" />
+    <Toolbar :layout="general_layout" />
 
     <GameArea ref="gameArea" @onRevealComplete="gameStart = false" />
     <AutoplayModal :x="autoplayModalAnimation" @onClose="closeAutoplayModal" />
@@ -174,11 +178,17 @@ const GeneralWinImages = Array.from(Array(4)).map(
       ref="generalWinLeft"
       :config="GeneralWinConfig"
       :images="GeneralWinImages"
+      :x="general_layout.generalWinLeft[orietation].x"
+      :y="general_layout.generalWinLeft[orietation].y"
     />
     <GeneralWin
       ref="generalWinRight"
       :config="GeneralWinConfig"
       :images="GeneralWinImages"
+      :x="general_layout.generalWinRight[orietation].x"
+      :y="general_layout.generalWinRight[orietation].y"
     />
+
+    <!-- <Popup :dark-background="true" :alignmentMode="ALIGMENT_MODES.MIDDLE" /> -->
   </container>
 </template>

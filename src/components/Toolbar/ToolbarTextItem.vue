@@ -25,6 +25,5 @@ const label = computed(() => {
 <template>
   <container :x="x" :y="y">
     <text :anchor="0.5" :style="props.styles">{{ label }}</text>
-    <slot name="value"></slot>
   </container>
 </template>

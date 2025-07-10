@@ -51934,7 +51934,7 @@
                             })(t)
                             return 'symbol' == $e(e) ? e : e + ''
                         }
-                        const en = (function () {
+                        const TickerCounterClass = (function () {
                             return (
                                 (t = function t() {
                                     !(function (t, e) {
@@ -52003,20 +52003,20 @@
                                     },
                                     {
                                         key: 'start',
-                                        value: function (t, e, n) {
+                                        value: function (t, endValue, step) {
                                             var r = this
                                             return (
                                                 this._clearAnimationFrame(),
                                                 (this._isCounting = true),
-                                                (this._endValue = e),
+                                                (this._endValue = endValue),
                                                 this._isWeakDevice ||
-                                                (!this._isCountingDown && 0 === e) ?
+                                                (!this._isCountingDown && 0 === endValue) ?
                                                 (this.stop(), Promise.resolve()) :
-                                                ((Math.abs(t - e) / n) * this._timeStep <
+                                                ((Math.abs(t - endValue) / step) * this._timeStep <
                                                     this._maxTime ?
-                                                    (this._step = n) :
+                                                    (this._step = step) :
                                                     ((this._step =
-                                                            Math.abs(t - e) /
+                                                            Math.abs(t - endValue) /
                                                             (this._maxTime / this._timeStep)),
                                                         (this._step = Math.ceil(this._step))),
                                                     this._isForcedDecimals &&
@@ -52041,7 +52041,7 @@
                                     {
                                         key: 'requestInterval',
                                         value: function (t, e) {
-                                            var n,
+                                            var AnimationInterval,
                                                 r =
                                                 arguments.length > 2 && void 0 !== arguments[2] ?
                                                 arguments[2] :
@@ -52050,13 +52050,13 @@
                                                 o = Date.now(),
                                                 a = e * r
                                             return (
-                                                (n = window.requestAnimationFrame(function e() {
+                                                (AnimationInterval = window.requestAnimationFrame(function e() {
                                                     Date.now() - o >= a && (t(), (o = Date.now())),
-                                                        i || (n = window.requestAnimationFrame(e))
+                                                        i || (AnimationInterval = window.requestAnimationFrame(e))
                                                 })), {
                                                     stop: function () {
                                                         ;
-                                                        (i = true), window.cancelAnimationFrame(n)
+                                                        (i = true), window.cancelAnimationFrame(AnimationInterval)
                                                     }
                                                 }
                                             )
@@ -52323,7 +52323,7 @@
                                     {
                                         key: '_createTextCounter',
                                         value: function (t) {
-                                            var e = new en()
+                                            var e = new TickerCounterClass()
                                             return (
                                                 e.setMaxTime(t),
                                                 e.setTickCallback(
@@ -64600,7 +64600,7 @@
                             })(t)
                             return 'symbol' == Go(e) ? e : e + ''
                         }
-                        const Uo = (function () {
+                        const TextCounter = (function () {
                             return (
                                 (t = function t() {
                                     !(function (t, e) {
@@ -64651,18 +64651,18 @@
                                     },
                                     {
                                         key: 'start',
-                                        value: function (t, e, n) {
+                                        value: function (currentValue, endValue, step) {
                                             var r = this
                                             return (
                                                 this.clearInterval(this._intervalID),
                                                 (this._isCounting = true),
-                                                (this._endValue = e),
-                                                this._isCountingDown || 0 !== e ?
-                                                ((Math.abs(t - e) / n) * this._timeStep <
+                                                (this._endValue = endValue),
+                                                this._isCountingDown || 0 !== endValue ?
+                                                ((Math.abs(currentValue - endValue) / step) * this._timeStep <
                                                     this._maxTime ?
-                                                    (this._step = n) :
+                                                    (this._step = step) :
                                                     ((this._step =
-                                                            Math.abs(t - e) /
+                                                            Math.abs(currentValue - endValue) /
                                                             (this._maxTime / this._timeStep)),
                                                         (this._step = Math.ceil(this._step))),
                                                     this._isCountingDown && (this._step *= -1),
@@ -64671,7 +64671,7 @@
                                                         Number.isInteger(this._endValue) ?
                                                         0 :
                                                         2),
-                                                    (this._currentValue = t),
+                                                    (this._currentValue = currentValue),
                                                     (this._intervalID = this.setInterval(
                                                         this._update.bind(this),
                                                         this._timeStep
@@ -66656,7 +66656,7 @@
                                         key: '_initTextCounter',
                                         value: function (t) {
                                             var e = this;
-                                            (this._valueCounter = new en()),
+                                            (this._valueCounter = new TickerCounterClass()),
                                             this._valueCounter.setMaxTime(t),
                                                 this._valueCounter.setTickCallback(function (t) {
                                                     e._onCounterTick(t)
@@ -68156,11 +68156,11 @@
                             BaseGameController: l,
                             BaseGameModel: Do,
                             BaseGameBTRParser: Eo,
-                            NGTTextCounter: en,
+                            NGTTextCounter: TickerCounterClass,
                             PrizeDO: mo,
                             MultiplierPrizeDO: Fo,
                             AppData: Br,
-                            TextCounter: Uo,
+                            TextCounter: TextCounter,
                             FadePanel: zo,
                             NGTAnimateAnimation: Vt,
                             NGTButton: Qt,
@@ -89699,7 +89699,7 @@
                         Hi(t, e)
                     )
                 }
-                var zi = (function (t) {
+                var ToolbarClass = (function (t) {
                     function e(t, n) {
                         var r
                         return (
@@ -91772,7 +91772,7 @@
                                     return this.InfoToolbarClass ?
                                         this.InfoToolbarClass :
                                         t ?
-                                        zi :
+                                        ToolbarClass :
                                         Qi
                                 }
                             },
@@ -97440,7 +97440,7 @@
                         './src/popup/Popup.js': (t, e, n) => {
                             n.r(e),
                                 n.d(e, {
-                                    Popup: () => f
+                                    Popup: () => PopupClass
                                 })
                             var r = n(
 
@@ -97561,7 +97561,7 @@
                                     c(t)
                                 )
                             }
-                            var f = (function (t) {
+                            var PopupClass = (function (t) {
                                 !(function (t, e) {
                                     if ('function' != typeof e && null !== e)
                                         throw new TypeError(
@@ -97933,7 +97933,7 @@
                                     c
                                 )
                             })()
-                            f.ALIGMENT_MODES = {
+                            PopupClass.ALIGMENT_MODES = {
                                 NONE: 0,
                                 MIDDLE: 1,
                                 LEFT_TOP: 2,

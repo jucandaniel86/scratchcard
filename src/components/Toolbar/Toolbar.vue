@@ -14,6 +14,14 @@ const orientation = ref<ScreenOrientationEnum>(store.orientation)
 const config = useDataEntry('toolbar_layout', 'infoBar')
 const layout = config[orientation.value]
 const { balance, win, bet } = storeToRefs(useToolbarStore())
+const {
+  currentValue,
+  setCurrentValue,
+  setMaxTime,
+  startFromCurrent,
+  setKeepDecimals,
+  reset
+} = useTextCounter()
 
 const backgroundRender = (graphics: Graphics) => {
   graphics.beginFill(0)
@@ -22,8 +30,21 @@ const backgroundRender = (graphics: Graphics) => {
   graphics.alpha = 0.85
 }
 
+const updateView = () => {}
+
 store.$subscribe(() => {
   orientation.value = store.orientation
+})
+
+watch(win, () => {
+  reset()
+  startFromCurrent(win.value, 0.01)
+})
+
+onMounted(() => {
+  setKeepDecimals(true, 0.01)
+  setMaxTime(4000)
+  setCurrentValue(win.value)
 })
 </script>
 <template>
@@ -40,13 +61,15 @@ store.$subscribe(() => {
       :styles="config.font_style_primary"
       :x="layout.components.balancePanel.x"
       :y="layout.components.balancePanel.y"
+      :key="`ToolbarBalance${new Date().getTime()}`"
     />
     <ToolbarTextItem
       :title="'WIN UP TO'"
-      :value="win"
+      :value="currentValue"
       :styles="config.font_style_primary"
       :x="layout.components.winUpToPanel.x"
       :y="layout.components.winUpToPanel.y"
+      :key="`ToolbarWin${new Date().getTime()}`"
     >
     </ToolbarTextItem>
     <ToolbarTextItem
@@ -55,6 +78,7 @@ store.$subscribe(() => {
       :styles="config.font_style_primary"
       :x="layout.components.totalCostPanel.x"
       :y="layout.components.totalCostPanel.y"
+      key="ToolbarBet"
     />
   </container>
 </template>
