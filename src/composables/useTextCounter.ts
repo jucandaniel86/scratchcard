@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export const useTextCounter = () => {
   //models
@@ -16,13 +16,19 @@ export const useTextCounter = () => {
   const endValue = ref<number>(0)
   const isCounting = ref<boolean>(false)
   const step = ref<number>(0)
+  const stepEpsilon = ref<number>(0)
+  const isForcedDecimal = ref<boolean>(false)
+  let rafHandle: any = null
 
   //callbacks
   let SetInterval: Function = (_iID?: any) => window.setInterval.bind(window)
   let ClearInterval: Function = (_iID?: any) =>
     window.clearInterval.bind(window)
-  const onTickCallback = () => {}
-  const onTickFinishCallback = () => {}
+  let onTickCallback: Function = (
+    _currentValue: number,
+    _precision: number
+  ) => {}
+  let onTickFinishCallback: Function = () => {}
   const setIntervalClearFunction = (cb: Function) => (ClearInterval = cb)
   const setIntervalSetFunction = (cb: Function) => (SetInterval = cb)
 
@@ -36,7 +42,31 @@ export const useTextCounter = () => {
     ClearInterval(modelValue.value.intervalID)
   }
 
-  const update = () => {}
+  /**
+   * @returns {boolean}
+   */
+  const isFinished = computed(() => {
+    return (
+      (!modelValue.value.isCountingDown &&
+        currentValue.value >= endValue.value) ||
+      (modelValue.value.isCountingDown && currentValue.value <= endValue.value)
+    )
+  })
+
+  /**
+   *
+   * @returns {boolean}
+   */
+  const update = () => {
+    currentValue.value += step.value
+    currentValue.value = Math.round(currentValue.value * 100000) / 100000
+
+    if (isFinished.value) {
+      return stop()
+    }
+
+    return onTickCallback(currentValue.value, modelValue.value.precision)
+  }
 
   /**
    *
@@ -53,7 +83,49 @@ export const useTextCounter = () => {
    */
   const setMaxTime = (_maxTime: number) => (modelValue.value.maxTime = _maxTime)
 
-  const clearAnimationFrame = () => {}
+  /**
+   *
+   * @param cb
+   * @returns
+   */
+  const setTickCallback = (cb: Function) => (onTickCallback = cb)
+
+  /**
+   *
+   * @param cb
+   * @returns
+   */
+  const setTickFinishCallback = (cb: Function) => (onTickFinishCallback = cb)
+
+  /**
+   *
+   * @param _timeStep
+   * @returns
+   */
+  const setTimeStep = (_timeStep: number) =>
+    (modelValue.value.timeStep = _timeStep)
+
+  /**
+   * @var counting
+   */
+  const counting = computed(() => isCounting.value)
+
+  /**
+   *
+   * @param forcedDecimals
+   * @param _stepEpsilon
+   */
+  const setKeepDecimals = (forcedDecimals: boolean, _stepEpsilon = 0.01) => {
+    stepEpsilon.value = _stepEpsilon
+    isForcedDecimal.value = forcedDecimals
+  }
+
+  const clearAnimationFrame = () => {
+    if (rafHandle) {
+      rafHandle.stop()
+      rafHandle = null
+    }
+  }
 
   /**
    *
@@ -68,11 +140,11 @@ export const useTextCounter = () => {
   ) => {
     let animationInterval: any = null
     let now = Date.now()
-    let a = timeStep * precision
+    let elapsed = timeStep * precision
     let i = false
 
     animationInterval = window.requestAnimationFrame(function cb() {
-      if (Date.now() - now >= a) {
+      if (Date.now() - now >= elapsed) {
         callback()
         now = Date.now()
       }
@@ -93,12 +165,68 @@ export const useTextCounter = () => {
 
   /**
    *
+   * @param _arguments
+   */
+  const stop = (_arguments?: any) => {
+    clearAnimationFrame()
+    isCounting.value = false
+    currentValue.value = endValue.value
+    modelValue.value.precision = Number.isInteger(endValue.value) ? 0 : 2
+
+    onTickCallback(endValue.value, modelValue.value.precision)
+    onTickFinishCallback()
+
+    if (typeof modelValue.value.resolver === 'function') {
+      modelValue.value.resolver.apply(this, _arguments)
+    }
+  }
+
+  /**
+   *
    * @param _currentValue
    * @param _endValue
    * @param _step
    * @returns
    */
-  const start = (_currentValue: number, _endValue: number, _step: number) => {}
+  const start = (_currentValue: number, _endValue: number, _step: number) => {
+    clearAnimationFrame()
+    isCounting.value = true
+    endValue.value = _endValue
+
+    if (!modelValue.value.isCountingDown && endValue.value === 0) {
+      stop()
+      return Promise.resolve()
+    }
+
+    step.value =
+      (Math.abs(_currentValue - _endValue) / _step) *
+        modelValue.value.timeStep <
+      modelValue.value.maxTime
+        ? _step
+        : Math.abs(_currentValue - _endValue) /
+          (modelValue.value.maxTime / modelValue.value.timeStep)
+
+    step.value = Math.ceil(step.value)
+
+    if (isForcedDecimal.value) {
+      step.value += stepEpsilon.value
+    }
+
+    if (modelValue.value.isCountingDown) {
+      step.value *= -1
+    }
+
+    modelValue.value.precision =
+      Number.isInteger(step.value) && Number.isInteger(endValue.value) ? 0 : 2
+
+    currentValue.value = _currentValue
+
+    rafHandle = requestInterval(update, modelValue.value.timeStep)
+
+    return new Promise((resolve) => {
+      modelValue.value.resolver = resolve
+    })
+  }
 
   /**
    *
@@ -107,17 +235,25 @@ export const useTextCounter = () => {
    * @returns
    */
   const startFromCurrent = (endValue: number, step: number) => {
-    // return start(currentValue.value, endValue, step)
+    return start(currentValue.value, endValue, step)
   }
 
   return {
     currentValue,
     isCounting,
     step,
+    counting,
     start,
+    stop,
     reset,
     setCurrentValue,
+    setTimeStep,
     setMaxTime,
-    startFromCurrent
+    setKeepDecimals,
+    setTickCallback,
+    setTickFinishCallback,
+    setIntervalClearFunction,
+    startFromCurrent,
+    setIntervalSetFunction
   }
 }

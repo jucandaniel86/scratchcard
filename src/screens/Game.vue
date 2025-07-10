@@ -16,6 +16,7 @@ import { useEventsStore } from '../store/events'
 import { useUtils } from '../composables/useUtils'
 import GeneralWin from '../components/Game/Animations/GeneralWin.vue'
 import { __LOADED_RESOURCES } from '../config/Resources'
+import TextFieldCounter from '../components/Core/TextFieldCounter.vue'
 
 //store
 const store = useAppStore()
@@ -170,5 +171,6 @@ const GeneralWinImages = Array.from(Array(4)).map(
       :config="GeneralWinConfig"
       :images="GeneralWinImages"
     />
+    <TextFieldCounter :text="'Test'" />
   </container>
 </template>
